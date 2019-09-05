@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator, createAppContainer, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
 import Home from "../screens/home/home";
 import Login from "../screens/signUp/signUp";
-import Garage from "../screens/garage";
+import Library from "../screens/library";
 import Profile from "../screens/profile";
 import Single from "../screens/singleCar/singleCar";
 
@@ -42,8 +42,8 @@ const MainNavigator = createStackNavigator({
     screen: Profile,
     navigationOptions: { header: null }
   },
-  Garage: {
-    screen: Garage,
+  Library: {
+    screen: Library,
     navigationOptions: { header: null }
   },
   Dashboard: {

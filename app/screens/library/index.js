@@ -31,7 +31,7 @@ import {
 } from "native-base";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
-export default class Garage extends Component {
+export default class Library extends Component {
   static navigationOptions = {
     header: null
   };

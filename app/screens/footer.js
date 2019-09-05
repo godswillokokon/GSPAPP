@@ -53,7 +53,7 @@ export default class FooterComponet extends Component {
                   <Text style={styles.whiteText}>Profile</Text>
                 </View>
               </Button>
-              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Garage")}>
+              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Library")}>
                 <View style={styles.row}>
                   {/* <Badge>
                     <Text style={styles.badge}>10</Text>
@@ -86,7 +86,7 @@ export default class FooterComponet extends Component {
                   </Badge> */}
                 </View>
               </Button>
-              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Garage")}>
+              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Library")}>
                 {/* <Badge>
                   <Text style={styles.badge}>10</Text>
                 </Badge> */}
