@@ -7,7 +7,7 @@ export default class FooterComponet extends Component {
   render() {
     const { name, props } = this.props;
     switch (name) {
-      case "garage": {
+      case "library": {
         return (
           <Footer style={styles.footer}>
             <FooterTab style={styles.footer}>

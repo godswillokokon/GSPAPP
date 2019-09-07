@@ -34,10 +34,10 @@ const MainNavigator = createStackNavigator({
   //   screen: Home,
   //   navigationOptions: { header: null }
   // },
-  // Login: {
-  //   screen: Login,
-  //   navigationOptions: { header: null }
-  // },
+  Login: {
+    screen: Login,
+    navigationOptions: { header: null }
+  },
   Profile: {
     screen: Profile,
     navigationOptions: { header: null }

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
-import MenuRight from "../meun";
+import Head from "../header";
 // import styled from "styled-components";
 import { View, StyleSheet, Platform, Dimensions, ImageBackground, Image, Text, TouchableOpacity } from "react-native";
 import {
-  Header,
   Left,
   Body,
   Right,
@@ -53,22 +52,7 @@ export default class Dashboard extends Component {
     // }
     return (
       <Container style={{ height: device_height, width: device_width }}>
-        <Header style={styles.head}>
-          <Left style={{ marginTop: 13 }}>
-            <Button transparent onPress={() => this.props.navigation.navigate("signUp")}>
-              <FontAwesome name="angle-double-left" color={"#1e2326"} size={30} />
-            </Button>
-          </Left>
-          <Body style={styles.body}>
-            <Text style={styles.title}></Text>
-          </Body>
-          <Right style={{ marginTop: 15 }} >
-            <Button transparent >
-              <MenuRight />
-            </Button>
-          </Right>
-        </Header>
-
+        <Head />
         <Content>
 
         </Content>

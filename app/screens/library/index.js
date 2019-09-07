@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
-import MenuRight from "../meun";
+import Head from "../header";
 // import styled from "styled-components";
 import {
   Text,
@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   Dimensions,
   Image,
-  ImageBackground
+  ImageBackground,
+  FlatList
 } from "react-native";
 import {
   Container,
@@ -63,23 +64,21 @@ export default class Library extends Component {
     }
     return (
       <Container style={{ height: device_height, width: device_width }}>
-        <Header style={styles.head}>
-          <Left style={{ marginTop: 13 }}>
-            <Button transparent onPress={() => this.props.navigation.navigate("signUp")}>
-              <FontAwesome name="angle-double-left" color={"#1e2326"} size={30} />
-            </Button>
-          </Left>
-          <Body style={styles.body}>
-            <Text style={styles.title}></Text>
-          </Body>
-          <Right style={{ marginTop: 15 }} >
-            <Button transparent >
-              <MenuRight />
-            </Button>
-          </Right>
-        </Header>
-        <Content>{cards}</Content>
-        <FooterComponet name="garage" props={this.props} />
+        <Head />
+        <Content>
+          <FlatList
+            data={
+              <strong>Data To Be Set in List</strong>
+            }
+            ItemSeparatorComponent={
+              <strong>An Separator View</strong>
+            }
+            renderItem={({ item }) =>
+              (<strong>Single Item View</strong>)
+            }
+          />
+        </Content>
+        <FooterComponet name="library" props={this.props} />
       </Container>
     );
   }
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
       android: { paddingTop: 60 },
       ios: { paddingTop: 25 }
     }),
-    backgroundColor: "#ffa500",
+    backgroundColor: "#652d90",
     paddingBottom: 40
   },
   body: {
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
     marginTop: 25
   },
   footer: {
-    backgroundColor: "#ffa500"
+    backgroundColor: "#652d90"
   },
   footerActive: {
     backgroundColor: "white"
@@ -157,11 +156,11 @@ const styles = StyleSheet.create({
   },
   border: {
     borderWidth: 1,
-    borderLeftColor: "#ffa500",
-    // borderColor: "#ffa500",
+    borderLeftColor: "#652d90",
+    // borderColor: "#652d90",
     borderRightColor: "#7438a2",
-    borderBottomColor: "#ffa500",
-    borderTopColor: "#ffa500"
+    borderBottomColor: "#652d90",
+    borderTopColor: "#652d90"
   },
   whiteText: {
     color: "white"

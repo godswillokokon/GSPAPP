@@ -46,19 +46,29 @@ export const logout = () => dispatch => {
 };
 
 export const createAccount = data => async dispatch => {
+
   try {
     const response = await Axios.post(`/register`, { ...data });
+    console.warn(response, "shiiii");
     dispatch({
       type: "USER_LOGIN_SUCCESS",
       payload: response.data
+
     });
+    console.log("shiiii");
+    console.log("data");
+    console.log("dispatch");
     login(data)(dispatch);
   } catch (e) {
+
     dispatch({
       type: "USER_AUTH_ERROR",
       payload: e.response.data.message
+
     });
+
   }
+
 };
 
 export const refreshAuthentication = token => async dispatch => {

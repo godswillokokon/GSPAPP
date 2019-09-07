@@ -7,7 +7,7 @@ import { login, resetFailureAction, refreshAuthentication, GetUserData, logout }
 import Session from "../../utils/Session";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import FooterComponet from "../footer";
-import MenuRight from "../meun";
+import Head from "../header";
 // import console = require("console");
 // import console = require("console");
 // import console = require("console");
@@ -46,25 +46,11 @@ class Profile extends Component {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
     const { user } = this.props;
-    const name = `${user.user.first_name} ${user.user.last_name}`;
+    const name = `${user.user.name}`;
     if (!this.state.onEdit) {
       return (
         <Container>
-          <Header style={styles.head}>
-            <Left style={{ marginTop: 13 }}>
-              <Button transparent onPress={() => this.props.navigation.navigate("signUp")}>
-                <FontAwesome name="angle-double-left" color={"#1e2326"} size={30} />
-              </Button>
-            </Left>
-            <Body style={styles.body}>
-              <Text style={styles.title}></Text>
-            </Body>
-            <Right style={{ marginTop: 15 }} >
-              <Button transparent >
-                <MenuRight />
-              </Button>
-            </Right>
-          </Header>
+          <Head />
 
           <Content>
             <View style={styles.image}>
@@ -80,16 +66,20 @@ class Profile extends Component {
                   <Input disabled value={name} />
                 </Item>
                 <Item floatingLabel last>
-                  <Label>Email Address</Label>
-                  <Input disabled value={user.user.email} />
+                  <Label> Faculty</Label>
+                  <Input disabled value={user.user.faculty} />
                 </Item>
                 <Item floatingLabel>
-                  <Label>Phobe Number</Label>
-                  <Input disabled value={user.user.phone} />
+                  <Label>Mobile</Label>
+                  <Input disabled value={user.user.phoneNumber} />
                 </Item>
                 <Item floatingLabel last>
-                  <Label>Address</Label>
-                  <Input disabled value={user.user.address} />
+                  <Label>Age</Label>
+                  <Input disabled value={user.user.age} />
+                </Item>
+                <Item floatingLabel last>
+                  <Label>Sex</Label>
+                  <Input value={user.user.sex} />
                 </Item>
                 {/* <Item floatingLabel last>
                 <Label>Password</Label>
@@ -112,21 +102,7 @@ class Profile extends Component {
     } else {
       return (
         <Container>
-          <Header style={styles.head}>
-            <Left style={{ marginTop: 13 }}>
-              <Button transparent onPress={() => this.props.navigation.navigate("signUp")}>
-                <FontAwesome name="angle-double-left" color={"#1e2326"} size={30} />
-              </Button>
-            </Left>
-            <Body style={styles.body}>
-              <Text style={styles.title}></Text>
-            </Body>
-            <Right style={{ marginTop: 15 }} >
-              <Button transparent >
-                <MenuRight />
-              </Button>
-            </Right>
-          </Header>
+          <Head />
 
           <Content>
             <View style={styles.image}>
@@ -142,16 +118,20 @@ class Profile extends Component {
                   <Input value={name} />
                 </Item>
                 <Item floatingLabel last>
-                  <Label>Email Address</Label>
-                  <Input disabled value={user.user.email} />
+                  <Label> Faculty</Label>
+                  <Input disabled value={user.user.faculty} />
                 </Item>
                 <Item floatingLabel>
-                  <Label>Phobe Number</Label>
-                  <Input value={user.user.phone} />
+                  <Label>Mobile</Label>
+                  <Input value={user.user.phoneNumber} />
                 </Item>
                 <Item floatingLabel last>
-                  <Label>Address</Label>
-                  <Input value={user.user.address} />
+                  <Label>Age</Label>
+                  <Input value={user.user.age} />
+                </Item>
+                <Item floatingLabel last>
+                  <Label>Sex</Label>
+                  <Input value={user.user.sex} />
                 </Item>
                 {/* <Item floatingLabel last>
                 <Label>Password</Label>
