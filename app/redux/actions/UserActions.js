@@ -82,7 +82,7 @@ export const refreshAuthentication = token => async dispatch => {
 
 export const GetUserData = token => async dispatch => {
   try {
-    const response = await Axios.get("/profile", await SupportHeader());
+    const response = await Axios.get("/user", await SupportHeader());
     // Session.saveUser(response.data);
     dispatch({
       type: "USER_DATA",

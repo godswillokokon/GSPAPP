@@ -5,7 +5,7 @@ import { Form, Item, Input, Button, Text, CheckBox, Body, ListItem } from "nativ
 
 export default class signupForm extends Component {
   state = {
-    email: "",
+    phone: "",
     password: ""
   };
   focus = () => this.textInputRef.focus();
@@ -20,10 +20,10 @@ export default class signupForm extends Component {
             <FontAwesome name="user" size={25} color={"grey"} style={styles.icons} />
             <TextInput
               ref={ref => (this.textInputRef = ref)}
-              placeholder="Email"
-              name={"email"}
+              placeholder="Phone Number"
+              name={"phone"}
               returnKeyType="next"
-              onChange={value => this.setState({ email: value })}
+              onChange={value => this.setState({ phone: value })}
             />
           </Item>
 

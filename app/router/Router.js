@@ -13,7 +13,7 @@ import Single from "../screens/singleCar/singleCar";
 import Dashboard from "../screens/dashboard/dashboard";
 import Register from "../screens/register/register";
 import Report from "../screens/report/report";
-import Maps from "../screens/map/map";
+
 // import MainScreen from 'app/screens/home/home.js'
 // const homeNavigator = createStackNavigator ({
 //   Home: {
@@ -30,14 +30,14 @@ import Maps from "../screens/map/map";
 //   },
 // });
 const MainNavigator = createStackNavigator({
-  Main: {
-    screen: Home,
-    navigationOptions: { header: null }
-  },
-  Login: {
-    screen: Login,
-    navigationOptions: { header: null }
-  },
+  // Main: {
+  //   screen: Home,
+  //   navigationOptions: { header: null }
+  // },
+  // Login: {
+  //   screen: Login,
+  //   navigationOptions: { header: null }
+  // },
   Profile: {
     screen: Profile,
     navigationOptions: { header: null }
@@ -62,10 +62,6 @@ const MainNavigator = createStackNavigator({
     screen: Report,
     navigationOptions: { header: null }
   },
-  Maps: {
-    screen: Maps,
-    navigationOptions: { header: null }
-  }
 });
 
 const AppContainer = createAppContainer(MainNavigator);

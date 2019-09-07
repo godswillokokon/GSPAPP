@@ -17,7 +17,7 @@ class SignUp extends Component {
     this.state = {
       checked: true,
       username: "",
-      email: "",
+      phone: "",
       password: "",
       isLoggedIn: false,
       isLoading: false,
@@ -43,13 +43,13 @@ class SignUp extends Component {
     // if (!this.state.checked) return console.log("unchecked");
 
   }
-  _simulateLogin = (email, password) => {
+  _simulateLogin = (phone, password) => {
     this.setState({ isLoading: true });
-    this.props.onLogin({ email, password });
+    this.props.onLogin({ phone, password });
   };
 
   render() {
-    const { email, password } = this.state;
+    const { phone, password } = this.state;
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
     // console.log("your phone height is ",device_height);
@@ -66,14 +66,14 @@ class SignUp extends Component {
           <Content style={{ top: 30 }}>
             <Form>
               <Item style={[styles.loginMidLine]} floatingLabel >
-                <Label>Email</Label>
+                <Label>Mobile</Label>
                 <Input
                   ref={ref => (this.textInputRef = ref)}
-                  // placeholder="Email"
-                  name={"email"}
-                  type="email"
+                  // placeholder="Mobile"
+                  name={"phone"}
+                  type="number"
                   returnKeyType="next"
-                  onChangeText={value => this.setState({ email: value })}
+                  onChangeText={value => this.setState({ phone: value })}
                   isEnabled={!this.state.isLoading}
                 />
               </Item>
@@ -103,7 +103,7 @@ class SignUp extends Component {
               <Button
                 rounded
                 style={styles.loginBtn}
-                onPress={() => this._simulateLogin(this.state.email, this.state.password)}
+                onPress={() => this._simulateLogin(this.state.phone, this.state.password)}
 
               >
                 {this.state.isLoading ? (

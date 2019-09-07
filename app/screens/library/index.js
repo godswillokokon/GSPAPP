@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
+import MenuRight from "../meun";
 // import styled from "styled-components";
 import {
   Text,
@@ -63,17 +64,18 @@ export default class Library extends Component {
     return (
       <Container style={{ height: device_height, width: device_width }}>
         <Header style={styles.head}>
-          {console.log(this.props)}
-          <Left style={{ marginTop: 5 }}>
-            <Button transparent>
-              <Icon name="arrow-back" />
+          <Left style={{ marginTop: 13 }}>
+            <Button transparent onPress={() => this.props.navigation.navigate("signUp")}>
+              <FontAwesome name="angle-double-left" color={"#1e2326"} size={30} />
             </Button>
           </Left>
           <Body style={styles.body}>
             <Text style={styles.title}></Text>
           </Body>
-          <Right style={{ marginRight: 10 }}>
-            <FontAwesome name="ellipsis-v" size={20} color={"white"} />
+          <Right style={{ marginTop: 15 }} >
+            <Button transparent >
+              <MenuRight />
+            </Button>
           </Right>
         </Header>
         <Content>{cards}</Content>
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
       android: { paddingTop: 60 },
       ios: { paddingTop: 25 }
     }),
-    backgroundColor: "#652d90",
+    backgroundColor: "#ffa500",
     paddingBottom: 40
   },
   body: {
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
     marginTop: 25
   },
   footer: {
-    backgroundColor: "#652d90"
+    backgroundColor: "#ffa500"
   },
   footerActive: {
     backgroundColor: "white"
@@ -155,11 +157,11 @@ const styles = StyleSheet.create({
   },
   border: {
     borderWidth: 1,
-    borderLeftColor: "#652d90",
-    // borderColor: "#652d90",
+    borderLeftColor: "#ffa500",
+    // borderColor: "#ffa500",
     borderRightColor: "#7438a2",
-    borderBottomColor: "#652d90",
-    borderTopColor: "#652d90"
+    borderBottomColor: "#ffa500",
+    borderTopColor: "#ffa500"
   },
   whiteText: {
     color: "white"
