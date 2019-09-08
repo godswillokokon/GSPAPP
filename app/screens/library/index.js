@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
+import Head from "../header";
 // import styled from "styled-components";
 import {
   Text,
@@ -10,7 +11,8 @@ import {
   TouchableOpacity,
   Dimensions,
   Image,
-  ImageBackground
+  ImageBackground,
+  FlatList
 } from "react-native";
 import {
   Container,
@@ -31,7 +33,7 @@ import {
 } from "native-base";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
-export default class Garage extends Component {
+export default class Library extends Component {
   static navigationOptions = {
     header: null
   };
@@ -62,22 +64,21 @@ export default class Garage extends Component {
     }
     return (
       <Container style={{ height: device_height, width: device_width }}>
-        <Header style={styles.head}>
-          {console.log(this.props)}
-          <Left style={{ marginTop: 5 }}>
-            <Button transparent>
-              <Icon name="arrow-back" />
-            </Button>
-          </Left>
-          <Body style={styles.body}>
-            <Text style={styles.title}></Text>
-          </Body>
-          <Right style={{ marginRight: 10 }}>
-            <FontAwesome name="ellipsis-v" size={20} color={"white"} />
-          </Right>
-        </Header>
-        <Content>{cards}</Content>
-        <FooterComponet name="garage" props={this.props} />
+        <Head />
+        <Content>
+          <FlatList
+            data={
+              <strong>Data To Be Set in List</strong>
+            }
+            ItemSeparatorComponent={
+              <strong>An Separator View</strong>
+            }
+            renderItem={({ item }) =>
+              (<strong>Single Item View</strong>)
+            }
+          />
+        </Content>
+        <FooterComponet name="library" props={this.props} />
       </Container>
     );
   }

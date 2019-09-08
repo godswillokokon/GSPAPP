@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator, createAppContainer, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
 import Home from "../screens/home/home";
 import Login from "../screens/signUp/signUp";
-import Garage from "../screens/garage";
+import Library from "../screens/library";
 import Profile from "../screens/profile";
 import Single from "../screens/singleCar/singleCar";
 
@@ -13,7 +13,7 @@ import Single from "../screens/singleCar/singleCar";
 import Dashboard from "../screens/dashboard/dashboard";
 import Register from "../screens/register/register";
 import Report from "../screens/report/report";
-import Maps from "../screens/map/map";
+
 // import MainScreen from 'app/screens/home/home.js'
 // const homeNavigator = createStackNavigator ({
 //   Home: {
@@ -30,10 +30,10 @@ import Maps from "../screens/map/map";
 //   },
 // });
 const MainNavigator = createStackNavigator({
-  Main: {
-    screen: Home,
-    navigationOptions: { header: null }
-  },
+  // Main: {
+  //   screen: Home,
+  //   navigationOptions: { header: null }
+  // },
   Login: {
     screen: Login,
     navigationOptions: { header: null }
@@ -42,8 +42,8 @@ const MainNavigator = createStackNavigator({
     screen: Profile,
     navigationOptions: { header: null }
   },
-  Garage: {
-    screen: Garage,
+  Library: {
+    screen: Library,
     navigationOptions: { header: null }
   },
   Dashboard: {
@@ -62,10 +62,6 @@ const MainNavigator = createStackNavigator({
     screen: Report,
     navigationOptions: { header: null }
   },
-  Maps: {
-    screen: Maps,
-    navigationOptions: { header: null }
-  }
 });
 
 const AppContainer = createAppContainer(MainNavigator);

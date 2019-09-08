@@ -14,11 +14,11 @@ class Register extends Component {
     super(props);
     this.state = {
       checked: true,
-      first_name: "",
-      last_name: "",
-      email: "",
+      name: "",
+      faculty: "",
+      phoneNumber: "",
       password: "",
-      c_password: "",
+      // c_password: "",
       isLoggedIn: false,
       isLoading: false,
       isAppReady: false,
@@ -42,16 +42,16 @@ class Register extends Component {
     // if (this.state.checked) return console.log("checked");
     // if (!this.state.checked) return console.log("unchecked");
   }
-  _simulateSignup = (first_name, last_name, email, password, c_password) => {
+  _simulateSignup = (name, faculty, phoneNumber, password) => {
     this.setState({ isLoading: true });
-    this.props.onSignUp({ first_name, email, last_name, password, c_password });
+    this.props.onSignUp({ name, phoneNumber, faculty, password });
   };
 
   render() {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
-    // console.log("your phone height is ",device_height);
-    // console.log("your phone width is ",device_width);
+    // console.log("your phoneNumber height is ",device_height);
+    // console.log("your phoneNumber width is ",device_width);
 
     return (
       <Container style={styles.container} >
@@ -64,33 +64,34 @@ class Register extends Component {
               <Item style={[styles.loginMidLine]}>
                 <FontAwesome name="user" size={25} color={"black"} style={styles.icons} />
                 <Input
-                  placeholder="First Name"
-                  type="email"
+                  placeholder="Full Name"
+                  type="text"
                   placeholderTextColor="black"
-                  onChangeText={value => this.setState({ first_name: value })}
+                  onChangeText={value => this.setState({ name: value })}
                   returnKeyType="next"
-                  maxLength={15}
+                  maxLength={40}
                 />
               </Item>
               <Item style={[styles.loginMidLine]}>
                 <FontAwesome name="user" size={25} color={"black"} style={styles.icons} />
                 <Input
-                  placeholder="Last Name"
-                  type="email"
+                  placeholder="Faculty"
+                  type="text"
                   placeholderTextColor="black"
-                  onChangeText={value => this.setState({ last_name: value })}
+                  onChangeText={value => this.setState({ faculty: value })}
                   returnKeyType="next"
-                  maxLength={15}
+                  maxLength={40}
                 />
               </Item>
               <Item style={[styles.loginMidLine]}>
                 <Ionicons name="ios-mail" size={25} color={"black"} style={styles.icons} />
                 <Input
-                  placeholder="Email"
-                  type="email"
+                  placeholder="Phone Number"
+                  type="number"
                   placeholderTextColor="black"
-                  onChangeText={value => this.setState({ email: value })}
+                  onChangeText={value => this.setState({ phoneNumber: value })}
                   returnKeyType="next"
+                  maxLength={14}
                 />
               </Item>
 
@@ -105,17 +106,7 @@ class Register extends Component {
                   underline={true}
                 />
               </Item>
-              <Item style={[styles.logins]}>
-                <FontAwesome name="lock" size={25} color={"black"} style={styles.icons} />
-                <Input
-                  secureTextEntry={true}
-                  returnKeyType="done"
-                  onChangeText={value => this.setState({ c_password: value })}
-                  placeholder="Confirm Password"
-                  placeholderTextColor="black"
-                  underline={true}
-                />
-              </Item>
+
               <ListItem style={styles.remBtn}>
                 <CheckBox checked={this.state.checked} color={"#ffa500"} onPress={this.Clicked.bind(this)} />
                 <Body>
@@ -129,11 +120,11 @@ class Register extends Component {
                 style={styles.loginBtn}
                 onPress={() =>
                   this._simulateSignup(
-                    this.state.first_name,
-                    this.state.last_name,
-                    this.state.email,
+                    this.state.name,
+                    this.state.faculty,
+                    this.state.phoneNumber,
                     this.state.password,
-                    this.state.c_password
+
                   )
                 }
               >
