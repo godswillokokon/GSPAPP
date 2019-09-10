@@ -17,7 +17,7 @@ class SignUp extends Component {
     this.state = {
       checked: true,
       username: "",
-      phone: "",
+      phoneNumber: "",
       password: "",
       isLoggedIn: false,
       isLoading: false,
@@ -43,17 +43,17 @@ class SignUp extends Component {
     // if (!this.state.checked) return console.log("unchecked");
 
   }
-  _simulateLogin = (phone, password) => {
+  _simulateLogin = (phoneNumber, password) => {
     this.setState({ isLoading: true });
-    this.props.onLogin({ phone, password });
+    this.props.onLogin({ phoneNumber, password });
   };
 
   render() {
-    const { phone, password } = this.state;
+    const { phoneNumber, password } = this.state;
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
-    // console.log("your phone height is ",device_height);
-    // console.log("your phone width is ",device_width);
+    // console.log("your phoneNumber height is ",device_height);
+    // console.log("your phoneNumber width is ",device_width);
 
 
 
@@ -73,7 +73,7 @@ class SignUp extends Component {
                   name={"phone"}
                   type="number"
                   returnKeyType="next"
-                  onChangeText={value => this.setState({ phone: value })}
+                  onChangeText={value => this.setState({ phoneNumber: value })}
                   isEnabled={!this.state.isLoading}
                 />
               </Item>
@@ -103,7 +103,7 @@ class SignUp extends Component {
               <Button
                 rounded
                 style={styles.loginBtn}
-                onPress={() => this._simulateLogin(this.state.phone, this.state.password)}
+                onPress={() => this._simulateLogin(this.state.phoneNumber, this.state.password)}
 
               >
                 {this.state.isLoading ? (

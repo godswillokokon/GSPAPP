@@ -30,10 +30,10 @@ import Report from "../screens/report/report";
 //   },
 // });
 const MainNavigator = createStackNavigator({
-  // Main: {
-  //   screen: Home,
-  //   navigationOptions: { header: null }
-  // },
+  Main: {
+    screen: Home,
+    navigationOptions: { header: null }
+  },
   Login: {
     screen: Login,
     navigationOptions: { header: null }

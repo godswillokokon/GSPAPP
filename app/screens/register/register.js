@@ -18,7 +18,6 @@ class Register extends Component {
       faculty: "",
       phoneNumber: "",
       password: "",
-      // c_password: "",
       isLoggedIn: false,
       isLoading: false,
       isAppReady: false,

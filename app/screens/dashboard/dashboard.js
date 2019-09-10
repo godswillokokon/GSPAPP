@@ -32,24 +32,7 @@ export default class Dashboard extends Component {
   render() {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
-    let cards = [];
-    // for (let i = 0; i < 4; i++) {
-    //     cards.push(
-    //         <View style={styles.card} key={i}>
-    //             <View style={styles.car}>
-    //                 <ImageBackground
-    //                     source={require("../../assets/resetPassword.jpg")}
-    //                     style={{ height: "100%", width: "100%", borderRadius: 100 }}
-    //                 />
-    //             </View>
-    //             {}
-    //             <View style={styles.details}>
-    //                 <Text style={styles.carName}>Honda</Text>
-    //                 <Text style={styles.carModel}>Model: 2018 Model Plate Number: 34ODU47</Text>
-    //             </View>
-    //         </View>
-    //     );
-    // }
+
     return (
       <Container style={{ height: device_height, width: device_width }}>
         <Head />

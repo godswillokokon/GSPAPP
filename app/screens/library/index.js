@@ -33,49 +33,52 @@ import {
 } from "native-base";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
+const cards = [
+  { key: 'A' }, { key: 'B' }, { key: 'C' }, { key: 'D' }, { key: 'E' }
+];
+const formatData = (data, numColumns) => {
+  const numberOfFullRows = Math.floor(data.length / numColumns);
+  let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+  while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+    cards.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+    numberOfElementsLastRow = numberOfElementsLastRow + 1;
+  };
+  return data;
+};
+const numColumns = 3;
+
+
 export default class Library extends Component {
   static navigationOptions = {
     header: null
   };
+  renderItem = ({ item, index }) => {
+    if (item.empty === true) {
+      return <View style={[styles.item, styles.itemInvisible]} />
+    }
+    return (
+      <View style={styles.item}>
+
+        <Text style={styles.itemText}> {item.key}</Text>
+      </View>
+    )
+  }
   render() {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
-    let cards = [];
-    for (let i = 0; i < 2; i++) {
-      cards.push(
-        <View style={styles.card} key={i}>
-          <View style={styles.car}>
-            <ImageBackground
-              source={require("../../../assets/resetPassword.jpg")}
-              style={{ height: "100%", width: "100%", borderRadius: 100 }}
-            />
-          </View>
-          {}
-          <View style={styles.details}>
-            <Text style={styles.carName}>Honda 2018 X</Text>
-            <Text style={styles.carModel}>Plate Number: AJQ124 CAL</Text>
 
-            <TouchableOpacity style={styles.viewCar} onPress={() => this.props.navigation.navigate("Single")}>
-              <Text>View</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-    }
+
+
+
     return (
       <Container style={{ height: device_height, width: device_width }}>
         <Head />
         <Content>
           <FlatList
-            data={
-              <strong>Data To Be Set in List</strong>
-            }
-            ItemSeparatorComponent={
-              <strong>An Separator View</strong>
-            }
-            renderItem={({ item }) =>
-              (<strong>Single Item View</strong>)
-            }
+            data={formatData(cards, numColumns)}
+            renderItem={this.renderItem}
+            style={styles.container}
+            numColumns={numColumns}
           />
         </Content>
         <FooterComponet name="library" props={this.props} />
@@ -85,6 +88,25 @@ export default class Library extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginVertical: 20,
+  },
+
+  item: {
+    backgroundColor: '#1e2326',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    margin: 1,
+    height: Dimensions.get('window').width / numColumns,
+  },
+  itemInvisible: {
+    backgroundColor: 'transparent',
+  },
+  itemText: {
+    color: "#ff984d"
+  },
   card: {
     // width: "98%",
     // height: "18%",

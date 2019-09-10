@@ -46,6 +46,7 @@ class Profile extends Component {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
     const { user } = this.props;
+    console.log("user pro",user.user);
     const name = `${user.user.name}`;
     if (!this.state.onEdit) {
       return (

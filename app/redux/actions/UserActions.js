@@ -5,17 +5,23 @@ import SupportHeader from "../../utils/SupportHeader";
 
 export const login = data => async dispatch => {
   try {
+    console.log(":before");
     const response = await Axios.post(`/login`, { ...data });
-    console.log(response.data.success.token);
-    const saveToken = Session.saveToken(response.data.success.token);
-    // Session.saveUser(response.data.user);
-    // await StaticStoreUserData(response.data.user)(dispatch);
+    console.log("hiit res");
+    console.log("TOKEN", response.data.token);
+    console.log("DATA", response.data);
+    console.log("USER", response.user);
+    const saveToken = Session.saveToken(response.data.token);
+    console.log("savve tokenn");
+    Session.saveUser(response.data.user);
+    await StaticStoreUserData(response.data.user)(dispatch);
     if (saveToken) {
       await dispatch({
         type: "USER_LOGIN_SUCCESS",
-        payload: response.data.success.token
+        payload: response.data.token
       });
     }
+    console.log(":after");
   } catch (e) {
     dispatch({
       type: "USER_AUTH_ERROR",
@@ -46,29 +52,25 @@ export const logout = () => dispatch => {
 };
 
 export const createAccount = data => async dispatch => {
-
   try {
+    console.log(":before");
+    console.log(data);
     const response = await Axios.post(`/register`, { ...data });
-    console.warn(response, "shiiii");
+    console.log(":after");
+    console.log(...data);
+    console.log("responessss", response);
+    console.log("dot data", response.data);
     dispatch({
       type: "USER_LOGIN_SUCCESS",
       payload: response.data
-
     });
-    console.log("shiiii");
-    console.log("data");
-    console.log("dispatch");
     login(data)(dispatch);
   } catch (e) {
-
     dispatch({
       type: "USER_AUTH_ERROR",
       payload: e.response.data.message
-
     });
-
   }
-
 };
 
 export const refreshAuthentication = token => async dispatch => {
@@ -93,12 +95,12 @@ export const refreshAuthentication = token => async dispatch => {
 export const GetUserData = token => async dispatch => {
   try {
     const response = await Axios.get("/user", await SupportHeader());
-    // Session.saveUser(response.data);
+    Session.saveUser(response.data);
     dispatch({
       type: "USER_DATA",
-      payload: { ...response.data.success }
+      payload: { ...response.data }
     });
-    return response.data.success;
+    return response.data;
   } catch (e) {
     // toast.error("Error Notification !");
     Session.logout();
