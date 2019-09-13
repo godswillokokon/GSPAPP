@@ -20,7 +20,7 @@ export default class Swipe extends Component {
       showsButtons={false}
       autoplay autoplayTimeout={10.0}
       loop={false}
-      activeDotColor={'#ffa500'}
+      activeDotColor={'#6771e4'}
       onIndexChanged={index => {
         if (index == 1) {
           this.props.onChange(true);
@@ -30,7 +30,7 @@ export default class Swipe extends Component {
       <View style={styles.slide}>
         <View style={styles.circle}>
           <Text style={styles.text}>
-            <FontAwesome name="user-secret" size={40} color={"#ffa500"} />
+            <FontAwesome name="graduation-cap" size={40} color={"#6771e4"} />
           </Text>
         </View>
         <Text style={styles.text}>HI, THERE!</Text>
@@ -44,7 +44,7 @@ export default class Swipe extends Component {
       <View style={styles.slide}>
         <View style={styles.circle}>
           <Text style={styles.text}>
-            <FontAwesome name="feed" size={40} color={"#ffa500"} />
+            <FontAwesome name="slideshare" size={40} color={"#6771e4"} />
           </Text>
         </View>
         <Text style={styles.text}> Read Book </Text>
@@ -69,23 +69,24 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: '#fff',
+    color: '#6771e4',
     fontSize: 30,
     fontWeight: 'bold',
     marginTop: 5
   },
   circle: {
     borderRadius: 500,
-    backgroundColor: 'whitesmoke',
+    backgroundColor: '#1e2326',
     height: 130,
     width: 130,
     justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 50,
-    alignItems: 'center'
+    alignItems: 'center',
+
   },
   textP: {
-    color: '#fff',
+    color: '#1e2326',
     fontSize: 17,
     fontWeight: 'bold',
     alignItems: 'center',

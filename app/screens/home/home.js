@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
     marginBottom: 30,
-    borderColor: "#ffa500"
+    borderColor: "#1e2326"
   },
   butText: {
     color: "#fff",

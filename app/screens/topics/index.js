@@ -82,6 +82,7 @@ export default class Topics extends Component {
             renderItem={this.renderItem}
             style={styles.container}
             numColumns={numColumns}
+            horizontal={true}
           />
         </Content>
         <FooterComponet name="library" props={this.props} />

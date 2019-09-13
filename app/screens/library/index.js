@@ -34,18 +34,21 @@ import {
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 const cards = [
-  { key: 'Biology', type: 'File Type: Video', icon: 'bug' },
-  { key: 'Agric Science', type: 'File Type: PDF', icon: 'pagelines' },
-  { key: 'Chemistry', type: 'File Type: Audio', icon: 'thermometer-3' },
-  { key: 'History', type: 'File Type: PDF', icon: 'globe' },
-  { key: 'English', type: 'File Type: Video', icon: 'sort-alpha-asc' },
-  { key: 'Maths', type: 'File Type: PDF', icon: 'subscript' },
-  { key: 'Futher Maths', type: 'File Type: PDF', icon: 'superscript' },
-  { key: 'Physical Education', type: 'File Type: PDF', icon: 'futbol-o' },
-  { key: 'Government', type: 'File Type: PDF', icon: 'balance-scale' },
-  { key: 'Economics', type: 'File Type: PDF', icon: 'line-chart' },
-  { key: 'Statictics', type: 'File Type: PDF', icon: 'pie-chart' },
-  { key: 'Physics', type: 'File Type: PDF', icon: 'grav' }
+  { key: 'Biology', type: 'File Type: Video', icon: 'bug', color: '#cfd744' },
+  { key: 'Agric Science', type: 'File Type: PDF', icon: 'pagelines', color: '#52cefc' },
+  { key: 'Chemistry', type: 'File Type: Audio', icon: 'flask', color: '#cfd744' },
+  { key: 'History', type: 'File Type: PDF', icon: 'globe', color: '#52cefc' },
+  { key: 'English', type: 'File Type: Video', icon: 'sort-alpha-asc', color: '#cfd744' },
+  { key: 'Maths', type: 'File Type: Video', icon: 'subscript', color: '#52cefc' },
+  { key: 'Futher Maths', type: 'File Type: PDF', icon: 'superscript', color: '#cfd744' },
+  { key: 'Physical Education', type: 'File Type: PDF', icon: 'futbol-o', color: '#cfd744' },
+  { key: 'Government', type: 'File Type: PDF', icon: 'balance-scale', color: '#52cefc' },
+  { key: 'Economics', type: 'File Type: PDF', icon: 'line-chart', color: '#52cefc' },
+  { key: 'Statictics', type: 'File Type: PDF', icon: 'pie-chart', color: '#cfd744' },
+  { key: 'Physics', type: 'File Type: PDF', icon: 'grav', color: '#52cefc' },
+  { key: 'Computer Science', type: 'File Type: PDF', icon: 'desktop', color: '#cfd744' },
+  { key: 'Geography', type: 'File Type: PDF', icon: 'map-o', color: '#52cefc', },
+  { key: 'Technical Drawing', type: 'File Type: PDF', icon: 'connectdevelop', color: '#cfd744' }
 ];
 const formatData = (data, numColumns) => {
   const numberOfFullRows = Math.floor(data.length / numColumns);
@@ -69,7 +72,7 @@ export default class Library extends Component {
     }
     return (
       <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Topics")}>
-        <FontAwesome name={item.icon} size={50} color={"#cfd744"} />
+        <FontAwesome name={item.icon} size={50} color={item.color} />
         <Text style={styles.itemText}> {item.key}</Text>
         <Text style={styles.itemText}> {item.type}</Text>
 
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginVertical: 20,
+    margin: 3
   },
 
   item: {
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    margin: 1,
+    margin: 2,
     height: Dimensions.get('window').width / numColumns,
   },
   itemInvisible: {

@@ -58,106 +58,54 @@ class Profile extends Component {
     // console.log("user pro", user);
     // console.log("user pro", user.user);
     const name = `${user.user.name}`;
-    if (!this.state.onEdit) {
-      return (
-        <Container>
-          <Head />
+    return (
+      <Container style={styles.container}>
+        <Head />
 
-          <Content>
-            <View style={styles.image}>
-              <Thumbnail
-                large
-                source={{ uri: "https://res.cloudinary.com/ogcodes/image/upload/v1567648495/s6qha1jd092ayj28k2bv.png" }}
-              />
-            </View>
-            <View>
-              <Form>
-                <Item floatingLabel>
-                  <Label>Name</Label>
-                  <Input disabled value={name} />
-                </Item>
-                <Item floatingLabel last>
-                  <Label> Faculty</Label>
-                  <Input disabled value={user.user.faculty} />
-                </Item>
-                <Item floatingLabel>
-                  <Label>Mobile</Label>
-                  <Input disabled value={user.user.phoneNumber} />
-                </Item>
-                <Item floatingLabel last>
-                  <Label>Age</Label>
-                  <Input disabled value={user.user.age} />
-                </Item>
-                <Item floatingLabel last>
-                  <Label>Sex</Label>
-                  <Input value={user.user.sex} />
-                </Item>
-                {/* <Item floatingLabel last>
-                <Label>Password</Label>
-                <Input disabled value="**********" />
-              </Item> */}
-              </Form>
-              <TouchableOpacity
-                style={styles.edit}
-                onPress={() => {
-                  this.setState({ onEdit: true });
-                }}
-              >
-                <Text style={styles.editText}>Edit</Text>
-              </TouchableOpacity>
-            </View>
-          </Content>
-          <FooterComponet name="profile" props={this.props} />
-        </Container>
-      );
-    } else {
-      return (
-        <Container>
-          <Head />
+        <Content>
+          <View style={styles.image}>
+            <Thumbnail
+              large
+              source={{ uri: "https://res.cloudinary.com/ogcodes/image/upload/v1567648495/s6qha1jd092ayj28k2bv.png" }}
+            />
+          </View>
+          <View>
+            <Form>
+              <Item floatingLabel>
+                <Label>Name</Label>
+                <Input disabled value={name} style={styles.info} />
+              </Item>
+              <Item floatingLabel >
+                <Label> Faculty</Label>
+                <Input disabled value={user.user.faculty} style={styles.info} />
+              </Item>
+              <Item floatingLabel>
+                <Label>Mobile</Label>
+                <Input disabled value={user.user.phoneNumber} style={styles.info} />
+              </Item>
+              <Item floatingLabel >
+                <Label>Age</Label>
+                <Input disabled value={user.user.age} style={styles.info} />
+              </Item>
+              <Item floatingLabel >
+                <Label>Sex</Label>
+                <Input disabled value={user.user.sex} style={styles.info} />
+              </Item>
 
-          <Content>
-            <View style={styles.image}>
-              <Thumbnail
-                large
-                source={{ uri: "https://res.cloudinary.com/ogcodes/image/upload/v1567648495/s6qha1jd092ayj28k2bv.png" }}
-              />
-            </View>
-            <View>
-              <Form>
-                <Item floatingLabel>
-                  <Label>Name</Label>
-                  <Input value={name} />
-                </Item>
-                <Item floatingLabel last>
-                  <Label> Faculty</Label>
-                  <Input disabled value={user.user.faculty} />
-                </Item>
-                <Item floatingLabel>
-                  <Label>Mobile</Label>
-                  <Input value={user.user.phoneNumber} />
-                </Item>
-                <Item floatingLabel last>
-                  <Label>Age</Label>
-                  <Input value={user.user.age} />
-                </Item>
-                <Item floatingLabel last>
-                  <Label>Sex</Label>
-                  <Input value={user.user.sex} />
-                </Item>
-                {/* <Item floatingLabel last>
-                <Label>Password</Label>
-                <Input disabled value="**********" />
-              </Item> */}
-              </Form>
-              <TouchableOpacity style={styles.edit} onPress={() => { }}>
-                <Text style={styles.editText}>Done</Text>
-              </TouchableOpacity>
-            </View>
-          </Content>
-          <FooterComponet name="profile" props={this.props} />
-        </Container>
-      );
-    }
+            </Form>
+            <TouchableOpacity
+              style={styles.edit}
+
+            >
+              <Text style={styles.editText}>Assessment Score</Text>
+            </TouchableOpacity>
+          </View>
+        </Content>
+        <FooterComponet name="profile" props={this.props} />
+      </Container>
+    );
+
+
   }
 }
 const mapStateToProps = state => {
@@ -178,24 +126,10 @@ export default connect(
   mapDispatchToProps
 )(Profile);
 const styles = StyleSheet.create({
-  card: {},
-  head: {
-    ...Platform.select({
-      android: { paddingTop: 50 },
-      ios: { paddingTop: 25 }
-    }),
-    backgroundColor: "#ff984d",
-    paddingBottom: 40
+  container: {
+    backgroundColor: "#1c1d27"
   },
-  body: {
-    marginTop: 20,
-    marginLeft: 41
-  },
-  title: {
-    color: "white",
-    fontSize: 17,
-    fontWeight: "bold"
-  },
+
   image: {
     alignContent: "center",
     alignItems: "center",
@@ -207,40 +141,14 @@ const styles = StyleSheet.create({
   edit: {
     flex: 1,
     alignSelf: "center",
-    backgroundColor: "#ff984d",
+    backgroundColor: "#6771e4",
     padding: 20,
     margin: 10,
-    width: 100,
+    width: 'auto',
     alignItems: "center",
     borderRadius: 39
   },
-  detail: {
-    flex: 2
-  },
-  footer: {
-    backgroundColor: "#ff984d"
-  },
-  footerActive: {
-    paddingTop: 100,
-    backgroundColor: "white"
-  },
-  badge: {
-    borderRadius: 300,
-    height: 14,
-    width: 15
-  },
-  border: {
-    borderWidth: 1,
-    borderLeftColor: "#652d90",
-    // borderColor: "#652d90",
-    borderRightColor: "#7438a2",
-    borderBottomColor: "#652d90",
-    borderTopColor: "#652d90"
-  },
-  space: {
-    marginBottom: 300
-  },
-  whiteText: {
-    color: "white"
+  info: {
+    color: 'whitesmoke'
   }
 });

@@ -93,7 +93,7 @@ class SignUp extends Component {
                 />
               </Item>
               <ListItem style={styles.remBtn}>
-                <CheckBox checked={this.state.checked} color={"#bfc92c"} onPress={this.Clicked.bind(this)} />
+                <CheckBox checked={this.state.checked} color={"#1e2326"} onPress={this.Clicked.bind(this)} />
                 <Body>
                   <Text style={{ color: "black" }} onPress={this.Clicked.bind(this)}>
                     Remember Login
@@ -107,9 +107,9 @@ class SignUp extends Component {
 
               >
                 {this.state.isLoading ? (
-                  <ActivityIndicator style={styles.spinner} size="large" color={"white"} />
+                  <ActivityIndicator style={styles.spinner} size="large" color={"#6771e4"} />
                 ) : (
-                    <FontAwesome name="sign-in" size={45} color={"white"} />
+                    <FontAwesome name="sign-in" size={45} color={"#6771e4"} />
                   )}
               </Button>
             </Form>

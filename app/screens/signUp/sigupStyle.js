@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     left: 275,
     bottom: 140,
     padding: 15,
-    backgroundColor: "#ffa500",
+    backgroundColor: "#1e2326",
     borderRadius: 300,
     height: 70,
     width: 70

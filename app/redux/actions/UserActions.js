@@ -30,7 +30,7 @@ export const login = data => async dispatch => {
     // const err = response.data.errors.detail
     // console.log("OG ERROR", err)
   } catch (e) {
-    this.dropdown.alertWithType('error', 'Error', 'e.response.data');
+    this.dropdown.alertWithType('error', 'Error', e.response.data);
 
     dispatch({
       type: "USER_AUTH_ERROR",

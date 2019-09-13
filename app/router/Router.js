@@ -39,10 +39,10 @@ const MainNavigator = createStackNavigator({
   //   screen: Login,
   //   navigationOptions: { header: null }
   // },
-  // Profile: {
-  //   screen: Profile,
-  //   navigationOptions: { header: null }
-  // },
+  Profile: {
+    screen: Profile,
+    navigationOptions: { header: null }
+  },
   Library: {
     screen: Library,
     navigationOptions: { header: null }
