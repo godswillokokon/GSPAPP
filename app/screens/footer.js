@@ -49,7 +49,7 @@ export default class FooterComponet extends Component {
               </Button>
               <Button vertical style={styles.border} onPress={() => props.navigation.navigate("Profile")}>
                 <View style={styles.row}>
-                  <FontAwesome name="address-card" size={15} color={"#1e2326"} />
+                  <FontAwesome name="address-card" size={15} color={"#fff"} />
                   <Text style={styles.whiteText}>Profile</Text>
                 </View>
               </Button>
@@ -59,7 +59,7 @@ export default class FooterComponet extends Component {
                     <Text style={styles.badge}>10</Text>
                   </Badge> */}
                   <View style={styles.row}>
-                    <FontAwesome name="leanpub" size={15} color={"#1e2326"} />
+                    <FontAwesome name="leanpub" size={15} color={"#fff"} />
                     <Text style={styles.whiteText}>Library</Text>
                   </View>
                 </View>
@@ -74,7 +74,7 @@ export default class FooterComponet extends Component {
           <Footer style={styles.footer}>
             <FooterTab style={styles.footer}>
               <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Dashboard")}>
-                <FontAwesome name="align-left" size={15} color={"#1e2326"} />
+                <FontAwesome name="align-left" size={15} color={"#fff"} />
                 <Text style={styles.whiteText}>Overview</Text>
               </Button>
               <Button active badge vertical style={[styles.footerActive, styles.border]}>
@@ -91,7 +91,7 @@ export default class FooterComponet extends Component {
                   <Text style={styles.badge}>10</Text>
                 </Badge> */}
                 <View style={styles.row}>
-                  <FontAwesome name="leanpub" size={15} color={"#1e2326"} />
+                  <FontAwesome name="leanpub" size={15} color={"#fff"} />
                   <Text style={styles.whiteText}>Library</Text>
                 </View>
               </Button>

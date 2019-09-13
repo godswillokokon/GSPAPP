@@ -129,7 +129,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#1c1d27"
   },
-
   image: {
     alignContent: "center",
     alignItems: "center",
