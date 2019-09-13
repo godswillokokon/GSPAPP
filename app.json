@@ -23,7 +23,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "primaryColor": "#ffa500",
+    "primaryColor": "#6771e4",
     "ios": {
       "supportsTablet": true
     },

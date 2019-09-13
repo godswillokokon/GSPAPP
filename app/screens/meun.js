@@ -29,11 +29,11 @@ export default class MenuRight extends Component {
           style={{ backgroundColor: "#1e2326", }}
           button={<Text onPress={this.showMenu}> <FontAwesome name="ellipsis-v" size={40} color={"#1e2326"} /></Text>}
         >
-          <MenuItem onPress={this.hideMenu}><Text style={styles.items}>Assessment Score</Text></MenuItem>
-          <MenuItem onPress={this.hideMenu}><Text style={styles.items}>Chat</Text></MenuItem>
-          <MenuItem onPress={this.hideMenu}><Text style={styles.items}>About</Text></MenuItem>
-          <MenuDivider />
-          <MenuItem onPress={this.hideMenu}><Text style={styles.items}>Feedback</Text></MenuItem>
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>Assessment Score</Text></MenuItem>
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>Chat</Text></MenuItem>
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>Feedback</Text></MenuItem>
+
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>About</Text></MenuItem>
         </Menu>
       </View>
     );
@@ -41,7 +41,7 @@ export default class MenuRight extends Component {
 }
 const styles = StyleSheet.create({
   items: {
-    color: "#ff984d"
+    color: "#6771e4"
   }
 
 });

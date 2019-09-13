@@ -32,7 +32,7 @@ const Session = {
       } else {
         await AsyncStorage.removeItem(key)
       }
-    } catch(exception) {
+    } catch (exception) {
       return console.log(exception)
     }
   },

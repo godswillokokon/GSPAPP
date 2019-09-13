@@ -34,18 +34,13 @@ import {
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 const cards = [
-  { key: 'Biology', type: 'File Type: Video', icon: 'bug' },
-  { key: 'Agric Science', type: 'File Type: PDF', icon: 'pagelines' },
-  { key: 'Chemistry', type: 'File Type: Audio', icon: 'thermometer-3' },
-  { key: 'History', type: 'File Type: PDF', icon: 'globe' },
-  { key: 'English', type: 'File Type: Video', icon: 'sort-alpha-asc' },
-  { key: 'Maths', type: 'File Type: PDF', icon: 'subscript' },
-  { key: 'Futher Maths', type: 'File Type: PDF', icon: 'superscript' },
-  { key: 'Physical Education', type: 'File Type: PDF', icon: 'futbol-o' },
-  { key: 'Government', type: 'File Type: PDF', icon: 'balance-scale' },
-  { key: 'Economics', type: 'File Type: PDF', icon: 'line-chart' },
-  { key: 'Statictics', type: 'File Type: PDF', icon: 'pie-chart' },
-  { key: 'Physics', type: 'File Type: PDF', icon: 'grav' }
+  { key: 'Biology', type: 'File Type: Video' },
+  { key: 'Agric Science', type: 'File Type: PDF' },
+  { key: 'Chemistry', type: 'File Type: Audio' },
+  { key: 'History', type: 'File Type: PDF' },
+  { key: 'English', type: 'File Type: Video' },
+  { key: 'Maths', type: 'File Type: PDF' },
+  { key: 'Futher Maths', type: 'File Type: PDF' }
 ];
 const formatData = (data, numColumns) => {
   const numberOfFullRows = Math.floor(data.length / numColumns);
@@ -56,10 +51,8 @@ const formatData = (data, numColumns) => {
   };
   return data;
 };
-const numColumns = 3;
-
-
-export default class Library extends Component {
+const numColumns = 1;
+export default class Topics extends Component {
   static navigationOptions = {
     header: null
   };
@@ -68,11 +61,10 @@ export default class Library extends Component {
       return <View style={[styles.item, styles.itemInvisible]} />
     }
     return (
-      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Topics")}>
-        <FontAwesome name={item.icon} size={50} color={"#cfd744"} />
+      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Single")}>
+
         <Text style={styles.itemText}> {item.key}</Text>
         <Text style={styles.itemText}> {item.type}</Text>
-
       </TouchableOpacity>
     );
   };
@@ -81,9 +73,10 @@ export default class Library extends Component {
     const device_height = Dimensions.get("window").height;
 
     return (
-      <Container style={{ height: device_height, width: device_width, backgroundColor: "#1c1d27" }}>
+      <Container style={{ height: device_height, width: device_width }}>
         <Head />
         <Content>
+          <Text> English</Text>
           <FlatList
             data={formatData(cards, numColumns)}
             renderItem={this.renderItem}
@@ -104,18 +97,18 @@ const styles = StyleSheet.create({
   },
 
   item: {
-    backgroundColor: '#565876',
+    backgroundColor: '#1e2326',
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
     margin: 1,
-    height: Dimensions.get('window').width / numColumns,
+    height: Dimensions.get('window').width / numColumns + 2,
   },
   itemInvisible: {
     backgroundColor: 'transparent',
   },
   itemText: {
-    color: "#fff"
+    color: "#ff984d"
   },
   card: {
     // width: "98%",

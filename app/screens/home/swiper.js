@@ -22,7 +22,7 @@ export default class Swipe extends Component {
       loop={false}
       activeDotColor={'#ffa500'}
       onIndexChanged={index => {
-        if (index == 3) {
+        if (index == 1) {
           this.props.onChange(true);
         }
 
@@ -38,29 +38,9 @@ export default class Swipe extends Component {
           READ, READ, READ
           </Text>
       </View>
-      <View style={styles.slide}>
-        <View style={styles.circle}>
-          <Text style={styles.text}>
-            <FontAwesome name="chain-broken" size={40} color={"#ffa500"} />
-          </Text>
-        </View>
-        <Text style={styles.text}>E-learing</Text>
-        <Text style={styles.textP}>
-          Laerning is constant
-          </Text>
-      </View>
 
-      <View style={styles.slide}>
-        <View style={styles.circle}>
-          <Text style={styles.text}>
-            <FontAwesome name="map-marker" size={40} color={"#ffa500"} />
-          </Text>
-        </View>
-        <Text style={styles.text}>blah blah</Text>
-        <Text style={styles.textP}>
-          Hustle OOO
-          </Text>
-      </View>
+
+
       <View style={styles.slide}>
         <View style={styles.circle}>
           <Text style={styles.text}>

@@ -4,7 +4,8 @@ import Home from "../screens/home/home";
 import Login from "../screens/signUp/signUp";
 import Library from "../screens/library";
 import Profile from "../screens/profile";
-import Single from "../screens/singleCar/singleCar";
+import Single from "../screens/single/single";
+import Topics from "../screens/topics/index";
 
 // import ResetPassword from "./components/resetPassword/resetPassword";
 // import UserGuide from "./components/userGuide/userGuide";
@@ -30,18 +31,18 @@ import Report from "../screens/report/report";
 //   },
 // });
 const MainNavigator = createStackNavigator({
-  Main: {
-    screen: Home,
-    navigationOptions: { header: null }
-  },
-  Login: {
-    screen: Login,
-    navigationOptions: { header: null }
-  },
-  Profile: {
-    screen: Profile,
-    navigationOptions: { header: null }
-  },
+  // Main: {
+  //   screen: Home,
+  //   navigationOptions: { header: null }
+  // },
+  // Login: {
+  //   screen: Login,
+  //   navigationOptions: { header: null }
+  // },
+  // Profile: {
+  //   screen: Profile,
+  //   navigationOptions: { header: null }
+  // },
   Library: {
     screen: Library,
     navigationOptions: { header: null }
@@ -58,8 +59,8 @@ const MainNavigator = createStackNavigator({
     screen: Register,
     navigationOptions: { header: null }
   },
-  Report: {
-    screen: Report,
+  Topics: {
+    screen: Topics,
     navigationOptions: { header: null }
   },
 });

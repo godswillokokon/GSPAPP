@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
       android: { paddingTop: 50 },
       ios: { paddingTop: 25 }
     }),
-    backgroundColor: "#ff984d",
+    backgroundColor: "#6771e4",
     paddingBottom: 40
   },
   body: {

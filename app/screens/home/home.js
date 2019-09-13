@@ -87,7 +87,7 @@ class Home extends Component {
   };
   routeToRightView(data) {
     if (this.state.tokenValidity === 200 || this.state.tokenValidity === 201) {
-      this.props.navigation.navigate("Garage");
+      this.props.navigation.navigate("Library");
     } else {
       this.setState({ authReady: true });
     }
@@ -140,7 +140,7 @@ class Home extends Component {
           <AppLoading
             startAsync={() => this.getTokenValidity()}
             onFinish={() => this.routeToRightView()}
-            onError={console.warn}
+            onError={() => this._onError()}
           />
           <DropdownAlert ref={ref => (this.dropdown = ref)} onClose={data => this.onAlertClose(data)} />
           <ActivityIndicator size={"large"} />

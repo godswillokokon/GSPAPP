@@ -1,4 +1,5 @@
 import Axios from "@utils/Axios";
+import Alert from 'react-native';
 // import * as types from "../types";
 import Session from "../../utils/Session";
 import SupportHeader from "../../utils/SupportHeader";
@@ -7,26 +8,45 @@ export const login = data => async dispatch => {
   try {
     console.log(":before");
     const response = await Axios.post(`/login`, { ...data });
-    console.log("hiit res");
+
     console.log("TOKEN", response.data.token);
+
     console.log("DATA", response.data);
-    console.log("USER", response.user);
+    // console.log("USER", response.user);
     const saveToken = Session.saveToken(response.data.token);
-    console.log("savve tokenn");
-    Session.saveUser(response.data.user);
-    await StaticStoreUserData(response.data.user)(dispatch);
+    const tok = response.data.token
+    Session.setData('token', tok);
     if (saveToken) {
       await dispatch({
         type: "USER_LOGIN_SUCCESS",
         payload: response.data.token
       });
     }
+
+    let my = Session.saveUser(response.data.userDetails);
+    await StaticStoreUserData(response.data.userDetails)(dispatch);
     console.log(":after");
+    console.log(my);
+    // const err = response.data.errors.detail
+    // console.log("OG ERROR", err)
   } catch (e) {
+    this.dropdown.alertWithType('error', 'Error', 'e.response.data');
+
     dispatch({
       type: "USER_AUTH_ERROR",
       payload: e.response
     });
+    // Alert.alert(
+    //   'Alert Title',
+    //   'My Alert Msg',
+    //   [
+    //     { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+    //     { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+    //     { text: 'OK', onPress: () => console.log('OK Pressed') },
+    //   ],
+    //   { cancelable: true }
+    // );
+
   }
 };
 
@@ -68,8 +88,10 @@ export const createAccount = data => async dispatch => {
   } catch (e) {
     dispatch({
       type: "USER_AUTH_ERROR",
-      payload: e.response.data.message
+      payload: e.response.data.message,
+
     });
+
   }
 };
 
@@ -95,7 +117,8 @@ export const refreshAuthentication = token => async dispatch => {
 export const GetUserData = token => async dispatch => {
   try {
     const response = await Axios.get("/user", await SupportHeader());
-    Session.saveUser(response.data);
+    // Session.saveUser(response.data);
+    console.log("profile", response)
     dispatch({
       type: "USER_DATA",
       payload: { ...response.data }

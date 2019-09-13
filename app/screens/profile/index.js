@@ -17,16 +17,25 @@ class Profile extends Component {
     super(props);
     this.state = {
       data: {},
-      onEdit: false
+      onEdit: false,
+      name: "",
+      faculty: "",
+      phoneNumber: "",
     };
+
   }
 
+  componentWillMount() {
+
+  }
   componentDidMount() {
     // const data = this.props.getUser();
     // this.setState({
     //   data
     // });
+
   }
+
   // loadAsync = async () => {
   //   //load all required info
   //   //user info, auth state..etc
@@ -46,7 +55,8 @@ class Profile extends Component {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
     const { user } = this.props;
-    console.log("user pro",user.user);
+    // console.log("user pro", user);
+    // console.log("user pro", user.user);
     const name = `${user.user.name}`;
     if (!this.state.onEdit) {
       return (
@@ -160,7 +170,7 @@ const mapDispatchToProps = dispatch => ({
   // onLogout: () => dispatch(logout()),
   // onSignUp: data => dispatch(createAccount(data)),
   // resetFailureAction: () => dispatch(resetFailureAction()),
-  // getUser: token => dispatch(GetUserData(token)),
+  getUser: token => dispatch(GetUserData(token)),
   // refreshAuthentication: token => dispatch(refreshAuthentication(token))
 });
 export default connect(
