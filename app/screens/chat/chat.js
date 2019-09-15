@@ -21,7 +21,7 @@ import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import FooterComponet from "../footer";
 import Head from "../header";
 
-export default class AboutUs extends Component {
+export default class Chat extends Component {
   static navigationOptions = {
     header: null
   }
@@ -30,12 +30,7 @@ export default class AboutUs extends Component {
       <Container style={styles.container}>
         <Head navigation={this.props.navigation} />
         <Content>
-          <Text style={styles.photo}>
-            <Image source={{ uri: 'https://res.cloudinary.com/ogcodes/image/upload/v1565462608/tdghephwnr5z5jl0d2ul.jpg' }} style={{ width: 452, height: 250 }} />
-          </Text>
-          <Card>
 
-          </Card>
         </Content>
         <FooterComponet name="profile" props={this.props} />
       </Container >
@@ -43,10 +38,6 @@ export default class AboutUs extends Component {
   }
 }
 const styles = StyleSheet.create({
-  photo: {
-    alignSelf: 'center',
-    margin: 10,
-  },
   container: {
     backgroundColor: '#1c1d27',
   },

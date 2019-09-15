@@ -1,14 +1,15 @@
-import React from "react";
-import { createStackNavigator, createAppContainer, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
-import Home from "../screens/home/home";
-import Login from "../screens/signUp/signUp";
-import Library from "../screens/library";
-import Profile from "../screens/profile";
-import Single from "../screens/single/single";
-import Topics from "../screens/topics/index";
-import Register from "../screens/register/register";
-import Feedback from "../screens/feedback/feedback";
-import AboutUs from "../screens/aboutUs/aboutUs";
+import React from 'react';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
+import Home from '../screens/home/home';
+import Login from '../screens/signUp/signUp';
+import Library from '../screens/library';
+import Profile from '../screens/profile';
+import Single from '../screens/single/single';
+import Topics from '../screens/topics/index';
+import Register from '../screens/register/register';
+import Feedback from '../screens/feedback/feedback';
+import AboutUs from '../screens/aboutUs/aboutUs';
+import Chat from '../screens/chat/chat';
 
 
 // import MainScreen from 'app/screens/home/home.js'
@@ -63,7 +64,10 @@ const MainNavigator = createStackNavigator({
     screen: AboutUs,
     navigationOptions: { header: null }
   },
-
+  Chat: {
+    screen: Chat,
+    navigationOptions: { header: null }
+  },
 });
 
 const AppContainer = createAppContainer(MainNavigator);
@@ -80,6 +84,6 @@ export default AppContainer;
 //   },
 //   {
 //     // contentComponent: SideMenu,
-//     initialRouteName: "Main"
+//     initialRouteName: 'Main'
 //   }
 // );
