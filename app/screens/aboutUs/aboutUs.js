@@ -34,7 +34,7 @@ export default class AboutUs extends Component {
       <Head navigation={this.props.navigation} />
       <Content>
         <Text style={styles.photo}>
-          <Image source={require("../../assets/Carta.png")} style={{ width: 452, height: 250 }} />
+          <Image source={{ uri: 'https://res.cloudinary.com/ogcodes/image/upload/v1565462608/tdghephwnr5z5jl0d2ul.jpg' }} style={{ width: 452, height: 250 }} />
         </Text>
         <Text style={styles.version}>v1.0.0</Text>
         <Text style={styles.tagLine}>
@@ -116,7 +116,7 @@ export default class AboutUs extends Component {
     </Container>;
   }
 }
-AppRegistry.registerComponent("CARTA-AboutUs", () => AboutUs);
+// AppRegistry.registerComponent("CARTA-AboutUs", () => AboutUs);
 
 const styles = StyleSheet.create({
   head: {
