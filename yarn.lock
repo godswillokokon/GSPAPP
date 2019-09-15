@@ -559,11 +559,6 @@
     pouchdb-collections "^1.0.1"
     tiny-queue "^0.2.1"
 
-"@react-native-community/image-editor@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/image-editor/-/image-editor-2.0.1.tgz#cd7eb89059b2a664c1070aa0bfcf82acc95ec03d"
-  integrity sha512-6p8HB6UlMyqAsnQsw1nIu+gpO6K3SzaepU0l0Z5nAZ0GsCwvAGYhcaiG0s2n4DaQkoq27ZMLlKNSkzhUghbBIQ==
-
 "@react-navigation/core@3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.0.2.tgz#8631801533a27d034a3b8421dfd0510a9f27dcf3"
@@ -2138,7 +2133,7 @@ escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
 
-escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
+escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
@@ -3291,7 +3286,7 @@ inquirer@^6.2.2:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-invariant@^2.2.0, invariant@^2.2.2, invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.0, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
@@ -4522,6 +4517,11 @@ path-type@^2.0.0:
   dependencies:
     pify "^2.0.0"
 
+paths-js@^0.4.10:
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/paths-js/-/paths-js-0.4.10.tgz#a3575f409b4a36f8aa795ba4d051989021be58c7"
+  integrity sha512-JZoqlRSHtx+bc+xKI9o4bropEbqZBF4ZfYImiB1T9RYpHB73h5I8XZ7FfSBbHbBMtdD1c04ujjAPH8wUuu4+Gw==
+
 pegjs@^0.10.0:
   version "0.10.0"
   resolved "http://registry.npmjs.org/pegjs/-/pegjs-0.10.0.tgz#cf8bafae6eddff4b5a7efb185269eaaf4610ddbd"
@@ -4576,6 +4576,11 @@ plugin-error@^0.1.2:
     arr-diff "^1.0.1"
     arr-union "^2.0.1"
     extend-shallow "^1.1.2"
+
+point-in-polygon@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/point-in-polygon/-/point-in-polygon-1.0.1.tgz#d59b64e8fee41c49458aac82b56718c5957b2af7"
+  integrity sha1-1Ztk6P7kHElFiqyCtWcYxZV7Kvc=
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -4753,6 +4758,15 @@ react-native-branch@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
 
+react-native-chart-kit@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-chart-kit/-/react-native-chart-kit-3.3.1.tgz#5d3af5e831321fb3e60bed3d9e8a61419118d1cf"
+  integrity sha512-uWuJlpqvsPvbJhKFx8nEySC1eLkSZr6KjK2x245WhnpmAaVaAkfJ+3bUoDMsu+xzXvl6kdhlEQ9NGod6etYSSg==
+  dependencies:
+    lodash "^4.17.11"
+    paths-js "^0.4.10"
+    point-in-polygon "^1.0.1"
+
 react-native-drawer@2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.5.0.tgz#022cba5c0516126a9fc9cce3185cb46c644b51c4"
@@ -4789,11 +4803,6 @@ react-native-gesture-handler@^1.0.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-react-native-image-picker@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-1.0.2.tgz#8b0ffe89d7dd97bef1f7e317f313f90549b126b3"
-  integrity sha512-+xwfqOQz5lU6mO6YUWdp7cb1a8V9hOqh4joI6YoRRyWp2stQ5P7m6x3f6w9j1r29f5mK67kqmM5gOfweTqzDaA==
-
 react-native-iphone-x-helper@^1.0.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"
@@ -4818,11 +4827,6 @@ react-native-maps@0.21.0:
   dependencies:
     babel-plugin-module-resolver "^2.3.0"
     babel-preset-react-native "1.9.0"
-
-react-native-maps@0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.25.0.tgz#81bc51eb50e33811a9e1c345cc48869413ead67d"
-  integrity sha512-PFJuW1pt+HnnnN0m0OGk29RSvICFVkK/DScX6cUk0SuCSN2DAHx0y6y57lZyYXcYqU4J4usNpfxgp/ccjASDiw==
 
 react-native-material-menu@^1.0.0:
   version "1.0.0"
@@ -4902,6 +4906,14 @@ react-native-vector-icons@^6.1.0:
     lodash "^4.0.0"
     prop-types "^15.6.2"
     yargs "^8.0.2"
+
+react-native-webview@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-7.0.5.tgz#1dd9d4f2856bda86a40222eca3612bf2152bacd3"
+  integrity sha512-FWY3tjbyV3Uhuw1JxJ0zs2HspJ5HAsIfkJaquURsVWQnTdZPnkSQjHWQp0PzGIwJ1PPVOA/gnhRmd7SZU/Br5Q==
+  dependencies:
+    escape-string-regexp "1.0.5"
+    invariant "2.2.4"
 
 "react-native@https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz":
   version "0.55.4"

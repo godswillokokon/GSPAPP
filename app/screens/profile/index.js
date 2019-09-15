@@ -8,9 +8,9 @@ import Session from "../../utils/Session";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import FooterComponet from "../footer";
 import Head from "../header";
-// import console = require("console");
-// import console = require("console");
-// import console = require("console");
+import {
+  ProgressChart,
+} from 'react-native-chart-kit'
 
 class Profile extends Component {
   constructor(props) {
@@ -57,10 +57,22 @@ class Profile extends Component {
     const { user } = this.props;
     // console.log("user pro", user);
     // console.log("user pro", user.user);
+    const data = {
+      labels: ['Score', 'Quiz', 'IQ'], // optional
+      data: [0.6, 0.6, 0.6]
+    }
+    const chartConfig = {
+      // backgroundGradientFrom: '#1e2326',
+      backgroundGradientTo: '#1e2326',
+      color: (opacity = 2) => `rgba(103, 113, 228, ${opacity})`,
+      // color: '#6771e4',
+      strokeWidth: 3, // optional, default 3
+
+    }
     const name = `${user.user.name}`;
     return (
       <Container style={styles.container}>
-        <Head />
+        <Head navigation={this.props.navigation} />
 
         <Content>
           <View style={styles.image}>
@@ -70,7 +82,7 @@ class Profile extends Component {
             />
           </View>
           <View>
-            <Form>
+            <Form style={{ margin: 10 }}>
               <Item floatingLabel>
                 <Label>Name</Label>
                 <Input disabled value={name} style={styles.info} />
@@ -97,8 +109,14 @@ class Profile extends Component {
               style={styles.edit}
 
             >
-              <Text style={styles.editText}>Assessment Score</Text>
+              <Text style={styles.editText} onPress={() => this.props.navigation.navigate("Assessment")}>Self Assessment </Text>
             </TouchableOpacity>
+            <ProgressChart
+              data={data}
+              width={device_width}
+              height={220}
+              chartConfig={chartConfig}
+            />
           </View>
         </Content>
         <FooterComponet name="profile" props={this.props} />
@@ -143,7 +161,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#6771e4",
     padding: 20,
     margin: 10,
-    width: 'auto',
+    width: 300,
     alignItems: "center",
     borderRadius: 39
   },

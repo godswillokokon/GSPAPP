@@ -18,7 +18,9 @@ export default class Head extends Component {
       <View>
         <Header style={styles.head}>
           <Left style={{ marginTop: 13 }}>
-            <Button transparent>
+            <Button transparent onPress={() => {
+              this.props.navigation.goBack();
+            }}>
               <FontAwesome name="angle-double-left" color={"#1e2326"} size={30} />
             </Button>
           </Left>
@@ -27,7 +29,7 @@ export default class Head extends Component {
           </Body>
           <Right style={{ marginTop: 15 }}>
             <Button transparent >
-              <MenuRight />
+              <MenuRight navigation={this.props.navigation} />
             </Button>
           </Right>
         </Header>

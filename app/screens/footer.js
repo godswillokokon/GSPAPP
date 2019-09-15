@@ -11,12 +11,7 @@ export default class FooterComponet extends Component {
         return (
           <Footer style={styles.footer}>
             <FooterTab style={styles.footer}>
-              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Dashboard")}>
-                <View style={styles.row}>
-                  <FontAwesome name="align-left" size={15} color={"#fff"} />
-                  <Text style={styles.whiteText}>Overview</Text>
-                </View>
-              </Button>
+
               <Button vertical style={styles.border} onPress={() => props.navigation.navigate("Profile")}>
                 <View style={styles.row}>
                   <FontAwesome name="address-card" size={15} color={"#fff"} />
@@ -37,46 +32,11 @@ export default class FooterComponet extends Component {
         );
         break;
       }
-      case "overview": {
-        return (
-          <Footer style={styles.footer}>
-            <FooterTab style={styles.footer}>
-              <Button active badge vertical style={[styles.footerActive, styles.border]}>
-                <View style={styles.row}>
-                  <FontAwesome name="align-left" size={15} color={"#6771e4"} />
-                  <Text style={styles.active}>Overview</Text>
-                </View>
-              </Button>
-              <Button vertical style={styles.border} onPress={() => props.navigation.navigate("Profile")}>
-                <View style={styles.row}>
-                  <FontAwesome name="address-card" size={15} color={"#fff"} />
-                  <Text style={styles.whiteText}>Profile</Text>
-                </View>
-              </Button>
-              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Library")}>
-                <View style={styles.row}>
-                  {/* <Badge>
-                    <Text style={styles.badge}>10</Text>
-                  </Badge> */}
-                  <View style={styles.row}>
-                    <FontAwesome name="leanpub" size={15} color={"#fff"} />
-                    <Text style={styles.whiteText}>Library</Text>
-                  </View>
-                </View>
-              </Button>
-            </FooterTab>
-          </Footer>
-        );
-        break;
-      }
       case "profile": {
         return (
           <Footer style={styles.footer}>
             <FooterTab style={styles.footer}>
-              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Dashboard")}>
-                <FontAwesome name="align-left" size={15} color={"#fff"} />
-                <Text style={styles.whiteText}>Overview</Text>
-              </Button>
+
               <Button active badge vertical style={[styles.footerActive, styles.border]}>
                 <View style={styles.row}>
                   <FontAwesome name="address-card" size={15} color={"#6771e4"} />

@@ -6,14 +6,10 @@ import Library from "../screens/library";
 import Profile from "../screens/profile";
 import Single from "../screens/single/single";
 import Topics from "../screens/topics/index";
-
-// import ResetPassword from "./components/resetPassword/resetPassword";
-// import UserGuide from "./components/userGuide/userGuide";
-// import ContactUs from "./components/contactUs/contactUs";
-// import AboutUs from "./components/aboutUs/aboutUs";
-import Dashboard from "../screens/dashboard/dashboard";
 import Register from "../screens/register/register";
-import Report from "../screens/report/report";
+import Feedback from "../screens/feedback/feedback";
+import AboutUs from "../screens/feedback/feedback";
+
 
 // import MainScreen from 'app/screens/home/home.js'
 // const homeNavigator = createStackNavigator ({
@@ -47,10 +43,6 @@ const MainNavigator = createStackNavigator({
     screen: Library,
     navigationOptions: { header: null }
   },
-  Dashboard: {
-    screen: Dashboard,
-    navigationOptions: { header: null }
-  },
   Single: {
     screen: Single,
     navigationOptions: { header: null }
@@ -63,6 +55,15 @@ const MainNavigator = createStackNavigator({
     screen: Topics,
     navigationOptions: { header: null }
   },
+  Feedback: {
+    screen: Feedback,
+    navigationOptions: { header: null }
+  },
+  AboutUs: {
+    screen: AboutUs,
+    navigationOptions: { header: null }
+  },
+
 });
 
 const AppContainer = createAppContainer(MainNavigator);

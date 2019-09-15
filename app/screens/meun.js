@@ -17,6 +17,8 @@ export default class MenuRight extends Component {
 
   showMenu = () => {
     this._menu.show();
+    // console.info(this.props);
+    // console.info(this.props.navigation);
   };
 
   render() {
@@ -29,11 +31,11 @@ export default class MenuRight extends Component {
           style={{ backgroundColor: "#1e2326", }}
           button={<Text onPress={this.showMenu}> <FontAwesome name="ellipsis-v" size={40} color={"#1e2326"} /></Text>}
         >
-          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>Assessment Score</Text></MenuItem>
-          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>Chat</Text></MenuItem>
-          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>Feedback</Text></MenuItem>
 
-          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Single")}><Text style={styles.items}>About</Text></MenuItem>
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Chat")}><Text style={styles.items}>Chat</Text></MenuItem>
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("Feedback")}><Text style={styles.items}>Feedback</Text></MenuItem>
+
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate("AboutUs")}><Text style={styles.items}>About</Text></MenuItem>
         </Menu>
       </View>
     );
