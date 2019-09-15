@@ -8,7 +8,7 @@ import Single from "../screens/single/single";
 import Topics from "../screens/topics/index";
 import Register from "../screens/register/register";
 import Feedback from "../screens/feedback/feedback";
-import AboutUs from "../screens/feedback/feedback";
+import AboutUs from "../screens/aboutUs/aboutUs";
 
 
 // import MainScreen from 'app/screens/home/home.js'
