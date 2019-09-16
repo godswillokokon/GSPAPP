@@ -10,6 +10,7 @@ import Register from '../screens/register/register';
 import Feedback from '../screens/feedback/feedback';
 import AboutUs from '../screens/aboutUs/aboutUs';
 import Chat from '../screens/chat/chat';
+import Main from '../screens/chat/main';
 
 
 // import MainScreen from 'app/screens/home/home.js'
@@ -66,6 +67,10 @@ const MainNavigator = createStackNavigator({
   },
   Chat: {
     screen: Chat,
+    navigationOptions: { header: null }
+  },
+  Main: {
+    screen: Main,
     navigationOptions: { header: null }
   },
 });

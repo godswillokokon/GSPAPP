@@ -22,7 +22,7 @@ export default class MenuRight extends Component {
           style={{ backgroundColor: '#1e2326' }}
           button={<Text onPress={this.showMenu}> <FontAwesome name='ellipsis-v' size={40} color={'#1e2326'} /></Text>}
         >
-          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate('Chat')}><Text style={styles.items}>Chat</Text></MenuItem>
+          <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate('Main')}><Text style={styles.items}>Chat</Text></MenuItem>
           <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate('Feedback')}><Text style={styles.items}>Feedback</Text></MenuItem>
 
           <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate('AboutUs')}><Text style={styles.items}>About</Text></MenuItem>
