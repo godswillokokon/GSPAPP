@@ -45,7 +45,7 @@ export default class AboutUs extends Component {
               </Text>
           </Card>
         </Content>
-        <FooterComponet name="profile" props={this.props} />
+       
       </Container >
     );
   }

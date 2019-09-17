@@ -46,7 +46,7 @@ export default class MainChat extends Component {
             <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
         </Content>
-        <FooterComponet name="profile" props={this.props} />
+
       </Container >
     );
   }

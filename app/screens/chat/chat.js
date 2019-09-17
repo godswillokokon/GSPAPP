@@ -119,7 +119,7 @@ export default class Chat extends Component {
             <GiftedChat />
         }
 
-        <FooterComponet name="profile" props={this.props} />
+
 
       </Container >
     );

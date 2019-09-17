@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    marginBottom: 0
+    marginBottom: 0,
+    width: 552 / 2,
+    height: 400 / 2
   },
   logins: {
     width: 250,

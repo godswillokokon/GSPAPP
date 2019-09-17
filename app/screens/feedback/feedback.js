@@ -145,7 +145,7 @@ export default class Feedback extends Component {
 
 
         </Content>
-        <FooterComponet name="profile" props={this.props} />
+
       </Container>
     );
   }

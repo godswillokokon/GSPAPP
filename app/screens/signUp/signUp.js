@@ -61,7 +61,7 @@ class SignUp extends Component {
       <Container style={styles.container}>
         <ImageBackground source={require("../../../assets/back.jpg")} style={{ height: device_height + 78, width: device_width }}>
           <Text style={styles.logo}>
-            <Image source={require("../../../assets/trans.png")} style={{ width: 552 / 2, height: 400 / 2 }} />
+
           </Text>
           <Content style={{ top: 30 }}>
             <Form>
