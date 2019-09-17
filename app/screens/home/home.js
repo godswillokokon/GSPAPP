@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     borderColor: "#1e2326"
   },
   butText: {
-    color: "#fff",
+    color: "#1e2326",
     fontSize: 20,
     fontWeight: "bold"
   },

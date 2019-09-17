@@ -33,9 +33,10 @@ export default class Swipe extends Component {
             <FontAwesome name="graduation-cap" size={40} color={"#6771e4"} />
           </Text>
         </View>
-        <Text style={styles.text}>HI, THERE!</Text>
+        <Text style={styles.text}> Welcome!</Text>
         <Text style={styles.textP}>
-          READ, READ, READ
+          This Mobile App called General Studies Programme Application (GSPAPP) is designed for use in the learning of Use of
+                  Library and Study Skills for  students in the first year of General Studies  Programme.
           </Text>
       </View>
 
@@ -47,9 +48,10 @@ export default class Swipe extends Component {
             <FontAwesome name="slideshare" size={40} color={"#6771e4"} />
           </Text>
         </View>
-        <Text style={styles.text}> Read Book </Text>
+        <Text style={styles.text}> GSPAPP </Text>
         <Text style={styles.textP}>
-          One book a day
+          This is expected to encourage students carry out self- study while improving the quality of
+                teaching and learning activities in the 21st century learning.
           </Text>
       </View>
     </Swiper>;

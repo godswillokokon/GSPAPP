@@ -41,9 +41,9 @@ class Register extends Component {
     // if (this.state.checked) return console.log("checked");
     // if (!this.state.checked) return console.log("unchecked");
   }
-  _simulateSignup = (name, faculty, phoneNumber, password) => {
+  _simulateSignup = (name, faculty, phoneNumber, age, sex, password) => {
     this.setState({ isLoading: true });
-    this.props.onSignUp({ name, phoneNumber, faculty, password });
+    this.props.onSignUp({ name, phoneNumber, age, sex, faculty, password });
   };
 
   render() {
@@ -56,7 +56,7 @@ class Register extends Component {
       <Container style={styles.container} >
         <ImageBackground source={require("../../../assets/back.jpg")} style={{ height: device_height + 78, width: device_width }}>
           <Text style={styles.logo}>
-            <Image source={require("../../../assets/trans.png")} style={{ width: 552 / 2, height: 400 / 2 }} />
+
           </Text>
           <Content style={{ top: 10 }}>
             <Form>
@@ -89,6 +89,28 @@ class Register extends Component {
                   type="number"
                   placeholderTextColor="black"
                   onChangeText={value => this.setState({ phoneNumber: value })}
+                  returnKeyType="next"
+                  maxLength={14}
+                />
+              </Item>
+              <Item style={[styles.loginMidLine]}>
+                <Ionicons name="ios-mail" size={25} color={"black"} style={styles.icons} />
+                <Input
+                  placeholder="Age"
+                  type="number"
+                  placeholderTextColor="black"
+                  onChangeText={value => this.setState({ age: value })}
+                  returnKeyType="next"
+                  maxLength={14}
+                />
+              </Item>
+              <Item style={[styles.loginMidLine]}>
+                <Ionicons name="ios-mail" size={25} color={"black"} style={styles.icons} />
+                <Input
+                  placeholder="Sex"
+                  type="text"
+                  placeholderTextColor="black"
+                  onChangeText={value => this.setState({ sex: value })}
                   returnKeyType="next"
                   maxLength={14}
                 />
@@ -174,7 +196,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    marginBottom: 0
+    marginBottom: 0,
+    width: 552 / 2,
+    height: 400 / 2
   },
   logins: {
     width: 250,
