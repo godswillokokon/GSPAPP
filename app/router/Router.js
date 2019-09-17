@@ -10,7 +10,7 @@ import Register from '../screens/register/register';
 import Feedback from '../screens/feedback/feedback';
 import AboutUs from '../screens/aboutUs/aboutUs';
 import Chat from '../screens/chat/chat';
-import Main from '../screens/chat/main';
+import MainChat from '../screens/chat/main';
 
 
 // import MainScreen from 'app/screens/home/home.js'
@@ -29,14 +29,14 @@ import Main from '../screens/chat/main';
 //   },
 // });
 const MainNavigator = createStackNavigator({
-  // Main: {
-  //   screen: Home,
-  //   navigationOptions: { header: null }
-  // },
-  // Login: {
-  //   screen: Login,
-  //   navigationOptions: { header: null }
-  // },
+  Main: {
+    screen: Home,
+    navigationOptions: { header: null }
+  },
+  Login: {
+    screen: Login,
+    navigationOptions: { header: null }
+  },
   Profile: {
     screen: Profile,
     navigationOptions: { header: null }
@@ -69,8 +69,8 @@ const MainNavigator = createStackNavigator({
     screen: Chat,
     navigationOptions: { header: null }
   },
-  Main: {
-    screen: Main,
+  MainChat: {
+    screen: MainChat,
     navigationOptions: { header: null }
   },
 });

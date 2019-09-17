@@ -34,7 +34,15 @@ export default class AboutUs extends Component {
             <Image source={{ uri: 'https://res.cloudinary.com/ogcodes/image/upload/v1565462608/tdghephwnr5z5jl0d2ul.jpg' }} style={{ width: 452, height: 250 }} />
           </Text>
           <Card>
-
+            <Text>
+                  This Mobile App called General Studies Programme Application (GSPAPP) is designed for use in the learning of Use of 
+                  Library and Study Skills for  students in the first year of General Studies  Programme. The app is designed and developed as 
+                  an effort to make the teaching and learning of General Studies more interesting and enjoyable for teachers and students.
+                  This course is to help the students to develop appropriate skills and competences which they need to function effectively
+                  in their various disciplines. It is expected to encourage students carry out self- study while improving the quality of
+                teaching and learning activities in the 21st century learning.
+              
+              </Text>
           </Card>
         </Content>
         <FooterComponet name="profile" props={this.props} />

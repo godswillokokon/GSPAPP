@@ -21,7 +21,10 @@ import FooterComponet from "../footer";
 import Head from "../header";
 
 
-export default class Main extends Component {
+export default class MainChat extends Component {
+  static navigationOptions = {
+    header: null
+  };
   state = { name: '' }
   onPress = () => {
     this.props.navigation.navigate('Chat', { name: this.state.name });
@@ -36,7 +39,7 @@ export default class Main extends Component {
           <TextInput
             onChangeText={this.onChangeText}
             style={styles.nameInput}
-            placeHolder="John Cena"
+            placeHolder="OG codes"
             value={this.state.name}
           />
           <TouchableOpacity onPress={this.onPress}>
@@ -57,16 +60,19 @@ const styles = StyleSheet.create({
     height: offset * 2,
     margin: offset,
     paddingHorizontal: offset,
-    borderColor: '#111111',
+    borderColor: '#fff',
     borderWidth: 1,
+    color: 'white'
   },
   title: {
     marginTop: offset,
     marginLeft: offset,
     fontSize: offset,
+    color: '#fff'
   },
   buttonText: {
     marginLeft: offset,
     fontSize: offset,
+    color: '#fff'
   },
 });

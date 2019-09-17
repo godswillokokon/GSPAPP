@@ -137,12 +137,12 @@ export default class Feedback extends Component {
           </View>
           <Form>
             <Input placeholder="Your feedbacks are welcomed..." returnKeyType="next" style={styles.textArea} />
-            <Input placeholder="Please enter your email " type="email" returnKeyType="send" style={styles.textEmail} />
+            <Input placeholder="Please enter your name " returnKeyType="send" style={styles.textEmail} />
             <Button bordered style={styles.submitBtn}>
-              <Text>Submit Feedback</Text>
+              <Text style={{ color: 'white' }}>Submit Feedback</Text>
             </Button>
           </Form>
-          <Image style={styles.footerImage} source={{ uri: 'https://res.cloudinary.com/ogcodes/image/upload/v1565462608/tdghephwnr5z5jl0d2ul.jpg' }} style={{ width: 3216 / 10, height: 2136 / 13, margin: 20 }} />
+
 
         </Content>
         <FooterComponet name="profile" props={this.props} />
@@ -173,7 +173,8 @@ const styles = StyleSheet.create({
   RateText: {
     alignSelf: "center",
     marginTop: 5,
-    fontSize: 20
+    fontSize: 20,
+    color: 'white'
   },
   textEmail: {
     marginTop: 14,
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   submitBtn: {
-    backgroundColor: "#FF9501",
+    backgroundColor: "#6771e4",
     width: 200,
     height: 50,
     alignSelf: "center",

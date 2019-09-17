@@ -124,19 +124,20 @@ class SignUp extends Component {
                   <Text>Sign Up</Text>
                 </Body>
               </ListItem>
-              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("resetPassword")}>
+              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("MainChat")}>
                 <Left>
-                  <Button disabled style={{ backgroundColor: "#7151e4" }}>
-                    <Ionicons active name="ios-redo" />
+                  <Button disabled style={{ backgroundColor: "#FF4551" }}>
+                    <Ionicons active name="ios-people" />
                   </Button>
                 </Left>
                 <Body style={styles.whiteBorder}>
-                  <Text>Reset password</Text>
+                  <Text>Chat</Text>
                 </Body>
               </ListItem>
-              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("userGuide")}>
+
+              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("AboutUs")}>
                 <Left>
-                  <Button disabled style={{ backgroundColor: "#FF4551" }}>
+                  <Button disabled style={{ backgroundColor: "#7151e4" }}>
                     <FontAwesome active name="question" />
                   </Button>
                 </Left>
@@ -144,7 +145,7 @@ class SignUp extends Component {
                   <Text>About</Text>
                 </Body>
               </ListItem>
-              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("contactUs")}>
+              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("Feedback")}>
                 <Left>
                   <Button disabled style={{ backgroundColor: "#007AFF" }}>
                     <FontAwesome active name="comments" />

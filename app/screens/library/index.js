@@ -18,6 +18,9 @@ import {
   Content,
 } from "native-base";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { login, resetFailureAction, refreshAuthentication, GetUserData, GetLibrary } from "../../redux/actions/UserActions";
+import Session from "../../utils/Session";
+import { connect } from "react-redux";
 
 const cards = [
   { key: 'Introduction to the use of Library', icon: 'book', color: '#cfd744' },
@@ -35,10 +38,25 @@ const formatData = (data, numColumns) => {
 const numColumns = 2;
 
 
-export default class Library extends Component {
+class Library extends Component {
   static navigationOptions = {
     header: null
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: true,
+      username: "",
+      data: "",
+      password: "",
+      isLoggedIn: false,
+      isLoading: false,
+      isAppReady: false,
+      authError: null,
+      authReady: false,
+      tokenValidity: null
+    };
+  }
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />
@@ -52,7 +70,13 @@ export default class Library extends Component {
       </TouchableOpacity>
     );
   };
+
+  e;
   render() {
+    this.props.getData(data)
+    console.log("dataa", this.props.getData(data));
+    const { data } = this.state
+    console.log("holdddd", data);
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
 
@@ -76,6 +100,21 @@ export default class Library extends Component {
     );
   }
 }
+const mapStateToProps = ({ user }) => ({
+  auth: user
+});
+
+const mapDispatchToProps = dispatch => ({
+  onLogin: data => dispatch(login(data)),
+  getData: data => dispatch(GetLibrary(data)),
+  // resetFailureAction: () => dispatch(resetFailureAction()),
+  // getUser: token => dispatch(GetUserData(token)),
+  // refreshAuthentication: token => dispatch(refreshAuthentication(token))
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Library);
 
 const styles = StyleSheet.create({
   container: {

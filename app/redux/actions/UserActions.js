@@ -27,6 +27,10 @@ export const login = data => async dispatch => {
     await StaticStoreUserData(response.data.userDetails)(dispatch);
     console.log(":after");
     console.log(my);
+    let c = GetLibrary(data);
+    let v = GetLibrary();
+    console.log(c);
+    console.log(v);
     // const err = response.data.errors.detail
     // console.log("OG ERROR", err)
   } catch (e) {
@@ -116,9 +120,26 @@ export const refreshAuthentication = token => async dispatch => {
 
 export const GetUserData = token => async dispatch => {
   try {
-    const response = await Axios.get("/user", await SupportHeader());
+    const response = await Axios.get(`/user`, await SupportHeader());
     // Session.saveUser(response.data);
     console.log("profile", response)
+    dispatch({
+      type: "USER_DATA",
+      payload: { ...response.data }
+    });
+    return response.data;
+  } catch (e) {
+    // toast.error("Error Notification !");
+    Session.logout();
+    return 401;
+  }
+};
+export const GetLibrary = data => async dispatch => {
+  try {
+
+    const response = await Axios.get(`/admin/course`, { ...data });
+    // Session.saveUser(response.data);
+    console.log("topics", response)
     dispatch({
       type: "USER_DATA",
       payload: { ...response.data }
