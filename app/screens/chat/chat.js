@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import {
   Container,
   Content,
-
 } from "native-base";
 import { Text, Image, KeyboardAvoidingView, StyleSheet, Platform, TouchableOpacity, View, } from "react-native";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
-import { GiftedChat, Colors, Bubble, Time } from 'react-native-gifted-chat';
+import { GiftedChat, InputToolbar, Bubble, Time } from 'react-native-gifted-chat';
 import QuickReplies from 'react-native-gifted-chat/lib/QuickReplies';
 import FooterComponet from "../footer";
 import Head from "../header";
@@ -55,12 +54,12 @@ export default class Chat extends Component {
             backgroundColor: '#6771e4',
           },
           right: {
-            backgroundColor: '#1e2326',
+            backgroundColor: '#6771e4',
           }
         }}
         textStyle={{
           right: {
-            color: '#6771e4',
+            color: '#1e2326',
 
             fontSize: 18
           },
@@ -73,11 +72,15 @@ export default class Chat extends Component {
       />
     );
   }
+  renderInputToolbar(props) {
+    //Add the extra styles via containerStyle
+    return <InputToolbar {...props} containerStyle={{ borderTopWidth: 1.5, borderTopColor: '#333', backgroundColor: '#fff' }} />
+  }
 
   render() {
     console.log(this.user);
     return (
-      <Container style={{ flex: 1 }} >
+      <Container style={styles.container} >
         <Head navigation={this.props.navigation} />
         <Text>{this.title}</Text>
         {
@@ -95,13 +98,15 @@ export default class Chat extends Component {
                 bottomOffset={20}
                 renderAvatarOnTop={true}
                 scrollToBottom={true}
-                isLoadingEarlier={true}
+                isLoadingEarlier={false}
                 alignTop={true}
+                renderInputToolbar={this.renderInputToolbar}
                 isCustomViewBottom={true}
                 renderTime={this.renderTime.bind(this)}
                 renderUsernameOnMessage={true}
                 renderQuickReplies={(props) => <QuickReplies color='green' {...props} />}
                 forceGetKeyboardHeight
+                textInputStyle={{ color: "#6771e4" }}
               />
             </KeyboardAvoidingView > :
             <GiftedChat
@@ -116,6 +121,7 @@ export default class Chat extends Component {
               bottomOffset={20}
               renderAvatarOnTop={true}
               scrollToBottom={true}
+              renderInputToolbar={this.renderInputToolbar}
               isLoadingEarlier={true}
               alignTop={true}
               isCustomViewBottom={true}
@@ -146,5 +152,6 @@ export default class Chat extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#1c1d27',
+    flex: 1
   },
 });

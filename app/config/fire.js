@@ -1,6 +1,8 @@
 import firebase from 'firebase';
 import { Alert } from "react-native";
+
 class Fire {
+
   constructor() {
     this.init();
     this.observeAuth();
@@ -16,12 +18,10 @@ class Fire {
       appId: "1:499154326256:web:8bf9dee51f39b05efb6835"
 
     });
-  observeAuth = () =>
-    firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
+  observeAuth = () => firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
   onAuthStateChanged = user => {
     if (!user) {
       try {
-
         firebase.auth().signInAnonymously();
       } catch ({ message }) {
         Alert.alert(message);
@@ -58,6 +58,8 @@ class Fire {
 
 
   send = messages => {
+    console.log("firebase settt uppp")
+
     for (let i = 0; i < messages.length; i++) {
       const { text, user } = messages[i];
       const message = {
@@ -75,4 +77,6 @@ class Fire {
 
 }
 Fire.shared = new Fire();
+console.log("firebase settt uppp");
+
 export default Fire;
