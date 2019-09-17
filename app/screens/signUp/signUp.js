@@ -59,7 +59,7 @@ class SignUp extends Component {
 
     return (
       <Container style={styles.container}>
-        <ImageBackground source={require("../../../assets/back.jpg")} style={{ height: device_height + 48, width: device_width }}>
+        <ImageBackground source={require("../../../assets/back.jpg")} style={{ height: device_height + 78, width: device_width }}>
           <Text style={styles.logo}>
             <Image source={require("../../../assets/trans.png")} style={{ width: 552 / 2, height: 400 / 2 }} />
           </Text>

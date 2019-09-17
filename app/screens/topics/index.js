@@ -134,7 +134,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   itemText: {
-    color: "#fff"
+    color: "#fff",
+    fontSize: 10,
   },
   card: {
     // width: "98%",

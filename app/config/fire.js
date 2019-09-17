@@ -77,6 +77,5 @@ class Fire {
 
 }
 Fire.shared = new Fire();
-console.log("firebase settt uppp");
 
 export default Fire;

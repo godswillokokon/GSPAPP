@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: "#fff",
-    fontSize: 12,
+    fontSize: 10,
   },
   card: {
     // width: "98%",

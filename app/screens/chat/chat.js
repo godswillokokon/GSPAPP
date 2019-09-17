@@ -18,9 +18,15 @@ export default class Chat extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: (navigation.state.params || {}).name || 'Chat!',
   });
+
   state = {
     messages: [],
   };
+  componentWillMount() {
+
+
+
+  }
   get user() {  // Return our name and our UID for GiftedChat to parse
     return {
       name: this.props.navigation.state.params.name,
@@ -82,7 +88,6 @@ export default class Chat extends Component {
     return (
       <Container style={styles.container} >
         <Head navigation={this.props.navigation} />
-        <Text>{this.title}</Text>
         {
           Platform.OS === 'android' ?
             <KeyboardAvoidingView behavior={'padding'} style={{ flex: 1 }} keyboardVerticalOffset={30}>
@@ -107,29 +112,11 @@ export default class Chat extends Component {
                 renderQuickReplies={(props) => <QuickReplies color='green' {...props} />}
                 forceGetKeyboardHeight
                 textInputStyle={{ color: "#6771e4" }}
+
+
               />
             </KeyboardAvoidingView > :
-            <GiftedChat
-              messages={this.state.messages}
-              onSend={Fire.shared.send}
-              user={this.user}
-              isAnimated={true}
-              loadEarlier={true}
-              renderBubble={this.renderBubble.bind(this)}
-              showUserAvatar={true}
-              showAvatarForEveryMessage={true}
-              bottomOffset={20}
-              renderAvatarOnTop={true}
-              scrollToBottom={true}
-              renderInputToolbar={this.renderInputToolbar}
-              isLoadingEarlier={true}
-              alignTop={true}
-              isCustomViewBottom={true}
-              renderTime={this.renderTime.bind(this)}
-              renderUsernameOnMessage={true}
-              renderQuickReplies={(props) => <QuickReplies color='green' {...props} />}
-              forceGetKeyboardHeight
-            />
+            <GiftedChat />
         }
 
         <FooterComponet name="profile" props={this.props} />
