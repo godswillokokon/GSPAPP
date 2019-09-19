@@ -4,6 +4,7 @@ import Alert from 'react-native';
 import Session from "../../utils/Session";
 import SupportHeader from "../../utils/SupportHeader";
 
+
 export const login = data => async dispatch => {
   try {
     console.log(":before");
@@ -34,22 +35,23 @@ export const login = data => async dispatch => {
     // const err = response.data.errors.detail
     // console.log("OG ERROR", err)
   } catch (e) {
-    this.dropdown.alertWithType('error', 'Error', e.response.data);
+    Alert.alert(
+      'Alert Title',
+      'My Alert Msg',
+      [
+        { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+        { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+        { text: 'OK', onPress: () => console.log('OK Pressed') },
+      ],
+      { cancelable: true }
+    );
+
+    // this.dropdown.alertWithType('error', 'Error', e.response.data);
 
     dispatch({
       type: "USER_AUTH_ERROR",
       payload: e.response
     });
-    // Alert.alert(
-    //   'Alert Title',
-    //   'My Alert Msg',
-    //   [
-    //     { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-    //     { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-    //     { text: 'OK', onPress: () => console.log('OK Pressed') },
-    //   ],
-    //   { cancelable: true }
-    // );
 
   }
 };

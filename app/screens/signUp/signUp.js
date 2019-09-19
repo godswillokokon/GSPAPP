@@ -96,7 +96,7 @@ class SignUp extends Component {
                 <CheckBox checked={this.state.checked} color={"#1e2326"} onPress={this.Clicked.bind(this)} />
                 <Body>
                   <Text style={{ color: "black" }} onPress={this.Clicked.bind(this)}>
-                    Remember Login
+                    Remember
                   </Text>
                 </Body>
               </ListItem>
@@ -124,16 +124,7 @@ class SignUp extends Component {
                   <Text>Sign Up</Text>
                 </Body>
               </ListItem>
-              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("MainChat")}>
-                <Left>
-                  <Button disabled style={{ backgroundColor: "#FF4551" }}>
-                    <Ionicons active name="ios-people" />
-                  </Button>
-                </Left>
-                <Body style={styles.whiteBorder}>
-                  <Text>Chat</Text>
-                </Body>
-              </ListItem>
+
 
               <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("AboutUs")}>
                 <Left>

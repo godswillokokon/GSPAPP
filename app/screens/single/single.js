@@ -78,17 +78,20 @@ export default class Single extends Component {
               onPress={this.handleLoop}
             />
             <MaterialIcons
-              name={this.state.mute ? "volume-mute" : "volume-up"}
-              size={45}
-              color="white"
-              onPress={this.handleVolume}
-            />
-            <MaterialIcons
               name={this.state.shouldPlay ? "pause" : "play-arrow"}
               size={45}
               color="white"
               onPress={this.handlePlayAndPause}
             />
+            <MaterialIcons
+              name={this.state.mute ? "volume-mute" : "volume-up"}
+              size={45}
+              color="white"
+              onPress={this.handleVolume}
+            />
+            <TouchableOpacity>
+              <Text>Take Quiz</Text>
+            </TouchableOpacity>
           </View>
 
 

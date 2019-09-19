@@ -21,7 +21,7 @@ export default class Head extends Component {
             <Button transparent onPress={() => {
               this.props.navigation.goBack();
             }}>
-              <FontAwesome name="angle-double-left" color={"#1e2326"} size={30} />
+              <FontAwesome name="angle-double-left" color={"#1e2326"} size={40} />
             </Button>
           </Left>
           <Body style={styles.body}>
