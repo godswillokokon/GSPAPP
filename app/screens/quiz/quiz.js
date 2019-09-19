@@ -76,37 +76,26 @@ class Quiz extends Component {
 
         <Content>
           <View style={styles.question}>
-            <Text> There are two organizational systems practiced in the University library. What are they? </Text>
+            <Text style={{ flex: 1, margin: 10 }}> There are two organizational systems practiced in the University library. What are they? </Text>
           </View>
-          <View>
+          <View style={styles.display}>
 
             <TouchableOpacity style={styles.answers}>
-              <Text>a) Centralized and decentralized</Text>
+              <Text>a)      Centralized and decentralized</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.answers}>
-              <Text>b) Centralized and decentralized</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.answers}>
-              <Text>c) Centralized and decentralized</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.answers}>
-              <Text>d) Centralized and decentralized</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.answers}>
-              <Text>e) Centralized and decentralized</Text>
+              <Text>b)     Centralized and decentralized</Text>
             </TouchableOpacity>
 
 
             <TouchableOpacity
               style={styles.next}
+              onPress={() => this.props.navigation.navigate("Topics")}
             >
-              <TouchableOpacity style={styles.nextText} onPress={() => this.props.navigation.navigate("Assessment")}>
-                Next
-              </TouchableOpacity>
+              <Text style={styles.nextText} >
+                Done
+              </Text>
 
             </TouchableOpacity>
 
@@ -141,14 +130,34 @@ const styles = StyleSheet.create({
     backgroundColor: "#1c1d27"
   },
   question: {
+    flex: 1,
     alignContent: "center",
     alignItems: "center",
-    marginTop: 40
+    marginTop: 40,
+    backgroundColor: 'white',
+    margin: 10,
+    borderRadius: 39,
+    padding: 10,
+    height: 200,
+    borderColor: '#6771e4',
+    borderWidth: 1
   },
   nextText: {
-    color: "#1e2326"
+    color: "#6771e4"
   },
   next: {
+    flex: 1,
+    alignSelf: "center",
+    backgroundColor: "#1e2326",
+    padding: 20,
+    margin: 10,
+    width: 100,
+    alignItems: "center",
+    borderRadius: 39,
+    borderColor: '#6771e4',
+    borderWidth: 2
+  },
+  answers: {
     flex: 1,
     alignSelf: "center",
     backgroundColor: "#6771e4",
@@ -158,7 +167,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 39
   },
-  answers: {
-    color: 'whitesmoke'
+  answersO: {
+    flex: 1,
+    alignSelf: "center",
+    backgroundColor: "#6771e4",
+    padding: 20,
+    margin: 10,
+    width: 300,
+    alignItems: "center",
+    borderRadius: 39
+  },
+  display: {
+    alignContent: 'center',
+
   }
 });

@@ -30,50 +30,50 @@ import Quiz from '../screens/quiz/quiz';
 //   },
 // });
 const MainNavigator = createStackNavigator({
-  Main: {
-    screen: Home,
-    navigationOptions: { header: null }
-  },
-  Login: {
-    screen: Login,
-    navigationOptions: { header: null }
-  },
-  Profile: {
-    screen: Profile,
-    navigationOptions: { header: null }
-  },
-  Library: {
-    screen: Library,
-    navigationOptions: { header: null }
-  },
-  Single: {
-    screen: Single,
-    navigationOptions: { header: null }
-  },
-  Register: {
-    screen: Register,
-    navigationOptions: { header: null }
-  },
-  Topics: {
-    screen: Topics,
-    navigationOptions: { header: null }
-  },
-  Feedback: {
-    screen: Feedback,
-    navigationOptions: { header: null }
-  },
-  AboutUs: {
-    screen: AboutUs,
-    navigationOptions: { header: null }
-  },
-  Chat: {
-    screen: Chat,
-    navigationOptions: { header: null }
-  },
-  MainChat: {
-    screen: MainChat,
-    navigationOptions: { header: null }
-  },
+  // Main: {
+  //   screen: Home,
+  //   navigationOptions: { header: null }
+  // },
+  // Login: {
+  //   screen: Login,
+  //   navigationOptions: { header: null }
+  // },
+  // Profile: {
+  //   screen: Profile,
+  //   navigationOptions: { header: null }
+  // },
+  // Library: {
+  //   screen: Library,
+  //   navigationOptions: { header: null }
+  // },
+  // Single: {
+  //   screen: Single,
+  //   navigationOptions: { header: null }
+  // },
+  // Register: {
+  //   screen: Register,
+  //   navigationOptions: { header: null }
+  // },
+  // Topics: {
+  //   screen: Topics,
+  //   navigationOptions: { header: null }
+  // },
+  // Feedback: {
+  //   screen: Feedback,
+  //   navigationOptions: { header: null }
+  // },
+  // AboutUs: {
+  //   screen: AboutUs,
+  //   navigationOptions: { header: null }
+  // },
+  // Chat: {
+  //   screen: Chat,
+  //   navigationOptions: { header: null }
+  // },
+  // MainChat: {
+  //   screen: MainChat,
+  //   navigationOptions: { header: null }
+  // },
   Quiz: {
     screen: Quiz,
     navigationOptions: { header: null }

@@ -28,10 +28,8 @@ export const login = data => async dispatch => {
     await StaticStoreUserData(response.data.userDetails)(dispatch);
     console.log(":after");
     console.log(my);
-    let c = GetLibrary(data);
-    let v = GetLibrary();
-    console.log(c);
-    console.log(v);
+
+
     // const err = response.data.errors.detail
     // console.log("OG ERROR", err)
   } catch (e) {
@@ -82,14 +80,20 @@ export const createAccount = data => async dispatch => {
     console.log(":before");
     console.log(data);
     const response = await Axios.post(`/register`, { ...data });
+    const saveToken = Session.saveToken(response.data.token);
+    const tok = response.data.token
+    Session.setData('token', tok);
+    if (saveToken) {
+      await dispatch({
+        type: "USER_LOGIN_SUCCESS",
+        payload: response.data.token
+      });
+    }
+
+    let my = Session.saveUser(response.data.userDetails);
+    await StaticStoreUserData(response.data.userDetails)(dispatch);
     console.log(":after");
-    console.log(...data);
-    console.log("responessss", response);
-    console.log("dot data", response.data);
-    dispatch({
-      type: "USER_LOGIN_SUCCESS",
-      payload: response.data
-    });
+    console.log(my);
     login(data)(dispatch);
   } catch (e) {
     dispatch({
