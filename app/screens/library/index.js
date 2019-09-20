@@ -103,7 +103,7 @@ class Library extends Component {
   }
 }
 const mapStateToProps = ({ user }) => ({
-  auth: user, user: user,
+  auth: user,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
-// import styled from "styled-components";
+
 import {
   Text,
   View,
-  AppRegistry,
   StyleSheet,
   Platform,
   TouchableOpacity,

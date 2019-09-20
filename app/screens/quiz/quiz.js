@@ -75,54 +75,102 @@ class Quiz extends Component {
     const title = this.props.navigation.state.params.title;
     const firstCorrect = first.question.correct;
     const fans = first.ans;
-    return (
-      <Container style={styles.container}>
-        <Head navigation={this.props.navigation} />
+    if (!this.state.onEdit) {
+      return (
+        <Container style={styles.container}>
+          <Head navigation={this.props.navigation} />
 
-        <Content>
-          <Text style={styles.subtitle}>{title}</Text>
-          <View style={styles.question}>
-            <Text style={{ flex: 1, margin: 10 }}> {first.question} </Text>
-          </View>
-          <View style={styles.display}>
+          <Content>
+            <Text style={styles.subtitle}>{title}</Text>
+            <View style={styles.question}>
+              <Text style={{ flex: 1, margin: 10 }}> {first.question} </Text>
+            </View>
+            <View style={styles.display}>
 
-            <TouchableOpacity style={styles.answers}>
-              <Text>a) {first.ans.a.name} </Text>
-            </TouchableOpacity>
+              <TouchableOpacity style={styles.answers}>
+                <Text>a) {first.ans.a.name} </Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity style={styles.answers}>
-              <Text>b) {first.ans.b.name} </Text>
-            </TouchableOpacity>
+              <TouchableOpacity style={styles.answers}>
+                <Text>b) {first.ans.b.name} </Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity style={styles.answers}>
-              <Text>c) {first.ans.c.name} </Text>
-            </TouchableOpacity>
+              <TouchableOpacity style={styles.answers}>
+                <Text>c) {first.ans.c.name} </Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity style={styles.answers}>
-              <Text>d) {first.ans.d.name}</Text>
-            </TouchableOpacity>
+              <TouchableOpacity style={styles.answers}>
+                <Text>d) {first.ans.d.name}</Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity style={styles.answers}>
-              <Text>e) {first.ans.e.name} </Text>
-            </TouchableOpacity>
+              <TouchableOpacity style={styles.answers}>
+                <Text>e) {first.ans.e.name} </Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity
-              style={styles.next}
-              onPress={() => this.props.navigation.navigate("Topics")}
-            >
-              <Text style={styles.nextText} >
-                Done
+              <TouchableOpacity
+                style={styles.next}
+                onPress={() => this.setState({ onEdit: true })}
+              >
+                <Text style={styles.nextText} >
+                  Next
               </Text>
 
-            </TouchableOpacity>
+              </TouchableOpacity>
 
-          </View>
-        </Content>
-        <FooterComponet name="profile" props={this.props} />
-      </Container>
-    );
+            </View>
+          </Content>
+          <FooterComponet name="profile" props={this.props} />
+        </Container>
+      );
 
+    } else {
+      return (
+        <Container style={styles.container}>
+          <Head navigation={this.props.navigation} />
 
+          <Content>
+            <Text style={styles.subtitle}>{title}</Text>
+            <View style={styles.question}>
+              <Text style={{ flex: 1, margin: 10 }}> {second.question} </Text>
+            </View>
+            <View style={styles.display}>
+
+              <TouchableOpacity style={styles.answers}>
+                <Text>a) {second.ans.a.name} </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.answers}>
+                <Text>b) {second.ans.b.name} </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.answers}>
+                <Text>c) {second.ans.c.name} </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.answers}>
+                <Text>d) {second.ans.d.name}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.answers}>
+                <Text>e) {second.ans.e.name} </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.next}
+                onPress={() => this.props.navigation.navigate("Library")}
+              >
+                <Text style={styles.nextText} >
+                  Done
+              </Text>
+
+              </TouchableOpacity>
+
+            </View>
+          </Content>
+          <FooterComponet name="profile" props={this.props} />
+        </Container>
+      );
+    }
   }
 }
 const mapStateToProps = state => {

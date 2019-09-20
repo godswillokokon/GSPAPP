@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Platform, Dimensions, ImageBackground, Image, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Dimensions, Text, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
-
-import { Header, Left, Body, Right, Button, Icon, Container, Content, Thumbnail, Form, Item, Label, Input } from "native-base";
-import { login, resetFailureAction, refreshAuthentication, GetUserData, logout } from "../../redux/actions/UserActions";
+import { Container, Content, Thumbnail, Form, Item, Label, Input } from "native-base";
+import { GetUserData } from "../../redux/actions/UserActions";
 import Session from "../../utils/Session";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 import FooterComponet from "../footer";
 import Head from "../header";
 import {
@@ -24,33 +23,6 @@ class Profile extends Component {
     };
 
   }
-
-  componentWillMount() {
-
-  }
-  componentDidMount() {
-    // const data = this.props.getUser();
-    // this.setState({
-    //   data
-    // });
-
-  }
-
-  // loadAsync = async () => {
-  //   //load all required info
-  //   //user info, auth state..etc
-  //   const getToken = await Session.getData("token");
-  //   if (getToken) {
-  //    this.props.getUser();
-
-  //     console.log(this.props.user)
-  //     // this.setState({
-  //     //   data
-  //     // })
-  //     // console.log("cyyyyyyyyyyyyyyyy");
-  //     // return console.log(data);
-  //   }
-  // };
   render() {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
@@ -71,7 +43,9 @@ class Profile extends Component {
 
     }
     const name = `${user.user.name}`;
+    // console.log("usererer", user.user);
     return (
+
       <Container style={styles.container}>
         <Head navigation={this.props.navigation} />
 
@@ -133,12 +107,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  // onLogin: data => dispatch(login(data)),
-  // onLogout: () => dispatch(logout()),
-  // onSignUp: data => dispatch(createAccount(data)),
-  // resetFailureAction: () => dispatch(resetFailureAction()),
+
   getUser: token => dispatch(GetUserData(token)),
-  // refreshAuthentication: token => dispatch(refreshAuthentication(token))
+
 });
 export default connect(
   mapStateToProps,

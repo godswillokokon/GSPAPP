@@ -22,11 +22,7 @@ export default class Chat extends Component {
   state = {
     messages: [],
   };
-  componentWillMount() {
 
-
-
-  }
   get user() {  // Return our name and our UID for GiftedChat to parse
     return {
       name: this.props.navigation.state.params.name,

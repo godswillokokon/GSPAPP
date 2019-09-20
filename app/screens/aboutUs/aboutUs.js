@@ -1,24 +1,12 @@
 import React, { Component } from 'react'
 import {
   Container,
-  Header,
-  Left,
-  Body,
-  Right,
-  Button,
-  Icon,
-  Title,
   Content,
-  Input,
   Footer,
-  Form,
-  Item,
   Card,
-  CardItem
 } from "native-base";
-import { Text, Image, AppRegistry, StyleSheet, Platform, TouchableOpacity, View } from "react-native";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
-import FooterComponet from "../footer";
+import { Text, Image, StyleSheet } from "react-native";
+
 import Head from "../header";
 
 export default class AboutUs extends Component {

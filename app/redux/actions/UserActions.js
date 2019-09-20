@@ -24,8 +24,8 @@ export const login = data => async dispatch => {
       });
     }
 
-    let my = Session.saveUser(response.data);
-    await StaticStoreUserData(response.data)(dispatch);
+    let my = Session.saveUser(response.data.userDetails);
+    await StaticStoreUserData(response.data.userDetails)(dispatch);
     console.log(":after");
     console.log(my);
 
