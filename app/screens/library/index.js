@@ -23,8 +23,8 @@ import Session from "../../utils/Session";
 import { connect } from "react-redux";
 
 const cards = [
-  { key: 'Introduction to the use of Library', icon: 'book', color: '#cfd744' },
-  { key: 'Modern Technologies in Library', icon: 'gears', color: '#52cefc' },
+  { key: 'Introduction to the use of Library', icon: 'book', color: '#cfd744', nav: 'Topics2' },
+  { key: 'Modern Technologies in Library', icon: 'gears', color: '#52cefc', nav: 'Topics' },
 ];
 const formatData = (data, numColumns) => {
   const numberOfFullRows = Math.floor(data.length / numColumns);
@@ -62,21 +62,23 @@ class Library extends Component {
       return <View style={[styles.item, styles.itemInvisible]} />
     }
     return (
-      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Topics")}>
+      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate(item.nav)}>
         <FontAwesome name={item.icon} size={50} color={item.color} />
         <Text style={styles.itemText}> {item.key}</Text>
 
 
       </TouchableOpacity>
+
     );
   };
 
   e;
   render() {
-    this.props.getData(data)
-    console.log("dataa", this.props.getData(data));
-    const { data } = this.state
-    console.log("holdddd", data);
+
+    // const { user } = this.props;
+    // console.log("larrrryyyyy", user.user.courseDetails.topics.materials)
+    // console.log("songg", user.user.courseDetails.topics)
+
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
 
@@ -101,7 +103,7 @@ class Library extends Component {
   }
 }
 const mapStateToProps = ({ user }) => ({
-  auth: user
+  auth: user, user: user,
 });
 
 const mapDispatchToProps = dispatch => ({

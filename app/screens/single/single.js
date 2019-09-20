@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
-import { View, StyleSheet, Platform, Dimensions, Image, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Platform, Dimensions, Image, Text, TouchableOpacity, ScrollView } from "react-native";
 // import { WebView } from 'react-native-webview';
 import { Video } from 'expo';
 import {
@@ -37,6 +37,7 @@ export default class Single extends Component {
     isLooping: false,
   }
 
+
   handlePlayAndPause = () => {
     this.setState((prevState) => ({
       shouldPlay: !prevState.shouldPlay
@@ -54,6 +55,10 @@ export default class Single extends Component {
     }));
   }
   render() {
+    const body = this.props.navigation.state.params.body;
+    const title = this.props.navigation.state.params.title;
+    const quiz1 = this.props.navigation.state.params.quiz1;
+    const quiz2 = this.props.navigation.state.params.quiz2;
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
     let { image } = this.state;
@@ -61,14 +66,14 @@ export default class Single extends Component {
       <Container style={{ height: device_height, width: device_width, backgroundColor: "#1c1d27" }}>
         <Head navigation={this.props.navigation} />
         <Content>
-          <Text style={styles.subtitle}>Chapter 1</Text>
-          <View style={{ backgroundColor: 'white' }}>
-            <Text style={{ color: 'black' }}>
-              Who is the father of computer ?
-          </Text>
-          </View>
+          <Text style={styles.subtitle}>{title}</Text>
+          <ScrollView style={{ backgroundColor: 'white', height: 420 }}>
+            <Text style={{ color: 'black', fontSize: 25, margin: 10 }}>
+              {body}
+            </Text>
+          </ScrollView>
 
-          <TouchableOpacity style={styles.edit} onPress={() => this.props.navigation.navigate("Quiz")}>
+          <TouchableOpacity style={styles.edit} onPress={() => this.props.navigation.navigate("Quiz", { first: quiz1, second: quiz2, title: title })}>
             <Text style={styles.editText}>Take Quiz</Text>
           </TouchableOpacity>
 

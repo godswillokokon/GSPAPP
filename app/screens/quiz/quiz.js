@@ -70,24 +70,41 @@ class Quiz extends Component {
 
     }
     const name = `${user.user.name}`;
+    const first = this.props.navigation.state.params.first;
+    const second = this.props.navigation.state.params.second;
+    const title = this.props.navigation.state.params.title;
+    const firstCorrect = first.question.correct;
+    const fans = first.ans;
     return (
       <Container style={styles.container}>
         <Head navigation={this.props.navigation} />
 
         <Content>
+          <Text style={styles.subtitle}>{title}</Text>
           <View style={styles.question}>
-            <Text style={{ flex: 1, margin: 10 }}> There are two organizational systems practiced in the University library. What are they? </Text>
+            <Text style={{ flex: 1, margin: 10 }}> {first.question} </Text>
           </View>
           <View style={styles.display}>
 
             <TouchableOpacity style={styles.answers}>
-              <Text>a)      Centralized and decentralized</Text>
+              <Text>a) {first.ans.a.name} </Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.answers}>
-              <Text>b)     Centralized and decentralized</Text>
+              <Text>b) {first.ans.b.name} </Text>
             </TouchableOpacity>
 
+            <TouchableOpacity style={styles.answers}>
+              <Text>c) {first.ans.c.name} </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.answers}>
+              <Text>d) {first.ans.d.name}</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.answers}>
+              <Text>e) {first.ans.e.name} </Text>
+            </TouchableOpacity>
 
             <TouchableOpacity
               style={styles.next}
@@ -161,7 +178,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     backgroundColor: "#6771e4",
-    padding: 20,
+    padding: 5,
     margin: 10,
     width: 300,
     alignItems: "center",
@@ -180,5 +197,11 @@ const styles = StyleSheet.create({
   display: {
     alignContent: 'center',
 
-  }
+  },
+  subtitle: {
+    fontSize: 20,
+    color: "white",
+    textAlign: 'center',
+    margin: 5
+  },
 });

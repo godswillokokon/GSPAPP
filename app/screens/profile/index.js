@@ -57,9 +57,10 @@ class Profile extends Component {
     const { user } = this.props;
     // console.log("user pro", user);
     // console.log("user pro", user.user);
+    let ass = 0.6;
     const data = {
       labels: ['Score', 'Quiz', 'IQ'], // optional
-      data: [0.6, 0.6, 0.6]
+      data: [ass, ass, ass]
     }
     const chartConfig = {
       // backgroundGradientFrom: '#1e2326',
@@ -109,7 +110,7 @@ class Profile extends Component {
               style={styles.edit}
 
             >
-              <Text style={styles.editText} onPress={() => this.props.navigation.navigate("Assessment")}>Self Assessment </Text>
+              <Text style={styles.editText} onPress={() => this.props.navigation.navigate("Assessment")}>Self Assessment <FontAwesome name="history" color={"#1e2326"} size={20} /></Text>
             </TouchableOpacity>
             <ProgressChart
               data={data}

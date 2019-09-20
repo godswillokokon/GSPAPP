@@ -34,21 +34,53 @@ import {
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 const cards = [
-  { key: 'Biology', icon: 'bug', color: '#cfd744' },
-  { key: 'Agric Science', icon: 'pagelines', color: '#52cefc' },
-  { key: 'Chemistry', icon: 'flask', color: '#cfd744' },
-  { key: 'History', icon: 'globe', color: '#52cefc' },
-  { key: 'English Language', icon: 'sort-alpha-asc', color: '#cfd744' },
-  { key: 'Mathematics', icon: 'subscript', color: '#52cefc' },
-  { key: 'Futher Maths', icon: 'superscript', color: '#cfd744' },
-  { key: 'Physical Education', icon: 'futbol-o', color: '#cfd744' },
-  { key: 'Government', icon: 'balance-scale', color: '#52cefc' },
-  { key: 'Economics', icon: 'line-chart', color: '#52cefc' },
-  { key: 'Statictics', icon: 'pie-chart', color: '#cfd744' },
-  { key: 'Physics', icon: 'grav', color: '#52cefc' },
-  { key: 'Computer Science', icon: 'desktop', color: '#cfd744' },
-  { key: 'Geography', icon: 'map-o', color: '#52cefc' },
-  { key: 'Technical Drawing', icon: 'connectdevelop', color: '#cfd744' }
+  {
+    key: 'Definition of terms', icon: 'map-o', color: '#cfd744', body:
+      'Data: Data (singular datum) mean facts used in describing or discussing an item or a set of items. Information: Information is processed data that changes the state of a system that perceives it, whether a computer or a brain, hence a stream of data that does not change the state of its receiver is not information. Communication: is the activity of conveying information between two or more communicating entities. Technology: is defined as study of the technical means undertaken in all culture (a universal) which involves the systematic application of organized knowledge (synthesis) and tangibles (tools) for the extension of human facilities that are restricted as a result of the evolutionary process. Computer: is an electronic device that accepts input from a user, processes the input, stores the result if desired and /or produces output. Computer consists of a collection of hardware and software. Hardware is the physical parts of a computer that can be seen and touched. Software is the intangible part of the computer that cannot be seen but like the wind can be felt.',
+    quiz: {
+      question: '"________ are libraries without walls that depend on virtual reality technology for the creation of highly realistic simulations and surrogating in which users can become totally immersed Which of the following physical conditions can be translated?',
+      correct: 'a',
+      ans: {
+        a: {
+          key: 'a', name: 'Virtual libraries'
+        },
+        b: {
+          key: 'b', name: 'Modern libraries'
+        },
+        c: {
+          key: 'c', name: 'Conventional libraries'
+        },
+        d: {
+          key: 'd', name: 'Closed libraries'
+        },
+        e: {
+          key: 'e', name: 'None of the mentioned'
+        },
+      },
+
+    },
+    quiz2: {
+      question: 'The functions of library include the following except',
+      correct: 'e',
+      ans: {
+        a: {
+          key: 'a', name: 'Information retrie'
+        },
+        b: {
+          key: 'b', name: 'Storage'
+        },
+        c: {
+          key: 'c', name: 'Documentation'
+        },
+        d: {
+          key: 'd', name: 'Design'
+        },
+        e: {
+          key: 'e', name: 'System'
+        }
+      }
+    }
+  },
 ];
 const formatData = (data, numColumns) => {
   const numberOfFullRows = Math.floor(data.length / numColumns);
@@ -71,7 +103,7 @@ export default class Topics extends Component {
       return <View style={[styles.item, styles.itemInvisible]} />
     }
     return (
-      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Single")}>
+      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Single", { body: item.body, title: item.key, quiz1: item.quiz, quiz2: item.quiz2 })}>
         <FontAwesome name={item.icon} size={50} color={item.color} />
         <Text style={styles.itemText}> {item.key}</Text>
 
