@@ -51,7 +51,9 @@ class Quiz extends Component {
   //     // return console.log(data);
   //   }
   // };
+
   render() {
+
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
     const { user } = this.props;
@@ -60,7 +62,8 @@ class Quiz extends Component {
     const data = {
       labels: ['Score', 'Quiz', 'IQ'], // optional
       data: [0.6, 0.6, 0.6]
-    }
+    };
+
     const chartConfig = {
       // backgroundGradientFrom: '#1e2326',
       backgroundGradientTo: '#1e2326',
@@ -88,7 +91,7 @@ class Quiz extends Component {
             <View style={styles.display}>
 
               <TouchableOpacity style={styles.answers}>
-                <Text>a) {first.ans.a.name} </Text>
+                <Text>{first.ans.a.key}  {first.ans.a.name} </Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.answers}>

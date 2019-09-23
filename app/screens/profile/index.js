@@ -60,7 +60,7 @@ class Profile extends Component {
             <Form style={{ margin: 10 }}>
               <Item floatingLabel>
                 <Label>Name</Label>
-                <Input disabled value={name} style={styles.info} />
+                <Input disabled value={user.user.name} style={styles.info} />
               </Item>
               <Item floatingLabel >
                 <Label> Faculty</Label>

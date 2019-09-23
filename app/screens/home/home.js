@@ -35,7 +35,7 @@ class Home extends Component {
       isAppReady: false,
       authError: null,
       authReady: false,
-      tokenValidity: null
+      tokenValidity: null,
     };
   }
   async componentDidMount() {

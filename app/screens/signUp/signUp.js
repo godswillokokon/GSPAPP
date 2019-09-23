@@ -46,6 +46,7 @@ class SignUp extends Component {
   _simulateLogin = (phoneNumber, password) => {
     this.setState({ isLoading: true });
     this.props.onLogin({ phoneNumber, password });
+    this.props.navigation.navigate("Profile");
   };
 
   render() {
@@ -109,6 +110,7 @@ class SignUp extends Component {
                 {this.state.isLoading ? (
                   <ActivityIndicator style={styles.spinner} size="large" color={"#6771e4"} />
                 ) : (
+
                     <FontAwesome name="sign-in" size={45} color={"#6771e4"} />
                   )}
               </Button>
