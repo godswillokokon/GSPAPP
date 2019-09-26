@@ -9,7 +9,6 @@ import Single from '../screens/single/single';
 import Topics from '../screens/topics/index';
 import Topics2 from '../screens/topics/index2';
 import Register from '../screens/register/register';
-import Feedback from '../screens/feedback/feedback';
 import AboutUs from '../screens/aboutUs/aboutUs';
 import Chat from '../screens/chat/chat';
 import MainChat from '../screens/chat/main';
@@ -58,10 +57,6 @@ const MainNavigator = createStackNavigator({
   },
   Topics: {
     screen: Topics,
-    navigationOptions: { header: null }
-  },
-  Feedback: {
-    screen: Feedback,
     navigationOptions: { header: null }
   },
   AboutUs: {

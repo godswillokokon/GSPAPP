@@ -22,12 +22,13 @@ export const login = data => async dispatch => {
     await StaticStoreUserData(response.data.userDetails)(dispatch);
     this.props.navigation.navigate("Profile");
   } catch (e) {
-    alert(e);
+    let err = e.response.data.errors
+    alert(err[0].detail);
     dispatch({
       type: "USER_AUTH_ERROR",
-      payload: e.response
-    });
+      payload: e.response.data.errors,
 
+    });
   }
 };
 
@@ -55,26 +56,24 @@ export const logout = () => dispatch => {
 
 export const createAccount = data => async dispatch => {
   try {
+    console.log("start", data);
+    console.log("start 2", { ...data });
     const response = await Axios.post(`/register`, { ...data });
-    const saveToken = Session.saveToken(response.data.token);
+    console.log("cont 1", response)
 
-    const tok = response.data.token
-    Session.setData('token', tok);
-    if (saveToken) {
-      await dispatch({
-        type: "USER_LOGIN_SUCCESS",
-        payload: response.data.token
-      });
-    }
-
-    let my = Session.saveUser(response.data.userDetails);
-    await StaticStoreUserData(response.data.userDetails)(dispatch);
+    dispatch({
+      type: "USER_CREATE_ACCOUNT_SUCCESS",
+      payload: response.data.token
+    });
+    console.log("cont 2")
     login(data)(dispatch);
+    // login(data);
     this.props.navigation.navigate("Profile");
   } catch (e) {
-    alert(e);
+    let errr = e.response.data.errors
+    alert(errr[0].detail);
     dispatch({
-      type: "USER_AUTH_ERROR",
+      type: "USER_CREATE_ACCOUNT_FAILURE",
       payload: e.response.data.message,
 
     });

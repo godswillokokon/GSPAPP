@@ -46,7 +46,7 @@ class SignUp extends Component {
   _simulateLogin = (phoneNumber, password) => {
     this.setState({ isLoading: true });
     this.props.onLogin({ phoneNumber, password });
-   
+
   };
 
   render() {
@@ -64,7 +64,7 @@ class SignUp extends Component {
           <Text style={styles.logo}>
 
           </Text>
-          <Content style={{ top: 30 }}>
+          <Content>
             <Form>
               <Item style={[styles.loginMidLine]} floatingLabel >
                 <Label>Mobile</Label>
@@ -76,6 +76,7 @@ class SignUp extends Component {
                   returnKeyType="next"
                   onChangeText={value => this.setState({ phoneNumber: value })}
                   isEnabled={!this.state.isLoading}
+
                 />
               </Item>
 
@@ -138,16 +139,7 @@ class SignUp extends Component {
                   <Text>About</Text>
                 </Body>
               </ListItem>
-              <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("Feedback")}>
-                <Left>
-                  <Button disabled style={{ backgroundColor: "#007AFF" }}>
-                    <FontAwesome active name="comments" />
-                  </Button>
-                </Left>
-                <Body style={styles.whiteBorder}>
-                  <Text>Feedback</Text>
-                </Body>
-              </ListItem>
+
             </View>
           </Content>
         </ImageBackground>

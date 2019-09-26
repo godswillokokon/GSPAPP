@@ -94,7 +94,7 @@ class Home extends Component {
   }
   _onError = error => {
     if (error) {
-      this.dropdown.alertWithType("error", "Error", error);
+      alert('error :', error)
     }
   };
   onChange = data => {
@@ -107,7 +107,7 @@ class Home extends Component {
     if (this.state.authReady) {
       return (
         <ImageBackground
-          source={require("../../../assets/books.jpg")}
+          source={require("../../../assets/back.jpg")}
           style={{
             height: device_height + 78,
             width: device_width,
@@ -125,7 +125,7 @@ class Home extends Component {
               )}
             </View>
           </View>
-          <DropdownAlert ref={ref => (this.dropdown = ref)} onClose={data => this.onAlertClose(data)} />
+
         </ImageBackground>
       );
     } else {
@@ -142,7 +142,7 @@ class Home extends Component {
             onFinish={() => this.routeToRightView()}
             onError={() => this._onError()}
           />
-          <DropdownAlert ref={ref => (this.dropdown = ref)} onClose={data => this.onAlertClose(data)} />
+
           <ActivityIndicator size={"large"} />
         </View>
       );
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     borderColor: "#1e2326"
   },
   butText: {
-    color: "#1e2326",
+    color: "#fff",
     fontSize: 20,
     fontWeight: "bold"
   },

@@ -18,6 +18,8 @@ class Register extends Component {
       faculty: "",
       phoneNumber: "",
       password: "",
+      sex: "",
+      age: "",
       isLoggedIn: false,
       isLoading: false,
       isAppReady: false,
@@ -43,8 +45,8 @@ class Register extends Component {
   }
   _simulateSignup = (name, faculty, phoneNumber, age, sex, password) => {
     this.setState({ isLoading: true });
-    this.props.onSignUp({ name, phoneNumber, age, sex, faculty, password });
-    // this.props.navigation.navigate("Profile");
+    this.props.onSignUp({ name, faculty, phoneNumber, age, sex, password });
+
   };
 
   render() {
@@ -59,11 +61,12 @@ class Register extends Component {
           <Text style={styles.logo}>
 
           </Text>
-          <Content style={{ top: 10 }}>
+          <Content>
             <Form>
               <Item style={[styles.loginMidLine]}>
                 <FontAwesome name="user" size={25} color={"black"} style={styles.icons} />
                 <Input
+                  ref={ref => (this.textInputRef = ref)}
                   placeholder="Full Name"
                   type="text"
                   placeholderTextColor="black"
@@ -73,8 +76,9 @@ class Register extends Component {
                 />
               </Item>
               <Item style={[styles.loginMidLine]}>
-                <FontAwesome name="user" size={25} color={"black"} style={styles.icons} />
+                <Ionicons name="md-medal" size={25} color={"black"} style={styles.icons} />
                 <Input
+                  ref={ref => (this.textInputRef = ref)}
                   placeholder="Faculty"
                   type="text"
                   placeholderTextColor="black"
@@ -84,8 +88,9 @@ class Register extends Component {
                 />
               </Item>
               <Item style={[styles.loginMidLine]}>
-                <Ionicons name="ios-mail" size={25} color={"black"} style={styles.icons} />
+                <Ionicons name="ios-contact" size={25} color={"black"} style={styles.icons} />
                 <Input
+                  ref={ref => (this.textInputRef = ref)}
                   placeholder="Phone Number"
                   type="number"
                   placeholderTextColor="black"
@@ -95,8 +100,9 @@ class Register extends Component {
                 />
               </Item>
               <Item style={[styles.loginMidLine]}>
-                <Ionicons name="ios-mail" size={25} color={"black"} style={styles.icons} />
+                <Ionicons name="md-ribbon" size={25} color={"black"} style={styles.icons} />
                 <Input
+                  ref={ref => (this.textInputRef = ref)}
                   placeholder="Age"
                   type="number"
                   placeholderTextColor="black"
@@ -106,8 +112,9 @@ class Register extends Component {
                 />
               </Item>
               <Item style={[styles.loginMidLine]}>
-                <Ionicons name="ios-mail" size={25} color={"black"} style={styles.icons} />
+                <Ionicons name="ios-contacts" size={25} color={"black"} style={styles.icons} />
                 <Input
+                  ref={ref => (this.textInputRef = ref)}
                   placeholder="Sex"
                   type="text"
                   placeholderTextColor="black"
@@ -120,6 +127,7 @@ class Register extends Component {
               <Item style={[styles.loginMidLine]}>
                 <FontAwesome name="lock" size={25} color={"black"} style={styles.icons} />
                 <Input
+                  ref={ref => (this.passwordInputRef = ref)}
                   secureTextEntry={true}
                   returnKeyType="done"
                   onChangeText={value => this.setState({ password: value })}
@@ -129,26 +137,11 @@ class Register extends Component {
                 />
               </Item>
 
-              <ListItem style={styles.remBtn}>
-                <CheckBox checked={this.state.checked} color={"#1e2326"} onPress={this.Clicked.bind(this)} />
-                <Body>
-                  <Text style={{ color: "black", fontSize: 15 }} onPress={this.Clicked.bind(this)}>
-                    I Agree to Terms & Conditions
-                  </Text>
-                </Body>
-              </ListItem>
+
               <Button
                 rounded
                 style={styles.loginBtn}
-                onPress={() =>
-                  this._simulateSignup(
-                    this.state.name,
-                    this.state.faculty,
-                    this.state.phoneNumber,
-                    this.state.password,
-
-                  )
-                }
+                onPress={() => this._simulateSignup(this.state.name, this.state.faculty, this.state.phoneNumber, this.state.age, this.state.sex, this.state.password)}
               >
                 {this.state.isLoading ? (
                   <ActivityIndicator style={styles.spinner} size="large" color={"#6771e4"} />
@@ -173,9 +166,9 @@ const mapStateToProps = ({ user }) => ({
 
 const mapDispatchToProps = dispatch => ({
   // onLogin: data => dispatch(login(data)),
-  onLogout: () => dispatch(logout()),
+  // onLogout: () => dispatch(logout()),
   onSignUp: data => dispatch(createAccount(data)),
-  resetFailureAction: () => dispatch(resetFailureAction()),
+  // resetFailureAction: () => dispatch(resetFailureAction()),
   getUser: token => dispatch(GetUserData(token)),
   refreshAuthentication: token => dispatch(refreshAuthentication(token))
 });
@@ -191,8 +184,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     ...Platform.select({
-      android: { paddingTop: 30 },
-      ios: { paddingTop: 35 }
+      android: { paddingTop: 1 }
     }),
     alignItems: "center",
     justifyContent: "center",
@@ -204,7 +196,8 @@ const styles = StyleSheet.create({
   logins: {
     width: 250,
     marginLeft: 20,
-    borderColor: "white"
+    borderColor: "white",
+    marginTop: 500
   },
   icons: {
     marginRight: 20

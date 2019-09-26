@@ -19,7 +19,7 @@ export default class AboutUs extends Component {
         <Head navigation={this.props.navigation} />
         <Content>
           <Text style={styles.photo}>
-            <Image source={require("../../../assets/books.jpg")} style={{ width: 452, height: 250 }} />
+            <Image source={require("../../../assets/about.jpg")} style={{ width: 452, height: 250 }} />
           </Text>
           <Card>
             <Text>

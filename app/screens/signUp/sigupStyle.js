@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     ...Platform.select({
-      android: { paddingTop: 30 },
+      android: { paddingTop: 20 },
       ios: { paddingTop: 35 }
     }),
     alignItems: "center",
