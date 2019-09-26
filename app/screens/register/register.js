@@ -44,7 +44,7 @@ class Register extends Component {
   _simulateSignup = (name, faculty, phoneNumber, age, sex, password) => {
     this.setState({ isLoading: true });
     this.props.onSignUp({ name, phoneNumber, age, sex, faculty, password });
-    this.props.navigation.navigate("Profile");
+    // this.props.navigation.navigate("Profile");
   };
 
   render() {

@@ -46,7 +46,7 @@ class SignUp extends Component {
   _simulateLogin = (phoneNumber, password) => {
     this.setState({ isLoading: true });
     this.props.onLogin({ phoneNumber, password });
-    this.props.navigation.navigate("Profile");
+   
   };
 
   render() {

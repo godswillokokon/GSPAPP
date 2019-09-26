@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "GSPAPP",
-    "description": "This project is really great.",
     "slug": "GSPAPP",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
-      "android"
+      "android",
+      "web"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,25 +15,20 @@
     "splash": {
       "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#fff"
+      "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 2
+      "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
     ],
-    "primaryColor": "#6771e4",
     "ios": {
       "supportsTablet": true
     },
+    "primaryColor": "#6771e4",
     "android": {
-      "package": "com.OGcodes.OG",
-      "config": {
-        "googleMaps": {
-          "apiKey": ""
-        }
-      }
+      "package": "com.OGcodes.OG"
     }
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 import Home from '../screens/home/home';
 import Login from '../screens/signUp/signUp';
 import Library from '../screens/library';
