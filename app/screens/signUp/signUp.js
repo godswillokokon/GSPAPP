@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { View, Image, Dimensions, ActivityIndicator, ImageBackground } from "react-native";
-import { AppLoading } from "expo";
+import { View, Dimensions, ActivityIndicator, ImageBackground } from "react-native";
 import { Container, Content, Form, Item, Input, Left, Button, Text, CheckBox, Body, ListItem, Label } from "native-base";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 import { login, resetFailureAction, refreshAuthentication, GetUserData, logout } from "../../redux/actions/UserActions";
 import styles from "./sigupStyle";
 
@@ -39,24 +38,16 @@ class SignUp extends Component {
   }
   Clicked() {
     this.state.checked ? this.UnCheckBox() : this.CheckBox();
-    // if (this.state.checked) return console.log("checked");
-    // if (!this.state.checked) return console.log("unchecked");
-
   }
   _simulateLogin = (phoneNumber, password) => {
     this.setState({ isLoading: true });
     this.props.onLogin({ phoneNumber, password });
-
   };
 
   render() {
     const { phoneNumber, password } = this.state;
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
-    // console.log("your phoneNumber height is ",device_height);
-    // console.log("your phoneNumber width is ",device_width);
-
-
 
     return (
       <Container style={styles.container}>
@@ -70,16 +61,13 @@ class SignUp extends Component {
                 <Label>Mobile</Label>
                 <Input
                   ref={ref => (this.textInputRef = ref)}
-                  // placeholder="Mobile"
                   name={"phone"}
                   type="number"
                   returnKeyType="next"
                   onChangeText={value => this.setState({ phoneNumber: value })}
                   isEnabled={!this.state.isLoading}
-
                 />
               </Item>
-
               <Item style={[styles.loginMidLine]} floatingLabel >
 
                 <Label>Password</Label>
@@ -89,7 +77,6 @@ class SignUp extends Component {
                   type="password"
                   secureTextEntry={true}
                   returnKeyType="done"
-                  // placeholder="Password"
                   onChangeText={value => this.setState({ password: value })}
                   isEnabled={!this.state.isLoading}
                 />
@@ -106,7 +93,6 @@ class SignUp extends Component {
                 rounded
                 style={styles.loginBtn}
                 onPress={() => this._simulateLogin(this.state.phoneNumber, this.state.password)}
-
               >
                 {this.state.isLoading ? (
                   <ActivityIndicator style={styles.spinner} size="large" color={"#6771e4"} />
@@ -127,8 +113,6 @@ class SignUp extends Component {
                   <Text>Sign Up</Text>
                 </Body>
               </ListItem>
-
-
               <ListItem icon style={styles.lowerBody} onPress={() => this.props.navigation.navigate("AboutUs")}>
                 <Left>
                   <Button disabled style={{ backgroundColor: "#7151e4" }}>
@@ -139,7 +123,6 @@ class SignUp extends Component {
                   <Text>About</Text>
                 </Body>
               </ListItem>
-
             </View>
           </Content>
         </ImageBackground>
@@ -155,7 +138,6 @@ const mapStateToProps = ({ user }) => ({
 const mapDispatchToProps = dispatch => ({
   onLogin: data => dispatch(login(data)),
   onLogout: () => dispatch(logout()),
-  // onSignUp: data => dispatch(createAccount(data)),
   resetFailureAction: () => dispatch(resetFailureAction()),
   getUser: token => dispatch(GetUserData(token)),
   refreshAuthentication: token => dispatch(refreshAuthentication(token))
@@ -164,4 +146,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignUp);
-// AppRegistry.registerComponent("CARTA-SignUp", () => SignUp);

@@ -81,20 +81,7 @@ const MainNavigator = createStackNavigator({
   },
 });
 
+
+
 const AppContainer = createAppContainer(MainNavigator);
 export default AppContainer;
-// export default createDrawerNavigator(
-//   {
-//     // TabNavigator: { screen: tabNavigator },
-//     // TransactionHistory: {
-//     //     screen: transactionHistoryNavigator
-//     // },
-//     Main: {
-//       screen: MainNavigator
-//     }
-//   },
-//   {
-//     // contentComponent: SideMenu,
-//     initialRouteName: 'Main'
-//   }
-// );

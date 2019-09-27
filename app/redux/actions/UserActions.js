@@ -10,7 +10,7 @@ export const login = data => async dispatch => {
     const response = await Axios.post(`/login`, { ...data });
     const saveToken = Session.saveToken(response.data.token);
     const tok = response.data.token
-    Session.setData('token', tok);
+    Session.saveToken('token', tok);
     if (saveToken) {
       await dispatch({
         type: "USER_LOGIN_SUCCESS",
@@ -18,7 +18,7 @@ export const login = data => async dispatch => {
       });
     }
 
-    let my = Session.saveUser(response.data.userDetails);
+    Session.saveUser(response.data.userDetails);
     await StaticStoreUserData(response.data.userDetails)(dispatch);
     this.props.navigation.navigate("Profile");
   } catch (e) {
