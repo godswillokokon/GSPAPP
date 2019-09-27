@@ -37,7 +37,6 @@ class Register extends Component {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
 
-
     return (
       <Container style={styles.container} >
         <ImageBackground source={require("../../../assets/back.jpg")} style={{ height: device_height + 78, width: device_width }}>
@@ -104,7 +103,6 @@ class Register extends Component {
                   maxLength={14}
                 />
               </Item>
-
               <Item style={[styles.loginMidLine]}>
                 <FontAwesome name="lock" size={25} color={"black"} style={styles.icons} />
                 <Input
@@ -112,13 +110,11 @@ class Register extends Component {
                   secureTextEntry={true}
                   returnKeyType="done"
                   onChangeText={value => this.setState({ password: value })}
-                  placeholder="Password"
+                  placeholder="Password must be more than 7 charaters"
                   placeholderTextColor="black"
                   underline={true}
                 />
               </Item>
-
-
               <Button
                 rounded
                 style={styles.loginBtn}
@@ -132,7 +128,7 @@ class Register extends Component {
               </Button>
             </Form>
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")} style={[styles.signin]}>
-              <Text style={{ color: "black" }}>Already Have An Account? Sign In</Text>
+              <Text style={{ color: "white" }}>Already Have An Account? Sign In</Text>
             </TouchableOpacity>
           </Content>
         </ImageBackground>
@@ -163,9 +159,6 @@ const styles = StyleSheet.create({
     ...Platform.select({
       android: { paddingTop: 1 }
     }),
-    alignItems: "center",
-    justifyContent: "center",
-    alignSelf: "center",
     marginBottom: 0,
     width: 552 / 2,
     height: 400 / 2
@@ -188,7 +181,14 @@ const styles = StyleSheet.create({
   },
   signin: {
     bottom: 60,
-    alignSelf: "center"
+    flex: 1,
+    alignSelf: "center",
+    backgroundColor: "#1e2326",
+    padding: 20,
+    margin: 10,
+    width: 300,
+    alignItems: "center",
+    borderRadius: 39
   },
   spinner: {
     height: 45,
