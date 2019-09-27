@@ -155,30 +155,7 @@ const styles = StyleSheet.create({
     width: 250,
     marginLeft: 20
   },
-  remBtn: {
-    top: -7,
-    width: 190,
-    borderColor: "transparent"
-  },
   whiteBorder: {
     borderColor: "transparent"
-  },
-  lowerBody: {
-    // borderColor: 'transparent',
-    // textDecorationLine: none
-  },
-  footerImage: {
-    margin: 5,
-    opacity: 0.61,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  showPassword: {
-    // borderColor: "black",
-    backgroundColor: "whitesmoke",
-    // borderWidth: 3,
-    borderRadius: 200,
-    height: 25,
-    width: 50
   }
 });

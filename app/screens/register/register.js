@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Platform, Image, Dimensions, ActivityIndicator, TouchableOpacity, ImageBackground } from "react-native";
-import { Container, Content, Form, Item, Input, Left, Button, Text, CheckBox, Body, ListItem } from "native-base";
+import { StyleSheet, Platform, Dimensions, ActivityIndicator, TouchableOpacity, ImageBackground } from "react-native";
+import { Container, Content, Form, Item, Input, Button, Text } from "native-base";
 import { connect } from "react-redux";
-import { createAccount, resetFailureAction, refreshAuthentication, GetUserData, logout } from "../../redux/actions/UserActions";
+import { createAccount, refreshAuthentication, GetUserData } from "../../redux/actions/UserActions";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 class Register extends Component {
@@ -13,7 +13,6 @@ class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: true,
       name: "",
       faculty: "",
       phoneNumber: "",
@@ -28,21 +27,6 @@ class Register extends Component {
       tokenValidity: null
     };
   }
-  UnCheckBox() {
-    this.setState({
-      checked: false
-    });
-  }
-  CheckBox() {
-    this.setState({
-      checked: true
-    });
-  }
-  Clicked() {
-    this.state.checked ? this.UnCheckBox() : this.CheckBox();
-    // if (this.state.checked) return console.log("checked");
-    // if (!this.state.checked) return console.log("unchecked");
-  }
   _simulateSignup = (name, faculty, phoneNumber, age, sex, password) => {
     this.setState({ isLoading: true });
     this.props.onSignUp({ name, faculty, phoneNumber, age, sex, password });
@@ -52,15 +36,12 @@ class Register extends Component {
   render() {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
-    // console.log("your phoneNumber height is ",device_height);
-    // console.log("your phoneNumber width is ",device_width);
+
 
     return (
       <Container style={styles.container} >
         <ImageBackground source={require("../../../assets/back.jpg")} style={{ height: device_height + 78, width: device_width }}>
-          <Text style={styles.logo}>
-
-          </Text>
+          <Text style={styles.logo}></Text>
           <Content>
             <Form>
               <Item style={[styles.loginMidLine]}>
@@ -150,7 +131,7 @@ class Register extends Component {
                   )}
               </Button>
             </Form>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")} style={[styles.login]}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Login")} style={[styles.signin]}>
               <Text style={{ color: "black" }}>Already Have An Account? Sign In</Text>
             </TouchableOpacity>
           </Content>
@@ -165,10 +146,7 @@ const mapStateToProps = ({ user }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // onLogin: data => dispatch(login(data)),
-  // onLogout: () => dispatch(logout()),
   onSignUp: data => dispatch(createAccount(data)),
-  // resetFailureAction: () => dispatch(resetFailureAction()),
   getUser: token => dispatch(GetUserData(token)),
   refreshAuthentication: token => dispatch(refreshAuthentication(token))
 });
@@ -176,7 +154,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Register);
-// AppRegistry.registerComponent("CARTA-SignUp", () => SignUp);
 
 const styles = StyleSheet.create({
   container: {
@@ -192,12 +169,6 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     width: 552 / 2,
     height: 400 / 2
-  },
-  logins: {
-    width: 250,
-    marginLeft: 20,
-    borderColor: "white",
-    marginTop: 500
   },
   icons: {
     marginRight: 20
@@ -215,23 +186,9 @@ const styles = StyleSheet.create({
     width: 250,
     marginLeft: 20
   },
-  remBtn: {
-    top: -7,
-    width: 300,
-    borderColor: "transparent"
-  },
-  whiteBorder: {
-    borderColor: "transparent"
-  },
-  login: {
+  signin: {
     bottom: 60,
     alignSelf: "center"
-  },
-  footerImage: {
-    margin: 5,
-    opacity: 0.61,
-    alignItems: "center",
-    justifyContent: "center"
   },
   spinner: {
     height: 45,
@@ -239,12 +196,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
   },
-  showPassword: {
-    // borderColor: "black",
-    backgroundColor: "whitesmoke",
-    // borderWidth: 3,
-    borderRadius: 200,
-    height: 25,
-    width: 50
-  }
 });
