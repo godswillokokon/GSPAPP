@@ -17,7 +17,7 @@ export default class AboutUs extends Component {
       <Container style={styles.container}>
         <Head navigation={this.props.navigation} />
         <Content style={{ flex: 1, }}>    
-          <Card style={{ marginTop: 20 }}>
+          <Card style={{ marginTop: 200 }}>
             <Text>
                   This Mobile App called General Studies Programme Application (GSPAPP) is designed for use in the learning of Use of 
               Library and Study Skills for  students in the first year of General Studies  Programme. 
