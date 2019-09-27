@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { View, Dimensions, ActivityIndicator, ImageBackground, StyleSheet, Platform } from "react-native";
-import { Container, Content, Form, Item, Input, Left, Button, Text, CheckBox, Body, ListItem, Label } from "native-base";
+import { Container, Content, Form, Item, Input, Left, Button, Text, Body, ListItem, Label } from "native-base";
 import { FontAwesome } from "@expo/vector-icons";
 import { login, resetFailureAction, refreshAuthentication, GetUserData, logout } from "../../redux/actions/UserActions";
 
@@ -13,7 +13,6 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: true,
       username: "",
       phoneNumber: "",
       password: "",
@@ -24,19 +23,6 @@ class SignUp extends Component {
       authReady: false,
       tokenValidity: null
     };
-  }
-  UnCheckBox() {
-    this.setState({
-      checked: false
-    });
-  }
-  CheckBox() {
-    this.setState({
-      checked: true
-    });
-  }
-  Clicked() {
-    this.state.checked ? this.UnCheckBox() : this.CheckBox();
   }
   _simulateLogin = (phoneNumber, password) => {
     this.setState({ isLoading: true });
@@ -50,9 +36,7 @@ class SignUp extends Component {
     return (
       <Container style={styles.container}>
         <ImageBackground source={require("../../../assets/back.jpg")} style={{ height: device_height + 78, width: device_width }}>
-          <Text style={styles.logo}>
-          </Text>
-          <Content>
+          <Content style={styles.content}>
             <Form>
               <Item style={[styles.loginMidLine]} floatingLabel >
                 <Label>Mobile</Label>
@@ -78,17 +62,9 @@ class SignUp extends Component {
                   isEnabled={!this.state.isLoading}
                 />
               </Item>
-              <ListItem style={styles.remBtn}>
-                <CheckBox checked={this.state.checked} color={"#1e2326"} onPress={this.Clicked.bind(this)} />
-                <Body>
-                  <Text style={{ color: "black" }} onPress={this.Clicked.bind(this)}>
-                    Remember
-                  </Text>
-                </Body>
-              </ListItem>
               <Button
                 rounded
-                style={styles.loginBtn}
+                style={[styles.loginBtn, styles.content]}
                 onPress={() => this._simulateLogin(this.state.phoneNumber, this.state.password)}
               >
                 {this.state.isLoading ? (
@@ -148,12 +124,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  logo: {
-    ...Platform.select({
-      android: { paddingTop: 20 },
-      ios: { paddingTop: 35 }
-    }),
-    height: 100
+  content: {
+    marginTop: 70
   },
   logins: {
     width: 250,
