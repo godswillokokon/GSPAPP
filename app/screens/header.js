@@ -49,13 +49,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#6771e4",
     paddingBottom: 40
   },
-  body: {
-    marginTop: 20,
-    marginLeft: 41
-  },
-  title: {
-    color: "white",
-    fontSize: 17,
-    fontWeight: "bold"
-  },
 });  
