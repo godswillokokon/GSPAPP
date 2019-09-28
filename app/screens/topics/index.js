@@ -1,37 +1,9 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
-// import styled from "styled-components";
-import {
-  Text,
-  View,
-  AppRegistry,
-  StyleSheet,
-  Platform,
-  TouchableOpacity,
-  Dimensions,
-  Image,
-  ImageBackground,
-  FlatList
-} from "react-native";
-import {
-  Container,
-  Header,
-  Left,
-  Body,
-  CardItem,
-  Card,
-  Right,
-  Button,
-  Icon,
-  Title,
-  Content,
-  Input,
-  Textarea,
-  Form,
-  Item
-} from "native-base";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "react-native";
+import { Container, Content } from "native-base";
+import { FontAwesome } from "@expo/vector-icons";
 
 const cards = [
   {
@@ -106,8 +78,6 @@ export default class Topics extends Component {
       <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Single", { body: item.body, title: item.key, quiz1: item.quiz, quiz2: item.quiz2 })}>
         <FontAwesome name={item.icon} size={50} color={item.color} />
         <Text style={styles.itemText}> {item.key}</Text>
-
-
       </TouchableOpacity>
     );
   };
@@ -161,6 +131,11 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 2,
     height: Dimensions.get('window').width / numColumns,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+    elevation: 3,
   },
   itemInvisible: {
     backgroundColor: 'transparent',
@@ -169,22 +144,4 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 10,
   },
-  card: {
-    // width: "98%",
-    // height: "18%",
-    flex: 1,
-    backgroundColor: "#E5E5E5",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
-    elevation: 3,
-    margin: 5,
-    flexDirection: "row"
-  },
-
-  whiteText: {
-    color: "white"
-  },
-
 });
