@@ -10,14 +10,13 @@ export default class FooterComponet extends Component {
         return (
           <Footer style={styles.footer}>
             <FooterTab style={styles.footer}>
-
-              <Button vertical style={styles.border} onPress={() => props.navigation.navigate("Profile")}>
+              <Button vertical onPress={() => props.navigation.navigate("Profile")}>
                 <View style={styles.row}>
                   <FontAwesome name="address-card" size={15} color={"#fff"} />
                   <Text style={styles.whiteText}>Profile</Text>
                 </View>
               </Button>
-              <Button active badge vertical style={[styles.footerActive, styles.border]}>
+              <Button active badge vertical style={styles.footerActive}>
                 <View style={styles.row}>
                   <FontAwesome name="leanpub" size={15} color={"#6771e4"} />
                   <Text style={styles.active}>Library</Text>
@@ -32,13 +31,13 @@ export default class FooterComponet extends Component {
         return (
           <Footer style={styles.footer}>
             <FooterTab style={styles.footer}>
-              <Button active badge vertical style={[styles.footerActive, styles.border]}>
+              <Button active badge vertical style={styles.footerActive}>
                 <View style={styles.row}>
                   <FontAwesome name="address-card" size={15} color={"#6771e4"} />
                   <Text style={styles.active}>Profile</Text>
                 </View>
               </Button>
-              <Button badge vertical style={styles.border} onPress={() => props.navigation.navigate("Library")}>
+              <Button badge vertical onPress={() => props.navigation.navigate("Library")}>
                 <View style={styles.row}>
                   <FontAwesome name="leanpub" size={15} color={"#fff"} />
                   <Text style={styles.whiteText}>Library</Text>
@@ -59,20 +58,12 @@ const styles = StyleSheet.create({
   },
   footerActive: {
     backgroundColor: "#1e2326",
-    // height: 100,
   },
   active: {
     color: "#6771e4",
   },
   whiteText: {
     color: "#1e2326",
-  },
-  border: {
-    // borderWidth: 1,
-    // borderLeftColor: "#bec2f4",
-    // borderRightColor: "#bec2f4",
-    // borderBottomColor: "#6771e4",
-    // borderTopColor: "#6771e4",
   },
   row: {
     alignContent: "center",
