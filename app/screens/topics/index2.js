@@ -1,44 +1,16 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
-// import styled from "styled-components";
-import {
-  Text,
-  View,
-  AppRegistry,
-  StyleSheet,
-  Platform,
-  TouchableOpacity,
-  Dimensions,
-  Image,
-  ImageBackground,
-  FlatList
-} from "react-native";
-import {
-  Container,
-  Header,
-  Left,
-  Body,
-  CardItem,
-  Card,
-  Right,
-  Button,
-  Icon,
-  Title,
-  Content,
-  Input,
-  Textarea,
-  Form,
-  Item
-} from "native-base";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "react-native";
+import { Container, Content } from "native-base";
+import { Ionicons } from "@expo/vector-icons";
 
 const cards = [
   {
-    key: 'Definition', icon: 'subscript', color: '#52cefc', body:
-      '1. The word library is derived from the Latin word “liber” which means book. 2. The library is a storehouse of knowledge. 3. That view derives from the fact that libraries were originally places were books as media of documentation of knowledge were kept and visited in order to use the stored knowledge.',
+    key: 'Definition', icon: 'ios-bonfire', color: '#52cefc', body:
+      '1. The word library is derived from the Latin word “liber” which means book.    2. The library is a storehouse of knowledge.    3. That view derives from the fact that libraries were originally places were books as media of documentation of knowledge were kept and visited in order to use the stored knowledge.',
     quiz: {
-      question: 'Imagine you have an assignment to write a paper based on scholarly information. Which of the following places is most appropriate place to source for information?',
+      question: 'Imagine you have an assignment to write a paper based on scholarly information. Which of the following places is most appropriate place to source for information ?',
       correct: 'd',
       ans: {
         a: {
@@ -60,7 +32,7 @@ const cards = [
 
     },
     quiz2: {
-      question: 'Which of the following would you not include among the types of library?',
+      question: 'Which of the following would you not include among the types of library ?',
       correct: 'e',
       ans: {
         a: {
@@ -82,10 +54,10 @@ const cards = [
     }
   },
   {
-    key: 'Types of library', icon: 'bug', color: '#cfd744', body:
-      'National Library 1. This is the apex library of any nation. 2. It is usually established and funded by the executive arm of government at the national level with branches spread across the nation. Functions  1. Serves as the depository for copyrighted publication in a country. 2. Prepares the national bibliography 3. Encourages reading habits/study skill and research.',
+    key: 'Types of library', icon: 'ios-apps', color: '#cfd744', body:
+      'National Library 1.    This is the apex library of any nation.     2. It is usually established and funded by the executive arm of government at the national level with branches spread across the nation.         Functions      1. Serves as the depository for copyrighted publication in a country.     2. Prepares the national bibliography     3. Encourages reading habits/study skill and research.',
     quiz: {
-      question: 'There are two organizational systems practiced in the University library. What are they?',
+      question: 'There are two organizational systems practiced in the University library. What are they ?',
       correct: 'a',
       ans: {
         a: {
@@ -107,7 +79,7 @@ const cards = [
 
     },
     quiz2: {
-      question: 'Which approaches in organizing university library encourages decentralization and activities such as acquisition; cataloguing, circulation and references are carried out together in various subject areas and this requires subject specialist library?',
+      question: 'Which approaches in organizing university library encourages decentralization and activities such as acquisition; cataloguing, circulation and references are carried out together in various subject areas and this requires subject specialist library ?',
       correct: 'a',
       ans: {
         a: {
@@ -129,8 +101,8 @@ const cards = [
     }
   },
   {
-    key: 'Public library', icon: 'pagelines', color: '#52cefc', body:
-      '1. This is a government owned and funded at state level with its presence in state capital and branches in local government headquarters. Functions 1.Encouragement of reading habits; 2. Promotion of enlighten and leisure; 3. Preservation and promotion of cultural heritage; and  4. Promotion and use of public libraries as education agencies for the individual.',
+    key: 'Public library', icon: 'ios-flower', color: '#52cefc', body:
+      '1. This is a government owned and funded at state level with its presence in state capital and branches in local government headquarters.     Functions    1.Encouragement of reading habits;    2. Promotion of enlighten and leisure;    3. Preservation and promotion of cultural heritage; and     4. Promotion and use of public libraries as education agencies for the individual.',
     quiz: {
       question: 'In the administration and management of the university library, which of the following is not a function of the administration ?',
       correct: 'e',
@@ -154,7 +126,7 @@ const cards = [
 
     },
     quiz2: {
-      question: 'What division is responsible for ordering and acquisition of materials such as books, journals and all non-book materials? i. Collection Development Division  ii. Technical services division',
+      question: 'What division is responsible for ordering and acquisition of materials such as books, journals and all non-book materials? i. Collection Development Division  ii. Technical services division ?',
       correct: 'a',
       ans: {
         a: {
@@ -176,10 +148,10 @@ const cards = [
     }
   },
   {
-    key: 'Special library', icon: 'flask', color: '#cfd744', body:
-      '1. They are libraries meant specially for research on a particular field of study and often for a limited group of users. 2. Everything about the library is special – collections, subjects, users and parent body. 3. The collection is made up of mainly of periodicals, books report, executive summaries and abstract. Functions 1. Encouragement of reading habits; 2. Promotion of enlighten and leisure; 3. Preservation and promotion of cultural heritage; and 4. Promotion and use of public libraries as education agencies for the individual.',
+    key: 'Special library', icon: 'ios-pulse', color: '#cfd744', body:
+      '1. They are libraries meant specially for research on a particular field of study and often for a limited group of users.     2. Everything about the library is special – collections, subjects, users and parent body.      3. The collection is made up of mainly of periodicals, books report, executive summaries and abstract. Functions 1. Encouragement of reading habits; 2. Promotion of enlighten and leisure; 3. Preservation and promotion of cultural heritage; and 4. Promotion and use of public libraries as education agencies for the individual.',
     quiz: {
-      question: 'Technical services division include all the following except?',
+      question: 'Technical services division include all the following except ?',
       correct: 'e',
       ans: {
         a: {
@@ -201,7 +173,7 @@ const cards = [
 
     },
     quiz2: {
-      question: 'The term library is made of the word',
+      question: 'The term library is made of the word ?',
       correct: 'a',
       ans: {
         a: {
@@ -223,10 +195,10 @@ const cards = [
     }
   },
   {
-    key: 'Private library', icon: 'flask', color: '#cfd744', body:
+    key: 'Private library', icon: 'ios-finger-print', color: '#cfd744', body:
       '1. These are collections of individuals. 2. The purpose of the personal collection is to foster personal development, research and consultancy services. 2. Examples are Nwafor Orizu Library Nwewi, Njoku Memorial Library donated to the University of Nigeria Nsukka and many more.',
     quiz: {
-      question: 'Computer consists of a collection of hardware and software.  What is the physical parts of a computer that can be seen and touched?',
+      question: 'Computer consists of a collection of hardware and software.  What is the physical parts of a computer that can be seen and touched ?',
       correct: 'b',
       ans: {
         a: {
@@ -248,7 +220,7 @@ const cards = [
 
     },
     quiz2: {
-      question: '"What section involves describing each of these materials bibliographical and assigning subjects and class mark and their number on them?',
+      question: '"What section involves describing each of these materials bibliographical and assigning subjects and class mark and their number on them ?',
       correct: 'a',
       ans: {
         a: {
@@ -270,10 +242,10 @@ const cards = [
     }
   },
   {
-    key: 'Children Library', icon: 'globe', color: '#52cefc', body:
+    key: 'Children Library', icon: 'ios-ice-cream', color: '#52cefc', body:
       'The organization of a University Library 1. There are two organizational systems practiced in the University library, these are:  2. Centralized; and 3. decentralized systems Centralized: 1. collections, services and activities of the library are carried out in a central library. 2. This facilitate decision making and ensure easy administration of the university library. Decentralized: 1. this is racticed in a multi-campus university with one main library and other branches or autonomous one serving the campuses.',
     quiz: {
-      question: 'What computers solve problems by operating on continuous variables such as lengths, voltages or current?',
+      question: 'What computers solve problems by operating on continuous variables such as lengths, voltages or current ?',
       correct: 'b',
       ans: {
         a: {
@@ -295,7 +267,7 @@ const cards = [
 
     },
     quiz2: {
-      question: 'Computer networks are simply defined as a number of groups or systems whose numbers are connected in some way. What do you call the devices that tie these numbers of LANs together are called?',
+      question: 'Computer networks are simply defined as a number of groups or systems whose numbers are connected in some way. What do you call the devices that tie these numbers of LANs together are called ?',
       correct: 'b',
       ans: {
         a: {
@@ -317,7 +289,7 @@ const cards = [
     }
   },
   {
-    key: 'Organization of a Library', icon: 'sort-alpha-asc', color: '#cfd744', body:
+    key: 'Organization of a Library', icon: 'ios-stats', color: '#52cefc', body:
       'There are two organizational systems practiced in the University library, these are: 1. Centralized; and 2. decentralized systems Centralized: 1. collections, services and activities of the library are carried out in a central library. 2. This facilitate decision making and ensure easy administration of the university library. Decentralized: 1. this is practiced in a multi-campus university with one main library and other branches or autonomous one serving the campuses.',
     quiz: {
       question: 'What computers solve problems by operating on continuous variables such as lengths, voltages or current?',
@@ -387,10 +359,8 @@ export default class Topics2 extends Component {
     }
     return (
       <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Single", { body: item.body, title: item.key, quiz1: item.quiz, quiz2: item.quiz2 })}>
-        <FontAwesome name={item.icon} size={50} color={item.color} />
+        <Ionicons name={item.icon} size={50} color={item.color} />
         <Text style={styles.itemText}> {item.key}</Text>
-
-
       </TouchableOpacity>
     );
   };
@@ -444,6 +414,11 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 2,
     height: Dimensions.get('window').width / numColumns,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+    elevation: 3,
   },
   itemInvisible: {
     backgroundColor: 'transparent',
@@ -451,23 +426,5 @@ const styles = StyleSheet.create({
   itemText: {
     color: "#fff",
     fontSize: 10,
-  },
-  card: {
-    // width: "98%",
-    // height: "18%",
-    flex: 1,
-    backgroundColor: "#E5E5E5",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
-    elevation: 3,
-    margin: 5,
-    flexDirection: "row"
-  },
-
-  whiteText: {
-    color: "white"
-  },
-
+  }
 });
