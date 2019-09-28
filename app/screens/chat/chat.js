@@ -1,18 +1,10 @@
 import React, { Component } from 'react'
-import {
-  Container,
-  Content,
-} from "native-base";
-import { Text, Image, KeyboardAvoidingView, StyleSheet, Platform, TouchableOpacity, View, } from "react-native";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { Container } from "native-base";
+import { KeyboardAvoidingView, StyleSheet, Platform } from "react-native";
 import { GiftedChat, InputToolbar, Bubble, Time } from 'react-native-gifted-chat';
 import QuickReplies from 'react-native-gifted-chat/lib/QuickReplies';
-import FooterComponet from "../footer";
 import Head from "../header";
 import Fire from "../../config/fire";
-// type Props = {
-//   name?: string,
-// };
 
 export default class Chat extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -27,21 +19,24 @@ export default class Chat extends Component {
     return {
       name: this.props.navigation.state.params.name,
       _id: Fire.shared.uid,
+      createdAt: new Date().toDateString(),
     };
+
   }
+
   renderTime() {
     return (
       <Time
+        {...new Date().toDateString()
+        }
         textStyle={{
           right: {
             color: 'green',
-
-            fontSize: 14
+            fontSize: 12
           },
           left: {
             color: 'yellow',
-
-            fontSize: 14
+            fontSize: 12
           }
         }}
       />
@@ -54,21 +49,23 @@ export default class Chat extends Component {
         wrapperStyle={{
           left: {
             backgroundColor: '#6771e4',
+            margin: 5,
           },
           right: {
             backgroundColor: '#6771e4',
+            margin: 5
           }
         }}
         textStyle={{
           right: {
             color: '#1e2326',
-
-            fontSize: 18
+            fontSize: 13,
+            margin: 5
           },
           left: {
             color: '#1e2326',
-
-            fontSize: 18
+            fontSize: 13,
+            margin: 5
           }
         }}
       />
@@ -80,7 +77,7 @@ export default class Chat extends Component {
   }
 
   render() {
-    console.log(this.user);
+    console.log(this.user)
     return (
       <Container style={styles.container} >
         <Head navigation={this.props.navigation} />
@@ -94,7 +91,7 @@ export default class Chat extends Component {
                 isAnimated={true}
                 loadEarlier={true}
                 renderBubble={this.renderBubble.bind(this)}
-                showUserAvatar={true}
+                showUserAvatar={false}
                 showAvatarForEveryMessage={true}
                 bottomOffset={20}
                 renderAvatarOnTop={true}
@@ -108,18 +105,12 @@ export default class Chat extends Component {
                 renderQuickReplies={(props) => <QuickReplies color='green' {...props} />}
                 forceGetKeyboardHeight
                 textInputStyle={{ color: "#6771e4" }}
-
-
               />
             </KeyboardAvoidingView > :
             <GiftedChat />
         }
-
-
-
       </Container >
     );
-
   }
   componentDidMount() {
     Fire.shared.on(message =>

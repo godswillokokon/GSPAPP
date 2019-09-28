@@ -20,7 +20,7 @@ export default class MainChat extends Component {
       <Container style={styles.container}>
         <Head navigation={this.props.navigation} />
         <Content>
-          <Text style={styles.title}>Enter your name:</Text>
+          <Text style={styles.title}>Enter your reg number:</Text>
           <TextInput
             onChangeText={this.onChangeText}
             style={styles.nameInput}
