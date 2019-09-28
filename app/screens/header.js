@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-
 import { View, StyleSheet, Platform, Dimensions, Text } from 'react-native';
-import {
-  Header,
-  Left,
-  Body,
-  Right,
-  Button,
-} from "native-base";
+import { Header, Left, Body, Right, Button } from "native-base";
 import { FontAwesome } from "@expo/vector-icons";
 import MenuRight from "./meun";
 
@@ -38,9 +31,6 @@ export default class Head extends Component {
   }
 }
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   head: {
     ...Platform.select({
       android: { paddingTop: 50 },
