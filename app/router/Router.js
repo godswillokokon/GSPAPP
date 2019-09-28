@@ -15,14 +15,14 @@ import MainChat from '../screens/chat/main';
 import Quiz from '../screens/quiz/quiz';
 
 const MainNavigator = createStackNavigator({
-  Main: {
-    screen: Home,
-    navigationOptions: { header: null }
-  },
-  Login: {
-    screen: Login,
-    navigationOptions: { header: null }
-  },
+  // Main: {
+  //   screen: Home,
+  //   navigationOptions: { header: null }
+  // },
+  // Login: {
+  //   screen: Login,
+  //   navigationOptions: { header: null }
+  // },
   Profile: {
     screen: Profile,
     navigationOptions: { header: null }

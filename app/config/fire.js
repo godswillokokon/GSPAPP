@@ -15,7 +15,6 @@ class Fire {
       storageBucket: "",
       messagingSenderId: "499154326256",
       appId: "1:499154326256:web:8bf9dee51f39b05efb6835"
-
     });
   observeAuth = () => firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
   onAuthStateChanged = user => {
@@ -26,14 +25,13 @@ class Fire {
         Alert.alert(message);
       }
     }
-
   };
   get ref() {
     return firebase.database().ref('messages');
   }
   on = callback =>
     this.ref
-      .limitToLast(20)
+      // .limitToLast(20)
       .on('child_added', snapshot => callback(this.parse(snapshot)));
   parse = snapshot => {
     const { timestamp: numberStamp, text, user } = snapshot.val();

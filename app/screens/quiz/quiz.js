@@ -8,10 +8,6 @@ import Session from "../../utils/Session";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import FooterComponet from "../footer";
 import Head from "../header";
-import {
-  ProgressChart,
-} from 'react-native-chart-kit'
-
 class Quiz extends Component {
   constructor(props) {
     super(props);
@@ -21,44 +17,11 @@ class Quiz extends Component {
       name: "",
       faculty: "",
       phoneNumber: "",
+      score: 0,
     };
-
   }
-
-  componentWillMount() {
-
-  }
-  componentDidMount() {
-    // const data = this.props.getUser();
-    // this.setState({
-    //   data
-    // });
-
-  }
-
-  // loadAsync = async () => {
-  //   //load all required info
-  //   //user info, auth state..etc
-  //   const getToken = await Session.getData("token");
-  //   if (getToken) {
-  //    this.props.getUser();
-
-  //     console.log(this.props.user)
-  //     // this.setState({
-  //     //   data
-  //     // })
-  //     // console.log("cyyyyyyyyyyyyyyyy");
-  //     // return console.log(data);
-  //   }
-  // };
 
   render() {
-
-    const device_width = Dimensions.get("window").width;
-    const device_height = Dimensions.get("window").height;
-    const { user } = this.props;
-    // console.log("user pro", user);
-    // console.log("user pro", user.user);
     const data = {
       labels: ['Score', 'Quiz', 'IQ'], // optional
       data: [0.6, 0.6, 0.6]
@@ -72,12 +35,41 @@ class Quiz extends Component {
       strokeWidth: 3, // optional, default 3
 
     }
-    const name = `${user.user.name}`;
     const first = this.props.navigation.state.params.first;
     const second = this.props.navigation.state.params.second;
     const title = this.props.navigation.state.params.title;
-    const firstCorrect = first.question.correct;
-    const fans = first.ans;
+    const firstCorrect = first.correct;
+    const secondCorrect = second.correct;
+
+
+
+    let markFirst = (key) => {
+      if (firstCorrect == key) {
+        let temp = this.state.score;
+        let tempAdd = temp + 50
+        this.setState({
+          score: tempAdd
+        })
+        console.log("correct answer")
+      } else {
+        console.log("wrong answer")
+      }
+    }
+
+    let markSecond = (key) => {
+      if (secondCorrect == key) {
+        let temp = this.state.score;
+        let tempAdd = temp + 50
+        this.setState({
+          score: tempAdd
+        })
+        console.log("correct answer")
+      } else {
+        console.log("wrong answer")
+      }
+    }
+
+    console.log("score :", this.state.score)
     if (!this.state.onEdit) {
       return (
         <Container style={styles.container}>
@@ -90,24 +82,24 @@ class Quiz extends Component {
             </View>
             <View style={styles.display}>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>{first.ans.a.key}  {first.ans.a.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markFirst(first.ans.a.key)}>
+                <Text>{first.ans.a.key})  {first.ans.a.name} </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>b) {first.ans.b.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markFirst(first.ans.b.key)}>
+                <Text>{first.ans.b.key})  {first.ans.b.name} </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>c) {first.ans.c.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markFirst(first.ans.c.key)}>
+                <Text>{first.ans.c.key})  {first.ans.c.name} </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>d) {first.ans.d.name}</Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markFirst(first.ans.d.key)}>
+                <Text>{first.ans.d.key})  {first.ans.d.name}</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>e) {first.ans.e.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markFirst(first.ans.e.key)}>
+                <Text>{first.ans.e.key})  {first.ans.e.name} </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -138,24 +130,24 @@ class Quiz extends Component {
             </View>
             <View style={styles.display}>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>a) {second.ans.a.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markSecond(second.ans.a.key)}>
+                <Text>{second.ans.a.key}) {second.ans.a.name} </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>b) {second.ans.b.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markSecond(second.ans.b.key)}>
+                <Text>{second.ans.b.key}) {second.ans.b.name} </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>c) {second.ans.c.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markSecond(second.ans.c.key)}>
+                <Text>{second.ans.c.key}) {second.ans.c.name} </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>d) {second.ans.d.name}</Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markSecond(second.ans.d.key)}>
+                <Text>{second.ans.d.key}) {second.ans.d.name}</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.answers}>
-                <Text>e) {second.ans.e.name} </Text>
+              <TouchableOpacity style={styles.answers} onPress={() => markSecond(second.ans.e.key)}>
+                <Text>{second.ans.e.key}) {second.ans.e.name} </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -182,12 +174,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  // onLogin: data => dispatch(login(data)),
-  // onLogout: () => dispatch(logout()),
-  // onSignUp: data => dispatch(createAccount(data)),
-  // resetFailureAction: () => dispatch(resetFailureAction()),
   getUser: token => dispatch(GetUserData(token)),
-  // refreshAuthentication: token => dispatch(refreshAuthentication(token))
 });
 export default connect(
   mapStateToProps,
@@ -233,7 +220,7 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 300,
     alignItems: "center",
-    borderRadius: 39
+    borderRadius: 39,
   },
   answersO: {
     flex: 1,

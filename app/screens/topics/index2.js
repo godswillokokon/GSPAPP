@@ -214,7 +214,7 @@ const cards = [
           key: 'd', name: 'Microsoft Software'
         },
         e: {
-          key: 'e', name: '{Operating systems}'
+          key: 'e', name: 'Operating systems'
         },
       },
 
