@@ -25,7 +25,6 @@ export default class Swipe extends Component {
         if (index == 1) {
           this.props.onChange(true);
         }
-
       }}>
       <View style={styles.slide}>
         <View style={styles.circle}>
@@ -39,9 +38,6 @@ export default class Swipe extends Component {
                   Library and Study Skills for  students in the first year of General Studies  Programme.
           </Text>
       </View>
-
-
-
       <View style={styles.slide}>
         <View style={styles.circle}>
           <Text style={styles.text}>
@@ -67,9 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-
   },
-
   text: {
     color: '#1e2326',
     fontSize: 30,
@@ -84,8 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 50,
-    alignItems: 'center',
-
+    alignItems: 'center'
   },
   textP: {
     color: '#1e2326',
@@ -98,5 +91,4 @@ const styles = StyleSheet.create({
     width: 300,
     marginLeft: 75,
   }
-
-})
+});

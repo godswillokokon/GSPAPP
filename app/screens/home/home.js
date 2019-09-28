@@ -3,18 +3,14 @@ import {
   Text,
   View,
   StyleSheet,
-  AppRegistry,
   ImageBackground,
   Dimensions,
-  Image,
   AsyncStorage,
   ActivityIndicator
 } from "react-native";
 import { AppLoading } from "expo";
 import { connect } from "react-redux";
 import get from "lodash/get";
-import DropdownAlert from "react-native-dropdownalert";
-import Axios from "@utils/Axios";
 import jwt_decode from "jwt-decode";
 import { Button } from "native-base";
 import Swipe from "./swiper";
@@ -154,9 +150,7 @@ const mapStateToProps = ({ user }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // onLogin: data => dispatch(login(data)),
   onLogout: () => dispatch(logout()),
-  // onSignUp: data => dispatch(createAccount(data)),
   resetFailureAction: () => dispatch(resetFailureAction()),
   getUser: token => dispatch(GetUserData(token)),
   refreshAuthentication: token => dispatch(refreshAuthentication(token))
@@ -165,7 +159,6 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Home);
-// AppRegistry.registerComponent('CARTA-Home', () => Home);
 
 const styles = StyleSheet.create({
   container: {
@@ -199,8 +192,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold"
   },
-  photo: {
-    // alignSelf: "flex-start",
-    right: -29
-  }
 });
