@@ -1,25 +1,10 @@
 import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
-import {
-  Text,
-  View,
-  AppRegistry,
-  StyleSheet,
-  Platform,
-  TouchableOpacity,
-  Dimensions,
-  Image,
-  ImageBackground,
-  FlatList
-} from "react-native";
-import {
-  Container,
-  Content,
-} from "native-base";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
-import { login, resetFailureAction, refreshAuthentication, GetUserData, GetLibrary } from "../../redux/actions/UserActions";
-import Session from "../../utils/Session";
+import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "react-native";
+import { Container, Content } from "native-base";
+import { FontAwesome } from "@expo/vector-icons";
+import { login, GetLibrary } from "../../redux/actions/UserActions";
 import { connect } from "react-redux";
 
 const cards = [
@@ -37,7 +22,6 @@ const formatData = (data, numColumns) => {
 };
 const numColumns = 2;
 
-
 class Library extends Component {
   static navigationOptions = {
     header: null
@@ -45,16 +29,7 @@ class Library extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: true,
-      username: "",
       data: "",
-      password: "",
-      isLoggedIn: false,
-      isLoading: false,
-      isAppReady: false,
-      authError: null,
-      authReady: false,
-      tokenValidity: null
     };
   }
   renderItem = ({ item, index }) => {
@@ -65,20 +40,11 @@ class Library extends Component {
       <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate(item.nav)}>
         <FontAwesome name={item.icon} size={50} color={item.color} />
         <Text style={styles.itemText}> {item.key}</Text>
-
-
       </TouchableOpacity>
-
     );
   };
 
-  e;
   render() {
-
-    // const { user } = this.props;
-    // console.log("larrrryyyyy", user.user.courseDetails.topics.materials)
-    // console.log("songg", user.user.courseDetails.topics)
-
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
 
@@ -109,9 +75,6 @@ const mapStateToProps = ({ user }) => ({
 const mapDispatchToProps = dispatch => ({
   onLogin: data => dispatch(login(data)),
   getData: data => dispatch(GetLibrary(data)),
-  // resetFailureAction: () => dispatch(resetFailureAction()),
-  // getUser: token => dispatch(GetUserData(token)),
-  // refreshAuthentication: token => dispatch(refreshAuthentication(token))
 });
 export default connect(
   mapStateToProps,
@@ -123,7 +86,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginVertical: 20,
     margin: 5,
-
   },
   subtitle: {
     fontSize: 14,
@@ -144,6 +106,11 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 3,
     height: Dimensions.get('window').width / numColumns,
+    elevation: 3,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+    shadowColor: "#000",
   },
   itemInvisible: {
     backgroundColor: 'transparent',
@@ -152,22 +119,4 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 10,
   },
-  card: {
-    // width: "98%",
-    // height: "18%",
-    flex: 1,
-    backgroundColor: "#E5E5E5",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
-    elevation: 3,
-    margin: 5,
-    flexDirection: "row"
-  },
-
-  whiteText: {
-    color: "white"
-  },
-
 });
