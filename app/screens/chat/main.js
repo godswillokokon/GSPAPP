@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
 import {
   Container,
-  Header,
-  Left,
-  Body,
-  Right,
-  Button,
-  Icon,
-  Title,
   Content,
-  Input,
-  Footer,
-  Form,
-  Item,
-  Card,
-  CardItem
 } from "native-base";
-import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
-import FooterComponet from "../footer";
+import { StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
 import Head from "../header";
-
 
 export default class MainChat extends Component {
   static navigationOptions = {
@@ -46,7 +31,6 @@ export default class MainChat extends Component {
             <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
         </Content>
-
       </Container >
     );
   }
