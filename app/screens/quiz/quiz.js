@@ -98,7 +98,7 @@ class Quiz extends Component {
 
             </View>
           </Content>
-          <FooterComponet name="profile" props={this.props} />
+          <FooterComponet name="library" props={this.props} />
         </Container>
       );
 
@@ -146,7 +146,7 @@ class Quiz extends Component {
 
             </View>
           </Content>
-          <FooterComponet name="profile" props={this.props} />
+          <FooterComponet name="library" props={this.props} />
         </Container>
       );
     }
