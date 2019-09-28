@@ -2,7 +2,6 @@ import firebase from 'firebase';
 import { Alert } from "react-native";
 
 class Fire {
-
   constructor() {
     this.init();
     this.observeAuth();
@@ -56,10 +55,7 @@ class Fire {
     return firebase.database.ServerValue.TIMESTAMP;
   }
 
-
   send = messages => {
-    console.log("firebase settt uppp")
-
     for (let i = 0; i < messages.length; i++) {
       const { text, user } = messages[i];
       const message = {
@@ -74,8 +70,6 @@ class Fire {
   off() {
     this.ref.off();
   }
-
 }
 Fire.shared = new Fire();
-
 export default Fire;
