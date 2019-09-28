@@ -28,7 +28,7 @@ export default class Head extends Component {
             <Text style={styles.title}></Text>
           </Body>
           <Right style={{ marginTop: 15 }}>
-            <Button transparent >
+            <Button transparent style={{}} >
               <MenuRight navigation={this.props.navigation} />
             </Button>
           </Right>
