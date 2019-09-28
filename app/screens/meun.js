@@ -19,7 +19,7 @@ export default class MenuRight extends Component {
         <Menu
           ref={this.setMenuRef}
           animationDuration={300}
-          style={{ backgroundColor: '#1e2326' }}
+          style={{ backgroundColor: '#1e2326', width: 200, marginLeft: 25 }}
           button={<Text onPress={this.showMenu}> <FontAwesome name='ellipsis-v' size={45} color={'#1e2326'} /></Text>}
         >
           <MenuItem onPress={this.hideMenu} onPress={() => this.props.navigation.navigate('MainChat')}><Text style={styles.items}>Chat</Text></MenuItem>
