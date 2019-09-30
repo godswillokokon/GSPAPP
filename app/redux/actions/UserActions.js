@@ -9,8 +9,8 @@ export const login = data => async dispatch => {
   try {
     const response = await Axios.post(`/login`, { ...data });
     const saveToken = Session.saveToken(response.data.token);
-    const tok = response.data.token
-    Session.saveToken('token', tok);
+    // const tok = response.data.token
+    // Session.saveToken('token', tok);
     if (saveToken) {
       await dispatch({
         type: "USER_LOGIN_SUCCESS",
@@ -60,7 +60,6 @@ export const createAccount = data => async dispatch => {
       type: "USER_CREATE_ACCOUNT_SUCCESS",
       payload: response.data.token
     });
-    console.log("cont 2")
     login(data)(dispatch);
     this.props.navigation.navigate("Profile");
   } catch (e) {

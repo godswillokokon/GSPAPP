@@ -5,6 +5,32 @@ import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "
 import { Container, Content } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 
+import { Video } from 'expo';
+state = {
+  mute: false,
+  shouldPlay: false,
+  isLooping: false,
+}
+
+
+handlePlayAndPause = () => {
+  this.setState((prevState) => ({
+    shouldPlay: !prevState.shouldPlay
+  }));
+}
+
+handleVolume = () => {
+  this.setState(prevState => ({
+    mute: !prevState.mute,
+  }));
+}
+handleLoop = () => {
+  this.setState((prevState) => ({
+    isLooping: !prevState.isLooping
+  }));
+}
+
+
 const cards = [
   {
     key: 'Definition of terms', icon: 'ios-archive', color: '#cfd744', body:
@@ -99,6 +125,7 @@ export default class Topics extends Component {
             style={styles.container}
             numColumns={numColumns}
           />
+
         </Content>
         <FooterComponet name="library" props={this.props} />
       </Container>
@@ -144,4 +171,16 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 10,
   },
+  controlBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 45,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
 });
+

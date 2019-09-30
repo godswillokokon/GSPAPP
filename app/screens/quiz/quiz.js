@@ -3,7 +3,6 @@ import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import { Container, Content } from "native-base";
 import { GetUserData, } from "../../redux/actions/UserActions";
-import Session from "../../utils/Session";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import FooterComponet from "../footer";
 import Head from "../header";
@@ -34,10 +33,11 @@ class Quiz extends Component {
         this.setState({
           score: tempAdd
         })
-        console.log("correct answer")
+        alert("correct answer")
       } else {
-        console.log("wrong answer")
+        alert("wrong answer")
       }
+      this.setState({ onEdit: true })
     }
 
     let markSecond = (key) => {
@@ -47,10 +47,11 @@ class Quiz extends Component {
         this.setState({
           score: tempAdd
         })
-        console.log("correct answer")
+        alert("correct answer")
       } else {
-        console.log("wrong answer")
+        alert("wrong answer")
       }
+      this.props.navigation.navigate("Library")
     }
 
     console.log("score :", this.state.score)
@@ -88,10 +89,10 @@ class Quiz extends Component {
 
               <TouchableOpacity
                 style={styles.next}
-                onPress={() => this.setState({ onEdit: true })}
+                onPress={() => this.props.navigation.navigate("Library")}
               >
                 <Text style={styles.nextText} >
-                  Next
+                  Cancel
               </Text>
 
               </TouchableOpacity>
@@ -139,7 +140,7 @@ class Quiz extends Component {
                 onPress={() => this.props.navigation.navigate("Library")}
               >
                 <Text style={styles.nextText} >
-                  Done
+                  Cancel
               </Text>
 
               </TouchableOpacity>

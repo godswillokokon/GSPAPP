@@ -30,6 +30,12 @@ export default class Single extends Component {
           <TouchableOpacity style={styles.edit} onPress={() => this.props.navigation.navigate("Quiz", { first: quiz1, second: quiz2, title: title })}>
             <Text style={styles.editText}>Take Quiz</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.edit} onPress={() => this.props.navigation.navigate('Pdf')}>
+            <Text style={styles.editText}>PDF</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.edit} onPress={() => this.props.navigation.navigate('Videoss')}>
+            <Text style={styles.editText}>Videos</Text>
+          </TouchableOpacity>
         </Content>
         <FooterComponet name="library" props={this.props} />
       </Container>

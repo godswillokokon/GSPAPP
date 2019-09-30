@@ -6,6 +6,8 @@ import Login from '../screens/signUp/signUp';
 import Library from '../screens/library';
 import Profile from '../screens/profile';
 import Single from '../screens/single/single';
+import Pdf from '../screens/single/pdf';
+import Videoss from '../screens/single/video';
 import Topics from '../screens/topics/index';
 import Topics2 from '../screens/topics/index2';
 import Register from '../screens/register/register';
@@ -61,6 +63,14 @@ const MainNavigator = createStackNavigator({
   },
   Topics2: {
     screen: Topics2,
+    navigationOptions: { header: null }
+  },
+  Pdf: {
+    screen: Pdf,
+    navigationOptions: { header: null }
+  },
+  Videoss: {
+    screen: Videoss,
     navigationOptions: { header: null }
   },
 });

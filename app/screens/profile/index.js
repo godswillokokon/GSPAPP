@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Dimensions, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Dimensions, Text, TouchableOpacity, AsyncStorage } from "react-native";
 import { connect } from "react-redux";
 import { Container, Content, Thumbnail, Form, Item, Label, Input } from "native-base";
 import { GetUserData } from "../../redux/actions/UserActions";
 import { FontAwesome } from "@expo/vector-icons";
 import FooterComponet from "../footer";
 import Head from "../header";
-import { ProgressChart } from 'react-native-chart-kit'
+import { ProgressChart } from 'react-native-chart-kit';
+// import AsyncStorage from '@react-native-community/async-storage';
 
 class Profile extends Component {
   constructor(props) {
@@ -69,7 +70,7 @@ class Profile extends Component {
             <TouchableOpacity
               style={styles.edit}
             >
-              <Text style={styles.editText} onPress={() => this.props.navigation.navigate("Assessment")}>Self Assessment <FontAwesome name="history" color={"#1e2326"} size={20} /></Text>
+              <Text style={styles.editText} onPress={() => this.props.navigation.navigate("Assessment")}>Reload Assessment  <FontAwesome name="history" color={"#1e2326"} size={20} /></Text>
             </TouchableOpacity>
             <ProgressChart
               data={data}
