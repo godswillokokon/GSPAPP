@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Platform, Dimensions, Image, Text, TouchableOpacity } from "react-native";
-import { Video, Components } from 'expo';
+import { Video } from 'expo-av';
+
 import {
   Container,
   Content,
@@ -40,11 +41,11 @@ export default class Videoss extends Component {
     const device_height = Dimensions.get("window").height;
     let { image } = this.state;
     return (
-      <Container style={{ height: device_height, width: device_width, backgroundColor: "#1c1d27" }}>
+      <Container style={{ backgroundColor: "#1c1d27" }}>
         <Head navigation={this.props.navigation} />
         <Content>
           <Text style={styles.subtitle}>Chapter 1</Text>
-          <Components.Video
+          <Video
             source={{ uri: 'https://res.cloudinary.com/ogcodes/video/upload/v1568412865/egghead-get-json-data-from-an-api-using-fetch.mp4' }}
             shouldPlay={this.state.shouldPlay}
             resizeMode="contain"
@@ -52,8 +53,29 @@ export default class Videoss extends Component {
             isMuted={this.state.mute}
             isLooping={this.state.isLooping}
           />
-
-
+          <View style={styles.controlBar}>
+            <MaterialIcons
+              name={this.state.isLooping ? "select-all" : "repeat"}
+              size={45}
+              color="white"
+              onPress={this.handleLoop}
+            />
+            <MaterialIcons
+              name={this.state.mute ? "volume-mute" : "volume-up"}
+              size={45}
+              color="white"
+              onPress={this.handleVolume}
+            />
+            <MaterialIcons
+              name={this.state.shouldPlay ? "pause" : "play-arrow"}
+              size={45}
+              color="white"
+              onPress={this.handlePlayAndPause}
+            />
+          </View>
+          <TouchableOpacity style={styles.edit} onPress={() => this.props.navigation.navigate("Quiz", { first: quiz1, second: quiz2, title: title })}>
+            <Text style={styles.editText}>Take Quiz</Text>
+          </TouchableOpacity>
 
         </Content>
         <FooterComponet name="library" props={this.props} />
@@ -88,5 +110,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 2
   },
-
+  editText: {
+    color: "#1e2326"
+  },
+  edit: {
+    alignSelf: "center",
+    backgroundColor: "#6771e4",
+    marginTop: 8,
+    width: 300,
+    height: 20,
+    alignItems: "center",
+    borderRadius: 39,
+  },
 });
