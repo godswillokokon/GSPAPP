@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "react-native";
-import { Container, Content } from "native-base";
+import { Container, Content, Thumbnail } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 
 const cards = [
@@ -353,13 +353,19 @@ export default class Topics2 extends Component {
   static navigationOptions = {
     header: null
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      uri: "https://res.cloudinary.com/ogcodes/image/upload/v1569943569/GSPAPP/splash.png"
+    };
+  };
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />
     }
     return (
       <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Single", { body: item.body, title: item.key, quiz1: item.quiz, quiz2: item.quiz2 })}>
-        <Ionicons name={item.icon} size={50} color={item.color} />
+        <Thumbnail large source={{ uri: this.state.uri }} />
         <Text style={styles.itemText}> {item.key}</Text>
       </TouchableOpacity>
     );
@@ -426,5 +432,6 @@ const styles = StyleSheet.create({
   itemText: {
     color: "#fff",
     fontSize: 10,
+    margin: 4,
   }
 });

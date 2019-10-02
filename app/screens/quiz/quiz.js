@@ -33,9 +33,9 @@ class Quiz extends Component {
         this.setState({
           score: tempAdd
         })
-        alert("correct answer")
+        // alert("correct answer")
       } else {
-        alert("wrong answer")
+        // alert("wrong answer")
       }
       this.setState({ onEdit: true })
     }
@@ -47,9 +47,25 @@ class Quiz extends Component {
         this.setState({
           score: tempAdd
         })
-        alert("correct answer")
+        // alert("correct answer")
+        if (this.state.score == 0) {
+          alert("score : 0/2 ")
+        } else if (this.state.score == 50) {
+          alert("score : 1/2")
+        }
+        else {
+          alert("score : 2/2")
+        }
       } else {
-        alert("wrong answer")
+        if (this.state.score == 0) {
+          alert("score : 0/2 ")
+        } else if (this.state.score == 50) {
+
+          alert("score : 1/2")
+        }
+        else {
+          alert("score : 2/2")
+        }
       }
       this.props.navigation.navigate("Library")
     }

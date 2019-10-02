@@ -27,7 +27,7 @@ export default class Pdf extends Component {
         </TouchableOpacity>
         <PDFReader
           source={{
-            uri: 'http://res.cloudinary.com/tech-18/image/upload/v1569852446/2019-09-30T14:07:23.575Z.pdf',
+            uri: 'https://res.cloudinary.com/ogcodes/image/upload/v1569954902/VLF_Technical_Assessment_JavaScript.pdf',
           }}
         />
         <FooterComponet name="library" props={this.props} />

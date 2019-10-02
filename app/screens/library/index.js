@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "react-native";
-import { Container, Content } from "native-base";
+import { Container, Content, Thumbnail } from "native-base";
 import { FontAwesome } from "@expo/vector-icons";
 import { login, GetLibrary } from "../../redux/actions/UserActions";
 import { connect } from "react-redux";
@@ -30,6 +30,7 @@ class Library extends Component {
     super(props);
     this.state = {
       data: "",
+      uri: "https://res.cloudinary.com/ogcodes/image/upload/v1569943569/GSPAPP/splash.png"
     };
   }
   renderItem = ({ item, index }) => {
@@ -38,7 +39,7 @@ class Library extends Component {
     }
     return (
       <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate(item.nav)}>
-        <FontAwesome name={item.icon} size={50} color={item.color} />
+        <Thumbnail large source={{ uri: this.state.uri }} />
         <Text style={styles.itemText}> {item.key}</Text>
       </TouchableOpacity>
     );
@@ -118,5 +119,6 @@ const styles = StyleSheet.create({
   itemText: {
     color: "#fff",
     fontSize: 10,
+    margin: 4,
   },
 });

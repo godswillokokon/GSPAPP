@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Platform, Dimensions, Image, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Dimensions, Text, TouchableOpacity } from "react-native";
 import { Video } from 'expo-av';
-
-import {
-  Container,
-  Content,
-} from "native-base";
+import { Container, Content } from "native-base";
 import FooterComponet from "../footer";
 import Head from "../header";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -82,9 +78,7 @@ export default class Videoss extends Component {
       </Container>
     );
   }
-
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -114,12 +108,13 @@ const styles = StyleSheet.create({
     color: "#1e2326"
   },
   edit: {
+    flex: 1,
     alignSelf: "center",
     backgroundColor: "#6771e4",
-    marginTop: 8,
+    padding: 20,
+    margin: 50,
     width: 300,
-    height: 20,
     alignItems: "center",
-    borderRadius: 39,
+    borderRadius: 39
   },
 });

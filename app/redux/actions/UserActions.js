@@ -111,7 +111,7 @@ export const GetUserData = token => async dispatch => {
 export const GetLibrary = data => async dispatch => {
   try {
 
-    const response = await Axios.get(`/admin/course`, { ...data });
+    const response = await Axios.get(`/admin/course`);
     // Session.saveUser(response.data);
     console.log("topics", response)
     dispatch({

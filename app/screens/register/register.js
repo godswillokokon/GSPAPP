@@ -160,8 +160,7 @@ const styles = StyleSheet.create({
       android: { paddingTop: 1 }
     }),
     marginBottom: 0,
-    width: 552 / 2,
-    height: 400 / 2
+    height: 80
   },
   icons: {
     marginRight: 20

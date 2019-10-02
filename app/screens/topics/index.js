@@ -2,34 +2,7 @@ import React, { Component } from "react";
 import FooterComponet from "../footer";
 import Head from "../header";
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "react-native";
-import { Container, Content } from "native-base";
-import { Ionicons } from "@expo/vector-icons";
-
-import { Video } from 'expo';
-state = {
-  mute: false,
-  shouldPlay: false,
-  isLooping: false,
-}
-
-
-handlePlayAndPause = () => {
-  this.setState((prevState) => ({
-    shouldPlay: !prevState.shouldPlay
-  }));
-}
-
-handleVolume = () => {
-  this.setState(prevState => ({
-    mute: !prevState.mute,
-  }));
-}
-handleLoop = () => {
-  this.setState((prevState) => ({
-    isLooping: !prevState.isLooping
-  }));
-}
-
+import { Container, Content, Thumbnail } from "native-base";
 
 const cards = [
   {
@@ -91,10 +64,15 @@ const formatData = (data, numColumns) => {
 };
 const numColumns = 3;
 
-
 export default class Topics extends Component {
   static navigationOptions = {
     header: null
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      uri: "https://res.cloudinary.com/ogcodes/image/upload/v1569943569/GSPAPP/splash.png"
+    };
   };
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
@@ -102,7 +80,7 @@ export default class Topics extends Component {
     }
     return (
       <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate("Single", { body: item.body, title: item.key, quiz1: item.quiz, quiz2: item.quiz2 })}>
-        <Ionicons name={item.icon} size={50} color={item.color} />
+        <Thumbnail large source={{ uri: this.state.uri }} />
         <Text style={styles.itemText}> {item.key}</Text>
       </TouchableOpacity>
     );
@@ -170,17 +148,7 @@ const styles = StyleSheet.create({
   itemText: {
     color: "#fff",
     fontSize: 10,
-  },
-  controlBar: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 45,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    margin: 4,
   },
 });
 
