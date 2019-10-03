@@ -8,19 +8,12 @@ import { getLibrary, login } from "../../redux/actions/UserActions";
 import { connect } from "react-redux";
 import Session from "../../utils/Session";
 
-const cards = [
-  { key: 'Introduction to the use of Library', icon: 'book', color: '#cfd744', nav: 'Topics2' },
-  { key: 'Modern Technologies in Library', icon: 'gears', color: '#52cefc', nav: 'Topics' },
-];
-const formatData = (data, numColumns) => {
-  const numberOfFullRows = Math.floor(data.length / numColumns);
-  let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
-  while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
-    cards.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
-    numberOfElementsLastRow = numberOfElementsLastRow + 1;
-  };
-  return data;
-};
+// const cards = [
+//   { key: 'Introduction to the use of Library', icon: 'book', color: '#cfd744', nav: 'Topics2' },
+//   { key: 'Modern Technologies in Library', icon: 'gears', color: '#52cefc', nav: 'Topics' },
+// ];
+
+const cards = [];
 const numColumns = 2;
 
 class Library extends Component {
@@ -39,20 +32,65 @@ class Library extends Component {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />
     }
+    console.log(item, "itemmmm")
     return (
-      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate(item.nav)}>
+      <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate(Topic)}>
         <Thumbnail large source={{ uri: this.state.uri }} />
-        <Text style={styles.itemText}> {item.key}</Text>
+        <Text style={styles.itemText}> {item.topic}</Text>
       </TouchableOpacity>
     );
   };
+
 
   render() {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
 
     const { user } = this.props;
-    console.log("propsssy", user.library.topics)
+    // console.log("propsssy", user.library.topics)
+    const topics = user.library.topics;
+    const TopicList = topics.map((item) => {
+      item
+      cards.push(item)
+      console.log(item, "inside")
+    })
+    console.log(cards, "outside")
+    // const cards = [
+    //   TopicList
+    // ];
+
+    // let cards = [];
+    // cards = this.renderItem;
+    const formatData = (data, numColumns) => {
+      const numberOfFullRows = Math.floor(data.length / numColumns);
+      let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+      while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+        cards.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+        numberOfElementsLastRow = numberOfElementsLastRow + 1;
+      };
+      return data;
+    };
+
+    // cards = user.library.topics;
+    // console.log("bob", cards);
+
+
+
+
+    // renderItem = ({ item, index }) => {
+    //   // topics.map((item) => {
+    //   if (item.empty === true) {
+    //     return <View style={[styles.item, styles.itemInvisible]} />
+    //   }
+    //   return (
+    //     <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate(Topic)}>
+    //       <Thumbnail large source={{ uri: this.state.uri }} />
+    //       <Text style={styles.itemText}> {item.key}</Text>
+    //     </TouchableOpacity>
+    //   )
+    //   // });
+
+    // }
     // const getCourses = Session.getData("courses");
     // console.log("coureses", getCourses)
     return (
@@ -129,7 +167,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: "#fff",
-    fontSize: 10,
+    fontSize: 15,
     margin: 4,
   },
 });
