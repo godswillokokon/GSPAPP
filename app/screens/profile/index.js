@@ -22,7 +22,9 @@ class Profile extends Component {
   }
   render() {
     const device_width = Dimensions.get("window").width;
-    const { user } = this.props;
+    const { user, library } = this.props;
+    // console.log("display libraryyyyy", this.props.user.user.userDetails.name)
+    console.log("propsssy", user.library.title)
     let ass = 0.4;
     const data = {
       labels: ['Score', 'Quiz', 'IQ'],
@@ -86,8 +88,8 @@ class Profile extends Component {
   }
 }
 const mapStateToProps = state => {
-  const { user } = state;
-  return { user: user };
+  const { user, library } = state;
+  return { user: user, library: library };
 };
 
 const mapDispatchToProps = dispatch => ({

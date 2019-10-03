@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 const UserKey = 'user'
 const TokenKey = 'token'
-
+const CourseKey = 'courses'
 const Session = {
 
   currentUser: async () => {
@@ -16,10 +16,21 @@ const Session = {
     await Session.setData(UserKey, JSON.stringify(user))
   },
 
+  saveCourse: (courses) => {
+    Session.setData(CourseKey, courses)
+  },
+
   saveToken: async (token) => {
     await Session.setData(TokenKey, token)
   },
 
+  // getToken: async () => {
+  //   let token = await Session.getData(TokenKey)
+  //   if (token) {
+  //     token = JSON.parse(token)
+  //   }
+  //   return token
+  // },
   logout: async () => {
     await Session.setData(UserKey)
     await Session.setData(TokenKey)

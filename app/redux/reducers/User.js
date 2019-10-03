@@ -4,7 +4,8 @@ const initialState = {
   token: null,
   user: {},
   authError: null,
-  createResponse: {}
+  createResponse: {},
+  library: {}
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -18,7 +19,14 @@ export default (state = initialState, { type, payload }) => {
     case types.USER_DATA:
       return {
         ...state,
-        user: payload
+        user: payload,
+
+      };
+    case types.LIBRARY_SUCCESS:
+      return {
+        ...state,
+
+        library: payload
       };
     case types.USER_AUTH_ERROR:
       return {

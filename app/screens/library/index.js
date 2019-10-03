@@ -4,8 +4,9 @@ import Head from "../header";
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, FlatList } from "react-native";
 import { Container, Content, Thumbnail } from "native-base";
 import { FontAwesome } from "@expo/vector-icons";
-import { login, GetLibrary } from "../../redux/actions/UserActions";
+import { getLibrary, login } from "../../redux/actions/UserActions";
 import { connect } from "react-redux";
+import Session from "../../utils/Session";
 
 const cards = [
   { key: 'Introduction to the use of Library', icon: 'book', color: '#cfd744', nav: 'Topics2' },
@@ -33,6 +34,7 @@ class Library extends Component {
       uri: "https://res.cloudinary.com/ogcodes/image/upload/v1569943569/GSPAPP/splash.png"
     };
   }
+
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />
@@ -49,6 +51,10 @@ class Library extends Component {
     const device_width = Dimensions.get("window").width;
     const device_height = Dimensions.get("window").height;
 
+    const { user } = this.props;
+    console.log("propsssy", user.library.topics)
+    // const getCourses = Session.getData("courses");
+    // console.log("coureses", getCourses)
     return (
       <Container style={{ height: device_height, width: device_width, backgroundColor: "#1c1d27" }}>
         <Head navigation={this.props.navigation} />
@@ -69,13 +75,18 @@ class Library extends Component {
     );
   }
 }
-const mapStateToProps = ({ user }) => ({
-  auth: user,
-});
+// const mapStateToProps = ({ library }) => ({
+//   library: library
+// });
+const mapStateToProps = state => {
+  const { user } = state;
+  return { user: user };
+};
 
 const mapDispatchToProps = dispatch => ({
   onLogin: data => dispatch(login(data)),
-  getData: data => dispatch(GetLibrary(data)),
+  getLibrary: token => dispatch(getLibrary(token)),
+  getUser: token => dispatch(GetUserData(token)),
 });
 export default connect(
   mapStateToProps,
